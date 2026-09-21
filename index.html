@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>双休购 - 双休不是等来的，是争取来的</title>
+  <meta name="description" content="收录真实实行上四休三、四天半工作制、双休的企业及其产品，用消费为善待员工的企业投票。">
+  <meta name="theme-color" content="#2E7D5B">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="双休购">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{var t=localStorage.getItem('sxg_theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+
+  <!-- 顶部栏 -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#/" aria-label="双休购首页">
+        <img class="brand-logo" src="icons/icon.svg" alt="双休购 logo" width="38" height="38">
+        <span>双休购<small>WEEKEND FIRST</small></span>
+      </a>
+      <label class="searchbox" id="searchWrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="globalSearch" type="search" placeholder="搜索企业或产品，如：乐视 / 无人机" autocomplete="off" enterkeyhint="search">
+        <div id="searchSuggest" class="search-suggest" style="display:none"></div>
+      </label>
+      <nav class="nav-pc">
+        <a href="#/" data-nav="home">首页</a>
+        <a href="#/companies" data-nav="companies">企业榜</a>
+        <a href="#/products" data-nav="products">产品库</a>
+        <a href="#/compare" data-nav="compare">对比</a>
+        <a href="#/blacklist" data-nav="blacklist" style="color:#C0392B">避雷区</a>
+        <a href="#/orders" data-nav="orders">我的订单</a>
+        <a href="#/favorites" data-nav="favorites">收藏</a>
+        <a href="#/about" data-nav="about">关于</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="切换深色模式">🌙</button>
+      <a class="cart-btn" href="#/cart" data-nav="cart" aria-label="购物车">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-cnt" id="cartCnt">0</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 主内容 -->
+  <main class="wrap page" id="main"></main>
+
+  <!-- 页脚（桌面端） -->
+  <footer class="footer">
+    <div class="wrap">
+      <p><b>双休购</b> · 双休不是等来的，是争取来的。</p>
+      <p>收录信息均来自公开媒体报道与企业官方公告，详情页附来源；企业政策如有调整，请以官方最新信息为准。数据整理：2026-09-08。</p>
+    </div>
+  </footer>
+
+  <!-- 底部 Tab 栏（移动端） -->
+  <nav class="tabbar">
+    <div class="tabbar-inner">
+      <a class="tab-item" href="#/" data-nav="home">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>
+        首页
+      </a>
+      <a class="tab-item" href="#/companies" data-nav="companies">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h3M8 11h3M8 15h3M14 7h2M14 11h2M14 15h2"/></svg>
+        企业榜
+      </a>
+      <a class="tab-item" href="#/products" data-nav="products">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/></svg>
+        产品库
+      </a>
+      <a class="tab-item" href="#/favorites" data-nav="favorites">
+        <span class="tb-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="cnt" style="display:none">0</span>
+        </span>
+        收藏
+      </a>
+      <a class="tab-item" href="#/about" data-nav="about">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+        关于
+      </a>
+    </div>
+  </nav>
+
+  <button id="backToTop" aria-label="回到顶部" style="display:none">↑</button>
+  <button id="csFloat" aria-label="在线客服">💬</button>
+  <div id="newUserPopup" class="new-user-popup" style="display:none">
+    <div class="nup-card">
+      <div class="nup-close" id="nupClose">✕</div>
+      <div class="nup-emoji">🎁</div>
+      <h3>新人专享礼包</h3>
+      <p>注册即送 <b style="color:var(--orange-deep)">¥30 优惠券</b> + <b style="color:var(--orange-deep)">50 积分</b></p>
+      <button class="btn btn-orange" id="nupClaim">立即领取</button>
+    </div>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/data2.js"></script>
+  <script src="js/data3.js"></script>
+  <script src="js/data4.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
