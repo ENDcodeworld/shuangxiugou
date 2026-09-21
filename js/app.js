@@ -210,7 +210,7 @@ function rankItemHTML(c, i) {
 }
 
 function badCardHTML(b) {
-  const sev = b.severity === 'high' ? '<span class="sev high">严重：涉及生命/欠薪</span>' : '<span class="sev mid">争议：制度文化</span>';
+  const sev = b.severity === 'high' ? '<span class="sev high">已生效法律文书</span>' : '<span class="sev mid">行政监管记录</span>';
   return `
   <article class="bad-card" data-goto="#/badcase/${b.id}">
     <div class="bad-main">
@@ -223,7 +223,7 @@ function badCardHTML(b) {
       <div class="bad-name">${esc(b.short)} <span class="tiny">${esc(b.industry)} · ${esc(b.city)}</span></div>
       <p class="bad-summary">${esc(b.summary)}</p>
     </div>
-    <div class="bad-cta">查看案例与抵制清单 →</div>
+    <div class="bad-cta">查看案例与参考清单 →</div>
   </article>`;
 }
 
@@ -240,12 +240,12 @@ function pageHome() {
   return `
   <section class="hero">
     <div class="hero-inner">
-      <span class="hero-tag">✊ 双休不是等来的，是争取来的</span>
-      <h1>用每一次消费，<br>为<em>善待员工</em>的企业投票</h1>
-      <p>收录真正落实上四休三 / 四天半 / 双休的企业与商品，像逛京东淘宝一样下单；同时曝光压榨员工的反面教材。买谁的、抵制谁的，一目了然。</p>
+      <span class="hero-tag">📋 劳动权益信息参考（演示 Demo）</span>
+      <h1>了解企业用工环境，<br>参考<em>劳动争议公开记录</em></h1>
+      <p>收录双休/上四休三企业信息与商品展示（演示）；同时整理已生效法律文书的劳动争议记录，供求职者与消费者参考。本应用不引导特定购买决策。</p>
       <div class="hero-actions">
-        <a class="btn btn-orange" href="#/products">去逛商品 · 为双休买单</a>
-        <a class="btn btn-ghost" href="#/blacklist">避雷区：这些企业别买</a>
+        <a class="btn btn-orange" href="#/products">浏览商品 · 演示</a>
+        <a class="btn btn-ghost" href="#/blacklist">劳动争议记录 · 供参考</a>
         <button class="btn btn-ghost" id="btnCheckin">${canCheckin() ? '📅 每日签到 +10积分' : '✅ 今日已签到'}</button>
         <a class="btn btn-ghost" href="#/coupons">🎫 优惠券中心</a>
       </div>
@@ -262,8 +262,8 @@ function pageHome() {
   <section class="stats anim">
     <div class="stat-card"><b><span class="count-up" data-count="${all.length}">0</span><span class="u">家</span></b><span>收录双休企业</span></div>
     <div class="stat-card"><b><span class="count-up" data-count="${rest3}">0</span><span class="u">家</span></b><span>每周休 ≥ 2.5 天</span></div>
-    <div class="stat-card"><b><span class="count-up" data-count="${prods.length}">0</span><span class="u">个</span></b><span>可支持的商品/服务</span></div>
-    <div class="stat-card"><b style="color:#C0392B"><span class="count-up" data-count="${ALL_BAD().length}">0</span><span class="u">家</span></b><span>反面教材（避雷区）</span></div>
+    <div class="stat-card"><b><span class="count-up" data-count="${prods.length}">0</span><span class="u">个</span></b><span>商品/服务展示</span></div>
+    <div class="stat-card"><b style="color:#C0392B"><span class="count-up" data-count="${ALL_BAD().length}">0</span><span class="u">家</span></b><span>劳动争议记录（劳动权益）</span></div>
   </section>
 
   <h2 class="sec-title">每周休息天数榜<a class="more" href="#/rank">完整榜单 →</a></h2>
@@ -272,7 +272,7 @@ function pageHome() {
   <h2 class="sec-title">上四休三 · 每周休3天的企业<a class="more" href="#/companies?p=four_three">查看全部 →</a></h2>
   <div class="co-grid anim">${f43.map(coCardHTML).join('')}</div>
 
-  <h2 class="sec-title">热门可支持商品<a class="more" href="#/products">全部商品 →</a></h2>
+  <h2 class="sec-title">热门商品展示<a class="more" href="#/products">全部商品 →</a></h2>
   <div class="pd-grid anim">${hot.map(p => pdCardHTML(p)).join('')}</div>
 
   ${(() => {
@@ -281,7 +281,7 @@ function pageHome() {
     return `<h2 class="sec-title">👀 最近浏览</h2><div class="pd-grid anim">${recent.map(p => pdCardHTML(p)).join('')}</div>`;
   })()}
 
-  <h2 class="sec-title" style="--x:1">⚠️ 反面教材 · 这些企业的商品请三思<a class="more" href="#/blacklist">进入避雷区 →</a></h2>
+  <h2 class="sec-title" style="--x:1">⚠️ 劳动争议记录 · 这些企业的用工争议记录供参考<a class="more" href="#/blacklist">进入劳动权益 →</a></h2>
   <div class="bad-list anim">${topBad.map(badCardHTML).join('')}</div>
 
   <h2 class="sec-title">打工人行动指南</h2>
@@ -344,7 +344,7 @@ function pageCompanies(params) {
       <option value="name" ${s === 'name' ? 'selected' : ''}>按名称</option>
     </select>
   </div>
-  ${badHits.map(b => `<div class="warn-box" data-goto="#/badcase/${b.id}">⚠️ <b>${esc(b.short)}</b> 在避雷区名单中（${esc(b.issue)}），点击查看案例与抵制建议 →</div>`).join('')}
+  ${badHits.map(b => `<div class="warn-box" data-goto="#/badcase/${b.id}">⚠️ <b>${esc(b.short)}</b> 在劳动权益名单中（${esc(b.issue)}），点击查看案例与参考建议 →</div>`).join('')}
   ${q ? `<p class="muted" style="margin-bottom:14px;font-size:13.5px">「${esc(q)}」的搜索结果：${list.length} 家企业</p>` : ''}
   ${list.length ? `<div class="co-grid anim">${list.map(coCardHTML).join('')}</div>`
     : `<div class="empty"><div class="emo">🔍</div>没有找到匹配的企业，换个关键词试试</div>`}`;
@@ -579,6 +579,7 @@ function pageCart() {
   const remain = Math.max(0, 199 - total);
   return `
   <h2 class="sec-title">购物车 <span class="tiny" style="font-weight:400">${count} 件商品</span></h2>
+  <div class="note-box" style="background:#FFF0E0;border:1px solid #E8792B;color:#B35A1A;margin-bottom:14px"><b>⚠️ 演示 Demo：</b>购物车与下单流程仅为原型演示，不产生真实交易。</div>
   <div class="discount-progress">
     <div class="dp-info">${total >= 199 ? '🎉 已满足「满199减30」优惠！' : `再买 <b>¥${remain.toFixed(0)}</b> 即可减 ¥30`}</div>
     <div class="dp-bar"><div class="dp-fill" style="width:${progress}%"></div></div>
@@ -617,6 +618,7 @@ function pageCheckout() {
   return `
   <a class="back-link" href="#/cart">← 返回购物车</a>
   <h2 class="sec-title">确认订单</h2>
+  <div class="note-box" style="background:#FFF0E0;border:1px solid #E8792B;color:#B35A1A;margin-bottom:14px"><b>⚠️ 演示 Demo：</b>本页面仅为产品原型演示，不产生真实交易，不扣除任何费用。</div>
   <form id="checkoutForm" novalidate>
     <section class="panel">
       <h3><span class="q">📍</span>收货信息</h3>
@@ -825,7 +827,7 @@ function pageProducts(params) {
   const subList = cat !== '全部' && SUBCATS[cat] ? ['全部', ...SUBCATS[cat]] : [];
 
   return `
-  <h2 class="sec-title">商品库 <span class="tiny" style="font-weight:400">只收录双休/上四休三企业的商品 · 像电商一样下单</span></h2>
+  <h2 class="sec-title">商品库 <span class="tiny" style="font-weight:400">双休企业商品展示 · 电商流程演示（非真实交易）</span></h2>
   <div class="hot-search">
     <span class="hs-label">🔥 热搜：</span>
     ${HOT_SEARCH.map(h => `<a href="#/products?q=${encodeURIComponent(h)}">${h}</a>`).join('')}
@@ -860,21 +862,21 @@ function pageRank() {
   </div>`;
 }
 
-/* ---------- 页面：避雷区 ---------- */
+/* ---------- 页面：劳动权益 ---------- */
 function pageBlacklist(params) {
   const f = params.get('sev') || 'all';
   let list = [...ALL_BAD()];
   if (f !== 'all') list = list.filter(b => b.severity === f);
   return `
-  <h2 class="sec-title bad-title">避雷区 · 反面教材 <span class="tiny" style="font-weight:400">均有权威媒体报道，附来源与年份</span></h2>
+  <h2 class="sec-title bad-title">劳动权益 · 劳动争议记录 <span class="tiny" style="font-weight:400">仅收录已生效司法判决或行政处罚决定</span></h2>
   <div class="bad-hero">
-    <b>抵制，也是一种投票。</b>
-    <p>压榨休息的企业，商品卖得越好就越有底气继续压榨。以下案例全部来自新华社、央视网、澎湃新闻等公开报道。拒绝购买它们的商品，把订单让给双休购收录的良心企业。</p>
+    <b>以下企业的劳动争议记录均有已生效法律文书或行政监管决定。</b>
+    <p>数据来源包括劳动仲裁裁决书、法院判决、国家赔偿决定、公安机关通报、国务院安委会督办、人社部约谈等公开法律文书。所列信息仅供求职者了解企业用工环境时参考，不构成对任何企业的商业评价。</p>
   </div>
   <div class="filter-row" style="margin-bottom:16px">
     <button class="chip ${f === 'all' ? 'active' : ''}" data-sevchip="all">全部（${ALL_BAD().length}）</button>
-    <button class="chip ${f === 'high' ? 'active' : ''}" data-sevchip="high">严重：涉及生命/欠薪（${ALL_BAD().filter(b => b.severity === 'high').length}）</button>
-    <button class="chip ${f === 'mid' ? 'active' : ''}" data-sevchip="mid">争议：制度文化（${ALL_BAD().filter(b => b.severity === 'mid').length}）</button>
+    <button class="chip ${f === 'high' ? 'active' : ''}" data-sevchip="high">已生效法律文书（${ALL_BAD().filter(b => b.severity === 'high').length}）</button>
+    <button class="chip ${f === 'mid' ? 'active' : ''}" data-sevchip="mid">行政监管记录（${ALL_BAD().filter(b => b.severity === 'mid').length}）</button>
   </div>
   <div class="bad-list anim">${list.map(badCardHTML).join('')}</div>`;
 }
@@ -882,13 +884,13 @@ function pageBlacklist(params) {
 /* ---------- 页面：反面案例详情 ---------- */
 function pageBadDetail(id) {
   const b = badById(id);
-  if (!b) return `<div class="empty"><div class="emo">😶</div>未找到案例 <div style="margin-top:14px"><a class="btn btn-green" href="#/blacklist">返回避雷区</a></div></div>`;
+  if (!b) return `<div class="empty"><div class="emo">😶</div>未找到案例 <div style="margin-top:14px"><a class="btn btn-green" href="#/blacklist">返回劳动权益</a></div></div>`;
   return `
-  <a class="back-link" href="#/blacklist">← 返回避雷区</a>
+  <a class="back-link" href="#/blacklist">← 返回劳动权益</a>
   <section class="detail-hero bad-detail">
     <div class="bad-top" style="margin-bottom:12px">
       <span class="bad-issue">${esc(b.issue)}</span>
-      ${b.severity === 'high' ? '<span class="sev high">严重：涉及生命/欠薪</span>' : '<span class="sev mid">争议：制度文化</span>'}
+      ${b.severity === 'high' ? '<span class="sev high">已生效法律文书</span>' : '<span class="sev mid">行政监管记录</span>'}
       <span class="bad-status ${b.status}">${BAD_STATUS[b.status]}</span>
       <span class="bad-year">${esc(b.year)}</span>
     </div>
@@ -908,10 +910,10 @@ function pageBadDetail(id) {
   </section>
 
   <section class="panel">
-    <h3><span class="q">🚫</span>建议抵制的商品（${b.products.length}）</h3>
-    <div class="boycott-list">
+    <h3><span class="q">🚫</span>相关商品（${b.products.length}）</h3>
+    <div class="ref-list">
       ${b.products.map(bp2 => `
-        <div class="boycott-item">
+        <div class="ref-item">
           <div class="by-main">
             <div class="by-name">🚫 ${esc(bp2.name)}</div>
             <div class="by-desc">${esc(bp2.desc)} · <span class="tiny">${esc(bp2.cat)}${bp2.sub ? ' / ' + esc(bp2.sub) : ''}</span></div>
@@ -919,7 +921,7 @@ function pageBadDetail(id) {
           </div>
         </div>`).join('')}
     </div>
-    <div class="note-box" style="margin-top:14px"><b>💡 理性抵制：</b>若该企业公开整改并被权威媒体证实，欢迎反馈移出避雷区。</div>
+    <div class="note-box" style="margin-top:14px"><b>💡 说明：</b>以上信息基于公开法律文书整理，如企业已整改或文书内容有更新，欢迎反馈。</div>
     <div style="margin-top:16px"><a class="btn btn-green" href="#/companies">去看看值得支持的双休企业 →</a></div>
   </section>`;
 }
@@ -1077,7 +1079,7 @@ function pageAbout() {
     <h3><span class="q">💡</span>为什么做这个应用</h3>
     <p style="font-size:14.5px;line-height:2">
       灵感来自博主「C位满分姐」的视频<b>《实现的双休不是等来的而是争取来的》</b>：双休是法律赋予打工人的权利，但仍有企业通过「大小周」「隐形加班」侵占休息时间。
-      「双休购」把这件事变得可执行：哪些企业真的双休、有什么商品可以买、哪些企业该抵制，一查便知；像逛京东淘宝一样为双休企业下单。
+      「双休购」把这件事变得可执行：哪些企业真的双休、有什么商品可以买、哪些企业有劳动争议记录，一查便知；像逛京东淘宝一样浏览双休企业的商品展示（演示）。
     </p>
   </section>
   <section class="panel">
@@ -1088,7 +1090,7 @@ function pageAbout() {
     <h3><span class="q">✅</span>收录与核实标准</h3>
     <div class="law-item"><h4>核实等级</h4><p>「已核实」多源且企业确认；「媒体报道」权威媒体；「部分岗位」仅部分部门；「社区口碑」外企/成熟企业普遍双休；「自荐待核实」企业自主提交。</p></div>
     <div class="law-item"><h4>电商说明</h4><p>本应用的购物流程为演示环境，订单、支付与售后均保存在本机浏览器，不发生真实交易；商品信息用于展示与消费决策参考。</p></div>
-    <div class="law-item"><h4>免责说明</h4><p>企业政策可能调整，产品与招聘信息以官方为准。本站仅供参考，不构成法律建议。数据整理：2026-09-20。</p></div>
+    <div class="law-item"><h4>免责说明</h4><p>企业政策可能调整，产品与招聘信息以官方为准。本站仅供参考，不构成法律建议。<a href='#/privacy'>查看隐私政策</a>。</p></div>
   </section>
   <section class="panel">
     <h3><span class="q">📰</span>信息来源清单（${srcList.length} 条）</h3>
@@ -1186,12 +1188,41 @@ function pageNotifications() {
   </div>`;
 }
 
+/* ---------- 页面：隐私政策 ---------- */
+function pagePrivacy() {
+  return `
+  <a class="back-link" href="#/about">← 返回关于</a>
+  <h2 class="sec-title">隐私政策</h2>
+  <section class="panel">
+    <h3><span class="q">🔒</span>数据存储</h3>
+    <p style="font-size:14px;line-height:1.9">本应用为纯前端演示项目，<b>所有数据仅存储在您浏览器的 localStorage 中</b>，不会上传到任何服务器，也不会与任何第三方共享。</p>
+    <ul style="font-size:14px;line-height:1.9;padding-left:20px">
+      <li>购物车、订单、地址、收藏等数据仅保存在您的本机浏览器</li>
+      <li>清除浏览器缓存或使用无痕模式将删除上述数据</li>
+      <li>我们不收集任何个人身份信息（姓名、手机号、地址等仅用于前端演示，不上传）</li>
+      <li>不使用 Cookie 追踪、不嵌入第三方分析统计、不展示广告</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h3><span class="q">📋</span>数据来源</h3>
+    <p style="font-size:14px;line-height:1.9">企业信息与劳动争议记录均来自公开渠道：企业官方公告、劳动仲裁裁决书、法院判决、国家赔偿决定、公安机关通报、国务院安委会督办、人社部约谈等。本应用仅做信息整理与展示，不代表对任何企业的评价或判断。</p>
+  </section>
+  <section class="panel">
+    <h3><span class="q">🎬</span>演示性质</h3>
+    <p style="font-size:14px;line-height:1.9">本应用中的电商流程（商品浏览、加购物车、下单、支付、物流、售后）均为<b>界面原型演示</b>，不涉及真实交易、不扣款、不发货。所有价格、库存、物流状态均为模拟数据。</p>
+  </section>
+  <section class="panel">
+    <h3><span class="q">📮</span>联系我们</h3>
+    <p style="font-size:14px;line-height:1.9">如对数据准确性有疑问，或希望更正/移除某条记录，请通过 GitHub Issue 反馈：<br>https://github.com/ENDcodeworld/shuangxiugou</p>
+  </section>`;
+}
+
 const routes = {
   '': pageHome, 'companies': pageCompanies, 'company': pageCompanyDetail,
   'product': pageProductDetail, 'products': pageProducts, 'cart': pageCart,
   'checkout': pageCheckout, 'orders': pageOrders, 'order': pageOrderDetail,
   'aftersale': pageAftersale, 'rank': pageRank, 'blacklist': pageBlacklist,
-  'badcase': pageBadDetail, 'favorites': pageFavorites, 'join': pageJoin, 'about': pageAbout, 'compare': pageCompare, 'coupons': pageCoupons, 'notifications': pageNotifications
+  'badcase': pageBadDetail, 'favorites': pageFavorites, 'join': pageJoin, 'about': pageAbout, 'compare': pageCompare, 'coupons': pageCoupons, 'notifications': pageNotifications, 'privacy': pagePrivacy
 };
 
 function parseHash() {
