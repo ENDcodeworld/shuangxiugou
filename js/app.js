@@ -1274,9 +1274,32 @@ function pagePrivacy() {
   </section>`;
 }
 
+/* 累计消费等级 */
+const SPEND_TIERS = [
+  { lv: '青铜打工人', min: 0, icon: '🥉', next: 20000 },
+  { lv: '白银践行者', min: 20000, icon: '🥈', next: 50000 },
+  { lv: '黄金支持者', min: 50000, icon: '🥇', next: 100000 },
+  { lv: '铂金WLB', min: 100000, icon: '💠', next: 200000 },
+  { lv: '钻石双休大使', min: 200000, icon: '💎', next: null }
+];
+function getTotalSpent() {
+  try {
+    const orders = JSON.parse(localStorage.getItem('sxg_orders') || '[]');
+    return orders.filter(o => o.status !== 'pending_pay').reduce((s, o) => s + (o.total || 0), 0);
+  } catch(e) { return 0; }
+}
+function getSpendTier(amount) {
+  let cur = SPEND_TIERS[0], next = SPEND_TIERS[1];
+  for (let i = SPEND_TIERS.length - 1; i >= 0; i--) {
+    if (amount >= SPEND_TIERS[i].min) { cur = SPEND_TIERS[i]; next = SPEND_TIERS[i+1] || null; break; }
+  }
+  return { cur, next };
+}
 function pageProfile() {
   const pts = getPoints();
   const mem = getMember(pts);
+  const totalSpent = getTotalSpent();
+  const spendTier = getSpendTier(totalSpent);
   const orders = getOrders();
   const favs = getFavProducts();
   const pendingPay = orders.filter(o => o.status === 'pending_pay').length;
@@ -1288,11 +1311,13 @@ function pageProfile() {
   return `
   <h2 class="sec-title">个人中心</h2>
   <section class="panel" style="background:linear-gradient(135deg,#2E7D5B,#4CAF50);color:#fff;padding:24px;text-align:center">
-    <div style="font-size:48px;margin-bottom:8px">${mem.cur.badge}</div>
-    <h3 style="color:#fff;margin-bottom:4px">${mem.cur.name}</h3>
-    <p style="opacity:0.9;font-size:14px">${pts} 积分</p>
+    <div style="font-size:48px;margin-bottom:8px">${spendTier.cur.icon}</div>
+    <h3 style="color:#fff;margin-bottom:4px">${spendTier.cur.lv}</h3>
+    <p style="opacity:0.9;font-size:14px">累计消费 ¥${totalSpent.toLocaleString()} · ${pts} 积分</p>
     ${mem.next ? `<div style="background:rgba(255,255,255,0.2);border-radius:10px;height:8px;margin:14px 20px;overflow:hidden"><div style="background:#fff;height:100%;width:${progress}%;border-radius:10px"></div></div>
-    <p style="font-size:12px;opacity:0.85">距「${mem.next.name}」还需 ${mem.next.min - pts} 积分</p>` : '<p style="font-size:12px;opacity:0.85">已达最高等级 🎉</p>'}
+    <p style="font-size:12px;opacity:0.85">距「${mem.next.name}」还需 ${mem.next.min - pts} 积分</p>` : '<p style="font-size:12px;opacity:0.85">积分等级已达最高 🎉</p>'}
+    ${spendTier.next ? `<div style="background:rgba(255,255,255,0.2);border-radius:10px;height:8px;margin:8px 20px 4px;overflow:hidden"><div style="background:#FFD700;height:100%;width:${Math.min(100, Math.round((totalSpent - spendTier.cur.min) / (spendTier.next.min - spendTier.cur.min) * 100))}%;border-radius:10px"></div></div>
+    <p style="font-size:12px;opacity:0.85">距「${spendTier.next.lv}」还需消费 ¥${(spendTier.next.min - totalSpent).toLocaleString()}</p>` : '<p style="font-size:12px;opacity:0.85">消费等级已达最高 💎</p>'}
     <div style="margin-top:14px;display:flex;justify-content:center;gap:20px;font-size:13px">
       <span>📦 ${orders.length} 订单</span>
       <span>❤️ ${favs.length} 收藏</span>
@@ -1351,6 +1376,20 @@ function pageProfile() {
       <a href="#/privacy" style="text-decoration:none;color:inherit;padding:16px;text-align:center;border-radius:12px;background:var(--soft)">
         <div style="font-size:28px;margin-bottom:6px">🔒</div><div style="font-size:13px">隐私政策</div>
       </a>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:16px">
+    <h3><span class="q">🏆</span>消费等级</h3>
+    <div style="display:grid;gap:8px">
+      ${SPEND_TIERS.map(t => {
+        const achieved = totalSpent >= t.min;
+        return `<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;background:${achieved ? 'var(--soft)' : 'var(--bg)'};opacity:${achieved ? '1' : '0.5'}">
+          <span style="font-size:16px">${t.icon} ${t.lv}</span>
+          <span style="font-size:13px;color:var(--text-2)">≥ ¥${t.min.toLocaleString()}</span>
+          ${achieved ? '<span style="color:var(--green);font-size:13px">✓ 已达成</span>' : ''}
+        </div>`;
+      }).join('')}
     </div>
   </section>
 
