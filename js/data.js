@@ -31,11 +31,11 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['寒暑假', '每月一次三天小长假', '两年以上员工苏州购房可获公司免息借款', '上四休三薪资不变'], note: '创始人明确表示休息增加但薪资不打折。' },
     careers: 'https://www.zhipin.com/gongsi/ebd5990a3b68199e1nNz3tW4FVM~.html',
     products: [
-      { name: '高考志愿填报一对一咨询', cat: '教育服务', sub: '升学规划', desc: '核心服务，由升学规划师团队提供院校专业选择指导', hot: true },
-      { name: '《手把手教你报志愿》系列图书', cat: '图书文娱', sub: '教育图书', desc: '志愿填报方法论文艺读物，长期位居电商教育类畅销榜', hot: true },
-      { name: '升学规划在线课程', cat: '教育服务', sub: '升学规划', desc: '覆盖选科、强基计划、考研规划的体系化课程' },
-      { name: '研学旅行营', cat: '教育服务', sub: '研学营地', desc: '面向中学生的名校名企研学项目' },
-      { name: '雪峰甄选直播好物', cat: '电商消费', sub: '直播电商', desc: '直播间带货的图书与日用好物' }
+      { name: '高考志愿填报一对一咨询', cat: '教育服务', sub: '升学规划', desc: '核心服务，由升学规划师团队提供院校专业选择指导', hot: true , img: 'https://img2.xinhuashudian.com/winXuan/1766372765287.jpg' },
+      { name: '《手把手教你报志愿》系列图书', cat: '图书文娱', sub: '教育图书', desc: '志愿填报方法论文艺读物，长期位居电商教育类畅销榜', hot: true , img: 'https://img2.xinhuashudian.com/winXuan/1766372765287.jpg' },
+      { name: '升学规划在线课程', cat: '教育服务', sub: '升学规划', desc: '覆盖选科、强基计划、考研规划的体系化课程' , img: 'https://img2.xinhuashudian.com/winXuan/1766372765287.jpg' },
+      { name: '研学旅行营', cat: '教育服务', sub: '研学营地', desc: '面向中学生的名校名企研学项目' , img: 'https://img2.xinhuashudian.com/winXuan/1766372765287.jpg' },
+      { name: '雪峰甄选直播好物', cat: '电商消费', sub: '直播电商', desc: '直播间带货的图书与日用好物' , img: 'https://img-blog.csdnimg.cn/20190507121741312.png' }
     ]
   },
   {
@@ -47,9 +47,9 @@ const COMPANIES = [
     evidence: '湖北日报 2026-04-21《"周三也休"治愈年轻人…大冶95后朱天赐》；此前被多家央媒省媒报道',
     salary: { level: '行业平均', benefits: ['员工月薪稳定在8000-10000元（湖北日报报道）', '每周固定奶茶福利', '足额缴纳社保公积金', '不打卡、可自由布置工位'], note: '创始人理念：人不是赚钱的机器，休息才是创意的氧气。' },
     products: [
-      { name: '品牌广告全案策划', cat: '企业服务', sub: '营销服务', desc: '为品牌提供整合营销与创意策划', hot: true },
-      { name: '短视频账号代运营', cat: '企业服务', sub: '营销服务', desc: '全平台粉丝近亿的矩阵运营经验输出' },
-      { name: 'MCN 达人商务合作', cat: '企业服务', sub: '营销服务', desc: '达人经纪与内容商业化合作' }
+      { name: '品牌广告全案策划', cat: '企业服务', sub: '营销服务', desc: '为品牌提供整合营销与创意策划', hot: true , img: 'https://cms.boardmix.cn/images/pictures/brandwholecaseplanningkey01.png' },
+      { name: '短视频账号代运营', cat: '企业服务', sub: '营销服务', desc: '全平台粉丝近亿的矩阵运营经验输出' , img: 'https://www.shenduwang.com/douyin/Skins/Default/Img/dy-banner.jpg' },
+      { name: 'MCN 达人商务合作', cat: '企业服务', sub: '营销服务', desc: '达人经纪与内容商业化合作' , img: 'https://x0.ifengimg.com/ucms/2022_32/2E81703C6DB49EB88870BC1F5795231767B2E6BF_size570_w1080_h1051.png' }
     ]
   },
   {
@@ -61,8 +61,8 @@ const COMPANIES = [
     evidence: '企查查 2025-01-02《元旦让打工人实现"上四休三"！多家公司已探索四天工作制》引用公司《关于实施四天工作制的通知》',
     salary: { level: '行业中上', benefits: ['周五组队休闲活动补贴200元/人', '四天工作制薪资不变'], note: '投资机构薪酬以 offer 为准。' },
     products: [
-      { name: '早期天使投资', cat: '企业服务', sub: '投资孵化', desc: '面向种子轮、天使轮创业项目的投资', hot: true },
-      { name: '创业孵化加速服务', cat: '企业服务', sub: '投资孵化', desc: '为被投企业提供资源对接与成长辅导' }
+      { name: '早期天使投资', cat: '企业服务', sub: '投资孵化', desc: '面向种子轮、天使轮创业项目的投资', hot: true , img: 'https://cms.boardmix.cn/images/pictures/brandwholecaseplanningkey01.png' },
+      { name: '创业孵化加速服务', cat: '企业服务', sub: '投资孵化', desc: '为被投企业提供资源对接与成长辅导' , img: 'https://cms.boardmix.cn/images/pictures/brandwholecaseplanningkey01.png' }
     ]
   },
   {
@@ -74,8 +74,8 @@ const COMPANIES = [
     evidence: '企查查 2025-01-02 汇总报道，引用公司 2023-11-15 发布的四天工作制通知',
     salary: { level: '行业平均', benefits: ['薪酬及其他福利不变', '不鼓励加班', '每天仅6.5小时工时'], note: '公司通知明确薪酬福利不因四天制调整。' },
     products: [
-      { name: '视频会议终端设备', cat: '数码电子', sub: '电脑平板', desc: '面向企业会议室的音视频一体终端', hot: true },
-      { name: '远程视讯解决方案', cat: '企业服务', sub: '技术服务', desc: '软硬一体的远程协作方案部署' }
+      { name: '视频会议终端设备', cat: '数码电子', sub: '电脑平板', desc: '面向企业会议室的音视频一体终端', hot: true , img: 'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=888293020,2902544497&fm=199' },
+      { name: '远程视讯解决方案', cat: '企业服务', sub: '技术服务', desc: '软硬一体的远程协作方案部署' , img: 'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=888293020,2902544497&fm=199' }
     ]
   },
   {
@@ -87,7 +87,7 @@ const COMPANIES = [
     evidence: '虎嗅 2026-08-10《上四休三不是福利，是一道经济分裂的分水岭》；新浪财经 2026-07-16 同案例报道',
     salary: { level: '行业平均', benefits: ['工资不变', '离职率显著下降'], note: '负责人：员工效率更高、不轻易离职，实际赚了。' },
     products: [
-      { name: '集成电路封装测试服务', cat: '企业服务', sub: '制造代工', desc: '面向芯片设计公司的封测代工', hot: true }
+      { name: '集成电路封装测试服务', cat: '企业服务', sub: '制造代工', desc: '面向芯片设计公司的封测代工', hot: true , img: 'https://pic1.zhimg.com/v2-5a242e5491fe8a43c75f016ea796ab18_b.jpg' }
     ]
   },
   {
@@ -99,8 +99,8 @@ const COMPANIES = [
     evidence: '新浪财经 2026-07-16《公司"上四休三"但降工资……网友热议》；虎嗅 2026-08-10',
     salary: { level: '行业平均', benefits: ['基本薪资及各项福利待遇不受影响'], note: '暑期特殊安排，媒体公开报道。' },
     products: [
-      { name: '智慧农业技术服务', cat: '企业服务', sub: '技术服务', desc: '农业物联网与种植技术输出', hot: true },
-      { name: '绿色农产品', cat: '食品生鲜', sub: '农产品', desc: '基地直供的季节农产品' }
+      { name: '智慧农业技术服务', cat: '企业服务', sub: '技术服务', desc: '农业物联网与种植技术输出', hot: true , img: 'https://n.sinaimg.cn/sinakd20220616ac/795/w1448h947/20220616/8211-885445dcb4ad01258f698df641417256.png' },
+      { name: '绿色农产品', cat: '食品生鲜', sub: '农产品', desc: '基地直供的季节农产品' , img: 'http://n.sinaimg.cn/sinakd20220928s/666/w333h333/20220928/9411-ae78b1303f710049bb66d2d1d7ba1c5a.jpg' }
     ]
   },
 
@@ -115,9 +115,9 @@ const COMPANIES = [
     salary: { level: '行业平均', benefits: ['四天半不降薪', '无996', '研发可准点下班'], note: '全员信承诺薪资福利不因工时缩短而减少。' },
     products: [
       { name: '乐视超级电视', cat: '家用电器', sub: '电视影音', desc: '大屏智能电视，乐视硬件的拳头产品', hot: true , img: 'https://imgslim.geekpark.net/uploads/image/file/84/50/8450f64b8c63b6f4b8a4116a072b1c78.png' },
-      { name: '乐视视频 App 会员', cat: '软件应用', sub: '视频影音', desc: '影视内容平台，《甄嬛传》等版权剧版权库' },
-      { name: '乐视智能投影', cat: '家用电器', sub: '电视影音', desc: '家用智能投影仪系列' },
-      { name: '乐视蓝牙耳机', cat: '数码电子', sub: '耳机音箱', desc: '高性价比音频产品线' }
+      { name: '乐视视频 App 会员', cat: '软件应用', sub: '视频影音', desc: '影视内容平台，《甄嬛传》等版权剧版权库' , img: 'https://pp.myapp.com/ma_pic2/0/shot_6315_1_1722927818/0' },
+      { name: '乐视智能投影', cat: '家用电器', sub: '电视影音', desc: '家用智能投影仪系列' , img: 'https://am.smzdm.com/202309/25/651140ea72c469676.png_e1080.jpg' },
+      { name: '乐视蓝牙耳机', cat: '数码电子', sub: '耳机音箱', desc: '高性价比音频产品线' , img: 'https://am.zdmimg.com/201511/05/563b1ff56343f.jpg_e1080.jpg' }
     ]
   },
   {
@@ -131,8 +131,8 @@ const COMPANIES = [
     careers: 'https://www.zhipin.com/web/geek/job?query=%E5%AD%90%E4%B8%8D%E8%AF%AD',
     products: [
       { name: '快时尚女装', cat: '服饰运动', sub: '女装', desc: '通过亚马逊、独立站销往欧美的自有品牌女装', hot: true , img: 'https://pic1.zhimg.com/v2-4d89fb60e0bcffde3586a23b1efa2464_r.jpg' },
-      { name: '时尚女鞋', cat: '服饰运动', sub: '女鞋', desc: '跨境起家的核心品类' },
-      { name: '运动休闲服饰', cat: '服饰运动', sub: '运动服饰', desc: '近年拓展的第二增长曲线品类' }
+      { name: '时尚女鞋', cat: '服饰运动', sub: '女鞋', desc: '跨境起家的核心品类' , img: 'https://img95.699pic.com/photo/60054/8814.jpg_wh860.jpg' },
+      { name: '运动休闲服饰', cat: '服饰运动', sub: '运动服饰', desc: '近年拓展的第二增长曲线品类' , img: 'https://img95.699pic.com/photo/60054/8814.jpg_wh860.jpg' }
     ]
   },
   {
@@ -144,7 +144,7 @@ const COMPANIES = [
     evidence: '潮新闻 2025-03-13；澎湃新闻 2025-09-05《浙江多家公司实行4.5天工作制，工资不降》',
     salary: { level: '行业平均', benefits: ['非一线岗位双休', '设计岗试行4.5天'], note: '传统制造业中少见的主动改革案例。' },
     products: [
-      { name: '新能源动力电池系统', cat: '数码电子', sub: '储能电源', desc: '面向工商业场景的动力与储能电池', hot: true },
+      { name: '新能源动力电池系统', cat: '数码电子', sub: '储能电源', desc: '面向工商业场景的动力与储能电池', hot: true , img: 'http://www.bdxingchi.cn/upLoad/news/month_2005/202005191412314806.png' },
       { name: '便携储能电源', cat: '数码电子', sub: '储能电源', desc: '户外与户用储能产品线' , img: 'https://i-blog.csdnimg.cn/direct/c356a2604ce44ac29a8d59a48c2a8d81.png' }
     ]
   },
@@ -162,12 +162,12 @@ const COMPANIES = [
     products: [
       { name: 'Surface Pro 11', cat: '数码电子', sub: '电脑平板', desc: '骁龙X Elite | 13英寸触控 | 二合一笔记本', price: 9988, origPrice: 10988, hot: true, img: 'https://qnam.smzdm.com/202503/12/67d1407d89c459734.jpg_e1080.jpg' },
       { name: 'Surface Laptop 7', cat: '数码电子', sub: '电脑平板', desc: '13.8英寸 | 骁龙X Elite | 轻薄办公本', price: 9488, origPrice: 10488 , img: 'http://img.leikeji.com/resource/img/1d0ece322b5d4631bf1c381e1c091d7b.jpg' },
-      { name: 'Surface Laptop Studio 2', cat: '数码电子', sub: '电脑平板', desc: 'i7/RTX4050 | 14.4英寸触控 | 创意设计本', price: 14888, origPrice: 15988 },
+      { name: 'Surface Laptop Studio 2', cat: '数码电子', sub: '电脑平板', desc: 'i7/RTX4050 | 14.4英寸触控 | 创意设计本', price: 14888, origPrice: 15988 , img: 'https://laptopdecision.com/img/cropped/px6080/microsoft-surface-laptop-studio-2-main.jpg' },
       { name: 'Xbox Series X', cat: '数码电子', sub: '游戏设备', desc: '1TB | 4K游戏主机 | 光追', price: 3899, origPrice: 4299, hot: true , img: 'https://pic2.zhimg.com/v2-681df18182728235106ba5dada9f44f8_1440w.jpg' },
-      { name: 'Xbox Series S', cat: '数码电子', sub: '游戏设备', desc: '1TB白色版 | 1440p游戏主机', price: 2299, origPrice: 2599 },
+      { name: 'Xbox Series S', cat: '数码电子', sub: '游戏设备', desc: '1TB白色版 | 1440p游戏主机', price: 2299, origPrice: 2599 , img: 'https://n.sinaimg.cn/spider2021711/213/w2048h1365/20210711/b35b-ksmehzt2522860.jpg' },
       { name: 'Xbox Game Pass Ultimate', cat: '软件应用', sub: '游戏设备', desc: 'PC+主机+云游戏 | 月卡', price: 99, origPrice: 119 , img: 'https://img.3dmgame.com/uploads/images/news/20210901/1630502354_454918.jpg' },
       { name: 'Microsoft 365 家庭版', cat: '软件应用', sub: '办公协作', desc: '6人共享 | Office套件+1TB云存储', price: 498, origPrice: 698, hot: true , img: 'https://img.alicdn.com/bao/uploaded/i3/708238552/O1CN010aMoY32D2s18Y3Htw_!!0-item_pic.jpg' },
-      { name: 'Surface Headphones 4', cat: '数码电子', sub: '耳机音箱', desc: '降噪头戴耳机 | 触控调节', price: 1588, origPrice: 1788 }
+      { name: 'Surface Headphones 4', cat: '数码电子', sub: '耳机音箱', desc: '降噪头戴耳机 | 触控调节', price: 1588, origPrice: 1788 , img: 'https://imgslim.geekpark.net/uploads/image/file/8a/5b/8a5b04ec4feba4d066224d48b581bcf3.JPG' }
     ]
   },
   {
@@ -180,9 +180,9 @@ const COMPANIES = [
     evidence: '牛客 2026-01 双休企业盘点帖；牛客 IBM 员工评价区',
     salary: { level: '行业中上', benefits: ['带薪年假', '补充商业保险', '弹性办公', '到点下班'], note: '老牌外企福利体系完整。' },
     products: [
-      { name: 'watsonx 企业 AI 平台', cat: '软件应用', sub: 'AI应用', desc: '企业级人工智能与数据平台', hot: true },
-      { name: '混合云与 Red Hat 服务', cat: '企业服务', sub: '云计算', desc: '企业上云与开源解决方案' },
-      { name: '数字化转型咨询', cat: '企业服务', sub: '咨询服务', desc: 'IBM Consulting 咨询服务' }
+      { name: 'watsonx 企业 AI 平台', cat: '软件应用', sub: 'AI应用', desc: '企业级人工智能与数据平台', hot: true , img: 'https://feizhuke.com/wp-content/uploads/2023/06/img_6484662d56963.png' },
+      { name: '混合云与 Red Hat 服务', cat: '企业服务', sub: '云计算', desc: '企业上云与开源解决方案' , img: 'https://feizhuke.com/wp-content/uploads/2023/06/img_6484662d56963.png' },
+      { name: '数字化转型咨询', cat: '企业服务', sub: '咨询服务', desc: 'IBM Consulting 咨询服务' , img: 'https://feizhuke.com/wp-content/uploads/2023/06/img_6484662d56963.png' }
     ]
   },
   {
@@ -196,7 +196,7 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['带薪年假15天起', '五险一金按最高比例缴纳', '免费班车', '每周2天居家办公', '圣诞假期'], note: '员工评价：周末绝不找你聊工作，加班都是稀罕事。' },
     products: [
       { name: '西门子502升十字门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '精控恒鲜 | 一级变频 | 风冷无霜', price: 5990, origPrice: 6990, hot: true, img: 'http://y.zdmimg.com/202104/19/607d8ff9050fa2705.jpg' },
-      { name: '西门子10kg滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: 'iQ300 | 除菌洗 | 1200转', price: 3490, origPrice: 3990 },
+      { name: '西门子10kg滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: 'iQ300 | 除菌洗 | 1200转', price: 3490, origPrice: 3990 , img: 'https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/125260/26/33330/77796/646f21edFb8fb303c/f3272e3f838d9bba.jpg' },
       { name: '西门子14套嵌入式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '除菌消毒 | 72℃高温 | 自动开门烘干', price: 5999, origPrice: 6999, hot: true , img: 'https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/131565/28/35944/148958/6479bef7Fee60aab3/bf9399c3a1d618a8.jpg' },
       { name: '西门子13套独立式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '可洗锅 | 热交换烘干', price: 4299, origPrice: 4999 , img: 'https://a.zdmimg.com/201903/18/5c8f4611b29ba9721.jpg_e1080.jpg' },
       { name: '西门子睿致开关插座', cat: '家居家装', sub: '开关电气', desc: '钛银系列 | 无边框大面板', price: 15, origPrice: 25 , img: 'https://img.alicdn.com/i2/1678416802/O1CN01hQEYq7207MiZpTv7h_!!1678416802.jpg' }
@@ -213,8 +213,8 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['补充公积金', '补充医疗保险', '免费班车', '餐补', '通讯与交通补贴'], note: 'BOSS直聘公司主页公示的工时与福利。' },
     products: [
       { name: '博世电动工具', cat: '家居家装', sub: '五金工具', desc: '专业级电钻、角磨机等工具', hot: true , img: 'https://img11.360buyimg.com/cms/jfs/t1/177550/20/30792/439113/6368ba96E4650bb6c/3966be7166971c61.jpg' },
-      { name: '博世家电', cat: '家用电器', sub: '冰箱洗衣机', desc: '冰箱、洗衣机、厨电产品线' },
-      { name: '汽车雨刮 / 火花塞', cat: '汽车出行', sub: '汽车配件', desc: '博世汽车售后配件' }
+      { name: '博世家电', cat: '家用电器', sub: '冰箱洗衣机', desc: '冰箱、洗衣机、厨电产品线' , img: 'https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/0B/04/ChMkLWkB08mIPsHPAAcP0lKs2NQAAFt9wLo6JAABw_q146.png' },
+      { name: '汽车雨刮 / 火花塞', cat: '汽车出行', sub: '汽车配件', desc: '博世汽车售后配件' , img: 'https://cbu01.alicdn.com/img/ibank/2020/872/938/18011839278_290167091.jpg' }
     ]
   },
   {
@@ -228,12 +228,12 @@ const COMPANIES = [
     salary: { level: '领先水平', benefits: ['带薪假期多（求职社区口碑18天年假起）', '补充商业保险', '弹性福利平台'], note: '快消第一梯队薪酬福利。' },
     products: [
       { name: '海飞丝 / 飘柔 / 潘婷', cat: '个护美妆', sub: '洗护发', desc: '洗发水护发产品线', hot: true , img: 'http://image4.suning.cn/uimg/b2c/newcatentries/0000000000-000000000141793261_1_800x800.jpg' },
-      { name: 'OLAY 玉兰油', cat: '个护美妆', sub: '护肤', desc: '大众护肤线' },
+      { name: 'OLAY 玉兰油', cat: '个护美妆', sub: '护肤', desc: '大众护肤线' , img: 'http://image3.suning.cn/b2c/catentries/000000000101317135_1_800x800.jpg' },
       { name: 'SK-II', cat: '个护美妆', sub: '高端护肤', desc: '高端护肤线（神仙水）' , img: 'https://gd-hbimg.huaban.com/855fa1b8523f52fe16805e2eebfecdc2b38fadae59a3b-dk0vPX_fw658' },
-      { name: '舒肤佳', cat: '个护美妆', sub: '个护清洁', desc: '香皂与沐浴露' },
-      { name: '帮宝适', cat: '母婴亲子', sub: '纸尿裤', desc: '婴儿纸尿裤' },
-      { name: '汰渍 / 碧浪', cat: '个护美妆', sub: '纸品家清', desc: '洗衣洗涤产品线' },
-      { name: '吉列', cat: '个护美妆', sub: '男士护理', desc: '男士剃须产品' }
+      { name: '舒肤佳', cat: '个护美妆', sub: '个护清洁', desc: '香皂与沐浴露' , img: 'https://img.alicdn.com/i4/3126360693/O1CN015Jh0ef1GzR1Vl2qgd_!!3126360693.jpg' },
+      { name: '帮宝适', cat: '母婴亲子', sub: '纸尿裤', desc: '婴儿纸尿裤' , img: 'https://image.jianke.com/upload/prodimage/201411wm/2014114172013518.jpg' },
+      { name: '汰渍 / 碧浪', cat: '个护美妆', sub: '纸品家清', desc: '洗衣洗涤产品线' , img: 'https://image5.suning.cn/b2c/catentries/000000000134786407_2_800x800.jpg' },
+      { name: '吉列', cat: '个护美妆', sub: '男士护理', desc: '男士剃须产品' , img: 'https://qny.smzdm.com/202101/07/5ff685d1b62be534.png_e600.jpg' }
     ]
   },
   {
@@ -249,7 +249,7 @@ const COMPANIES = [
       { name: 'DJI Mini 4 Pro', cat: '数码电子', sub: '无人机', desc: '249g | 全向避障 | 4K HDR | 智能跟随', price: 4788, origPrice: 5288, hot: true, img: 'https://doc-fd.zol-img.com.cn/t_s640x2000/g7/M00/09/00/ChMkK2T356qIDES4AAVfUiOfSjUAAUiggHo3mUABV9q602.jpg' },
       { name: 'DJI Air 3S', cat: '数码电子', sub: '无人机', desc: '1英寸CMOS | 全向避障 | 53分钟续航', price: 6988, origPrice: 7588 , img: 'https://img.leikeji.com/resource/img/edeecb4863e54641b7bc066d2f713125.jpg' },
       { name: 'DJI Mavic 4 Pro', cat: '数码电子', sub: '无人机', desc: '哈苏相机 | 100倍变焦 | 46分钟续航', price: 13888, origPrice: 14888 , img: 'https://a.zdmimg.com/202505/16/68275f25958bb7837.jpg_e1080.jpg' },
-      { name: 'DJI Neo', cat: '数码电子', sub: '无人机', desc: '掌上飞行相机 | Vlog神器', price: 1299, origPrice: 1499 },
+      { name: 'DJI Neo', cat: '数码电子', sub: '无人机', desc: '掌上飞行相机 | Vlog神器', price: 1299, origPrice: 1499 , img: 'https://doc-fd.zol-img.com.cn/t_s2000x2000/g7/M00/0C/0A/ChMkK2a97BiIChGyAANuF1ybEQwAAhzIwHyL5oAA24v284.jpg' },
       { name: 'Osmo Pocket 3', cat: '数码电子', sub: '影像设备', desc: '一英寸CMOS | 口袋云台 | 4K/120fps', price: 3499, origPrice: 3899, hot: true , img: 'https://2.zol-img.com.cn/product/254_640x2000/35/ceUThCx371QV.jpg' },
       { name: 'Osmo Action 4', cat: '数码电子', sub: '影像设备', desc: '1/1.3英寸传感器 | 防水18m | 地平线增稳', price: 2299, origPrice: 2599 , img: 'https://qnam.smzdm.com/202310/12/65275471192dc2783.jpg_e1080.jpg' },
       { name: 'DJI Mic 2', cat: '数码电子', sub: '影像设备', desc: '双通道 | 32位浮点 | 充电盒', price: 1699, origPrice: 1999 , img: 'https://img.alicdn.com/imgextra/i1/4276162013/O1CN01Z3B6w41Qk0CUNHahg_!!4276162013.jpg' },
@@ -267,12 +267,12 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['五险一金', '年终奖', '无效会议减少20%（集团数据）'], note: '核心导向：8小时内聚焦有价值的工作，业务需要可申请加班。' },
     products: [
       { name: '美的1.5匹酷金空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 变频冷暖 | 自清洁', price: 2399, origPrice: 2899, hot: true, img: 'https://img14.360buyimg.com/pop/jfs/t1/24881/14/19459/24692/632803a0Efbdb8a02/21c6e10fb5c6e872.png' },
-      { name: '美的3匹风尊空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 全屋送风 | 智控温', price: 4999, origPrice: 5699 },
+      { name: '美的3匹风尊空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 全屋送风 | 智控温', price: 4999, origPrice: 5699 , img: 'https://img14.360buyimg.com/pop/jfs/t1/138559/18/29610/30804/63244e40E43f99f6e/db86941c3a78a40a.png' },
       { name: '美的508升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '双循环 | PT净味 | 一级能效', price: 3899, origPrice: 4599 , img: 'https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/152755/13/725/59464/5f6d82cbE0cef6bfc/64830bccb7598fb6.jpg' },
-      { name: '美的10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '变频滚筒 | 除菌洗 | 智能烘干', price: 2799, origPrice: 3299 },
-      { name: '美的4L电饭煲', cat: '家用电器', sub: '厨房电器', desc: 'IH电磁加热 | 智能预约 | 不粘锅', price: 399, origPrice: 499 },
-      { name: '美的微蒸烤一体机', cat: '家用电器', sub: '厨房电器', desc: '变频微波 | 蒸烤三合一 | 智能菜单', price: 1299, origPrice: 1599 },
-      { name: 'COLMO 3匹空调', cat: '家用电器', sub: '空调', desc: 'AI智能 | 无风感 | 高端旗舰', price: 12999, origPrice: 14999 }
+      { name: '美的10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '变频滚筒 | 除菌洗 | 智能烘干', price: 2799, origPrice: 3299 , img: 'https://imgservice.suning.cn/uimg1/b2c/image/MxRk4IJA91nbZv2jduIdAQ.jpg' },
+      { name: '美的4L电饭煲', cat: '家用电器', sub: '厨房电器', desc: 'IH电磁加热 | 智能预约 | 不粘锅', price: 399, origPrice: 499 , img: 'https://img14.360buyimg.com/pop/jfs/t1/116053/5/39662/86802/64b8a67fF4f39b8be/f90398cb24e75296.png' },
+      { name: '美的微蒸烤一体机', cat: '家用电器', sub: '厨房电器', desc: '变频微波 | 蒸烤三合一 | 智能菜单', price: 1299, origPrice: 1599 , img: 'https://am.smzdm.com/202505/21/682d36d0ef9cb157.png_e1080.jpg' },
+      { name: 'COLMO 3匹空调', cat: '家用电器', sub: '空调', desc: 'AI智能 | 无风感 | 高端旗舰', price: 12999, origPrice: 14999 , img: 'https://cn-res.midea.com/content/dam/colmo/colmo-news/News/colmo发布ai级墅适中央空调-开启全屋智能新入口/5.png' }
     ]
   },
   {
@@ -285,11 +285,11 @@ const COMPANIES = [
     evidence: '中国新闻周刊 2025-03-18 回顾2021年取消大小周潮；牛客双休盘点帖',
     salary: { level: '领先水平', benefits: ['双休恢复', '加班需申请审批', '免费三餐与下午茶（部分办公区）'], note: '互联网第一梯队薪酬包。' },
     products: [
-      { name: '抖音', cat: '软件应用', sub: '视频影音', desc: '短视频平台', hot: true },
-      { name: '剪映', cat: '软件应用', sub: '工具', desc: '视频剪辑工具' },
-      { name: '飞书', cat: '软件应用', sub: '办公协作', desc: '企业协作办公平台' },
-      { name: '今日头条', cat: '软件应用', sub: '阅读资讯', desc: '资讯平台' },
-      { name: '番茄小说', cat: '软件应用', sub: '阅读资讯', desc: '免费网文阅读' }
+      { name: '抖音', cat: '软件应用', sub: '视频影音', desc: '短视频平台', hot: true , img: 'https://img-blog.csdnimg.cn/20190507121741312.png' },
+      { name: '剪映', cat: '软件应用', sub: '工具', desc: '视频剪辑工具' , img: 'https://www.2i1i.com/wp-content/uploads/2023/01/4-1673409851.png' },
+      { name: '飞书', cat: '软件应用', sub: '办公协作', desc: '企业协作办公平台' , img: 'https://pp.myapp.com/ma_pic2/0/shot_52738187_1_1722244891/0' },
+      { name: '今日头条', cat: '软件应用', sub: '阅读资讯', desc: '资讯平台' , img: 'https://pp.myapp.com/ma_pic2/0/shot_213141_1_1713864681/0' },
+      { name: '番茄小说', cat: '软件应用', sub: '阅读资讯', desc: '免费网文阅读' , img: 'https://pp.myapp.com/ma_pic2/0/shot_53860780_1_1711011384/0' }
     ]
   },
   {
@@ -302,9 +302,9 @@ const COMPANIES = [
     salary: { level: '领先水平', benefits: ['双休恢复', '周末加班需申请'], note: '互联网第一梯队薪酬。' },
     careers: 'https://www.zhipin.com/web/geek/job?query=%E5%BF%AB%E6%89%8B',
     products: [
-      { name: '快手 App', cat: '软件应用', sub: '视频影音', desc: '短视频与直播平台', hot: true },
-      { name: '快手电商', cat: '电商消费', sub: '直播电商', desc: '直播电商与货架电商' },
-      { name: '快手极速版', cat: '软件应用', sub: '视频影音', desc: '轻量版应用' }
+      { name: '快手 App', cat: '软件应用', sub: '视频影音', desc: '短视频与直播平台', hot: true , img: 'https://duba-seo-cdn.jinshan3.cn/img/1eb36eec359cd35263d7f6b1c45dcb66.png' },
+      { name: '快手电商', cat: '电商消费', sub: '直播电商', desc: '直播电商与货架电商' , img: 'https://duba-seo-cdn.jinshan3.cn/img/1eb36eec359cd35263d7f6b1c45dcb66.png' },
+      { name: '快手极速版', cat: '软件应用', sub: '视频影音', desc: '轻量版应用' , img: 'https://duba-seo-cdn.jinshan3.cn/img/1eb36eec359cd35263d7f6b1c45dcb66.png' }
     ]
   },
   {
@@ -318,11 +318,11 @@ const COMPANIES = [
     note: '各事业群作息差异较大，求职时建议以具体部门为准。',
     salary: { level: '领先水平', benefits: ['双休', '部分团队周三健康日18点下班', '安居计划（购房免息借款）'], note: '事业群之间作息与文化差异较大。' },
     products: [
-      { name: '微信', cat: '软件应用', sub: '社交', desc: '国民级社交应用', hot: true },
-      { name: 'QQ', cat: '软件应用', sub: '社交', desc: '即时通讯平台' },
-      { name: '腾讯视频', cat: '软件应用', sub: '视频影音', desc: '长视频平台' },
-      { name: '王者荣耀', cat: '游戏娱乐', sub: '手游', desc: 'MOBA 手游' },
-      { name: '和平精英', cat: '游戏娱乐', sub: '手游', desc: '战术竞技手游' }
+      { name: '微信', cat: '软件应用', sub: '社交', desc: '国民级社交应用', hot: true , img: 'https://sj-fd.zol-img.com.cn/g5/M00/0B/0D/ChMkJlwgtg6IdcrzAABXuxPR2fgAAt9WgK9CmEAAFfT952.jpg' },
+      { name: 'QQ', cat: '软件应用', sub: '社交', desc: '即时通讯平台' , img: 'https://image.yesky.com/uploadImages/app/2025/324/00/1Q42J68KOC29.png' },
+      { name: '腾讯视频', cat: '软件应用', sub: '视频影音', desc: '长视频平台' , img: 'https://gd-hbimg.huaban.com/157ee136ce52289e8a577a2b0c4f1319b68e22b53184c-mXPW34_fw658' },
+      { name: '王者荣耀', cat: '游戏娱乐', sub: '手游', desc: 'MOBA 手游' , img: 'https://ossweb-img.qq.com/upload/webplat/info/yxzj/20190318/49656773132138.jpg' },
+      { name: '和平精英', cat: '游戏娱乐', sub: '手游', desc: '战术竞技手游' , img: 'https://shp.qpic.cn/cfwebcap/0/5f1755c30bf729fdcf5bf29dd54f4699/0' }
     ]
   },
   {
@@ -339,8 +339,8 @@ const COMPANIES = [
       { name: '小米17 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen5 | 徕卡影像 | 2K全等深屏 | 无线充电', price: 5999, origPrice: 6499, hot: true, img: 'https://a.zdmimg.com/202509/22/68d0ecfdab7c51379.jpg_e1080.jpg' },
       { name: '小米17 智能手机', cat: '数码电子', sub: '手机', desc: '小屏旗舰 | 骁龙8 Gen5 | 徕卡光学 | 手感好', price: 4999, origPrice: 5499, hot: true , img: 'https://a.zdmimg.com/202509/22/68d0ecfdab7c51379.jpg_e1080.jpg' },
       { name: '小米17 Ultra 智能手机', cat: '数码电子', sub: '手机', desc: '1英寸大底 | 全焦段徕卡 | 2D材质 | 摄影旗舰', price: 7299, origPrice: 7999 , img: 'https://am.zdmimg.com/202512/22/6948da3fcb8657303.png_e1080.jpg' },
-      { name: '小米16S 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 长续航 | 性价比旗舰', price: 3699, origPrice: 3999 },
-      { name: '小米Civi 5 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '前置柔光灯 | 轻薄自拍旗舰 | 素皮机身', price: 3299, origPrice: 3599 },
+      { name: '小米16S 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 长续航 | 性价比旗舰', price: 3699, origPrice: 3999 , img: 'https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918fb583f7b5463d269759ee6f16' },
+      { name: '小米Civi 5 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '前置柔光灯 | 轻薄自拍旗舰 | 素皮机身', price: 3299, origPrice: 3599 , img: 'https://am.zdmimg.com/202511/11/6913429581d753952.jpg_e1080.jpg' },
       { name: 'REDMI K90 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen5 | 2K直屏 | 140W快充 | 性能旗舰', price: 4299, origPrice: 4699, hot: true, img: 'https://a.zdmimg.com/202510/17/68f197798c7a9361.jpg_e1080.jpg' },
       { name: 'REDMI K90 智能手机', cat: '数码电子', sub: '手机', desc: '天玑9500 | 2K护眼直屏 | 90W快充', price: 2799, origPrice: 3099 , img: 'https://www.eet-china.com/d/file/news/2025-10-17/f0833501da7e5e02fe3ab8420ef51735.jpg' },
       { name: 'REDMI K80 Ultra 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 电竞直屏 | 散热增强', price: 3299, origPrice: 3599 , img: 'https://xiaomiui.net/wp-content/uploads/2025/06/Redmi-K80-Ultra-now-official-3.png' },
@@ -374,12 +374,12 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['官方称持续提升员工工作体验'], note: '大型集团各产业线作息不一，以具体岗位为准。' },
     products: [
       { name: '海尔501升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '一级能效 | 风冷无霜 | EPP超净系统', price: 4299, origPrice: 4999, hot: true, img: 'http://cdn02.ehaier.com/product/56d52950983d794b3d8b4625_1200_1200.jpg' },
-      { name: '海尔473升十字对开门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '超薄嵌入 | 阻氧干湿分储', price: 3599, origPrice: 4199 },
+      { name: '海尔473升十字对开门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '超薄嵌入 | 阻氧干湿分储', price: 3599, origPrice: 4199 , img: 'https://img13.360buyimg.com/n0/jfs/t1/183108/21/25137/185511/6289ead6E31215e92/4a515bfba1561464.jpg' },
       { name: '海尔10公斤滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: '直驱变频 | 525大筒径 | 智能投放', price: 2599, origPrice: 2999, hot: true , img: 'https://uimgproxy.suning.cn/uimg1/sop/commodity/lvyHwgw-3cJXo8kONYw0UQ.jpg' },
-      { name: '海尔10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '微蒸汽空气洗 | 智能烘干', price: 3299, origPrice: 3799 },
-      { name: '海尔3匹中央空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 智能变频 | 自清洁', price: 6999, origPrice: 7999 },
+      { name: '海尔10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '微蒸汽空气洗 | 智能烘干', price: 3299, origPrice: 3799 , img: 'https://y.zdmimg.com/202106/01/60b5c675a9c5a2916.jpg' },
+      { name: '海尔3匹中央空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 智能变频 | 自清洁', price: 6999, origPrice: 7999 , img: 'https://imgservice.suning.cn/uimg1/b2c/image/3PtOANwdK4vIbW9aGRorYA.jpg_800w_800h_4e' },
       { name: '卡萨帝647升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '原石系列 | 零距离自由嵌入式', price: 12999, origPrice: 14999 , img: 'https://imgservice.suning.cn/uimg1/b2c/image/N_QrU-G2N0tk0YEqyKBVJQ.jpg' },
-      { name: '卡萨帝洗烘套装', cat: '家用电器', sub: '冰箱洗衣机', desc: '纤诺系列 | 光等离子除菌', price: 15999, origPrice: 17999 }
+      { name: '卡萨帝洗烘套装', cat: '家用电器', sub: '冰箱洗衣机', desc: '纤诺系列 | 光等离子除菌', price: 15999, origPrice: 17999 , img: 'https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/190946/25/31127/177009/6394660fEebbca5d3/122db1a60480e41d.jpg' }
     ]
   },
 
@@ -394,10 +394,10 @@ const COMPANIES = [
     evidence: '绍兴网转浙工之家 2025-10-15；澎湃新闻 2025-09-05《携程产研员工居家办公无需审批》',
     salary: { level: '行业中上', benefits: ['3+2混合办公不降薪', '员工生育补贴：每孩每年1万元、发至5周岁（2023年推出）', '混合办公免审批'], note: '旅游行业头部薪酬，家庭友好政策业内领先。' },
     products: [
-      { name: '机票 / 火车票预订', cat: '本地服务', sub: '机酒预订', desc: '交通票务一站式预订', hot: true },
-      { name: '酒店预订', cat: '本地服务', sub: '机酒预订', desc: '海内外酒店民宿' },
-      { name: '旅游度假线路', cat: '本地服务', sub: '旅游度假', desc: '跟团游、自由行、定制游' },
-      { name: '景点门票', cat: '本地服务', sub: '门票玩乐', desc: '景区门票与玩乐项目' }
+      { name: '机票 / 火车票预订', cat: '本地服务', sub: '机酒预订', desc: '交通票务一站式预订', hot: true , img: 'https://image.woshipm.com/wp-files/2016/10/DZZzhr2t6uxOgstXXmcC.jpg' },
+      { name: '酒店预订', cat: '本地服务', sub: '机酒预订', desc: '海内外酒店民宿' , img: 'https://mydown-img2.yesky.com/news/201809/18e69e283487bb15027bb9ad4763cf09.png' },
+      { name: '旅游度假线路', cat: '本地服务', sub: '旅游度假', desc: '跟团游、自由行、定制游' , img: 'https://gbres.dfcfw.com/Files/iimage/20240523/2B6E236259C89012214F7E0E53C0828F_w1200h800.jpg' },
+      { name: '景点门票', cat: '本地服务', sub: '门票玩乐', desc: '景区门票与玩乐项目' , img: 'https://gbres.dfcfw.com/Files/iimage/20240523/2B6E236259C89012214F7E0E53C0828F_w1200h800.jpg' }
     ]
   },
   {
@@ -410,8 +410,8 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['每周2天灵活办公', '2025春节提前2天放假凑成11天长假'], note: '负责人新年信官宣春节提前放假。' },
     careers: 'https://www.zhipin.com/web/geek/job?query=%E5%8E%BB%E5%93%AA%E5%84%BF%E7%BD%91',
     products: [
-      { name: '机票比价预订', cat: '本地服务', sub: '机酒预订', desc: '以性价比著称的机票搜索', hot: true },
-      { name: '酒店 / 火车票预订', cat: '本地服务', sub: '机酒预订', desc: '住宿与铁路票务' }
+      { name: '机票比价预订', cat: '本地服务', sub: '机酒预订', desc: '以性价比著称的机票搜索', hot: true , img: 'https://image.woshipm.com/wp-files/2016/10/DZZzhr2t6uxOgstXXmcC.jpg' },
+      { name: '酒店 / 火车票预订', cat: '本地服务', sub: '机酒预订', desc: '住宿与铁路票务' , img: 'https://mydown-img2.yesky.com/news/201809/18e69e283487bb15027bb9ad4763cf09.png' }
     ]
   },
   {
@@ -424,10 +424,10 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['弹性通勤假每月最多5次', '不计入年假额度'], note: '明确指向提升工作生活平衡感。' },
     careers: 'https://www.zhipin.com/web/geek/job?query=%E5%BE%97%E7%89%A9',
     products: [
-      { name: '潮流球鞋', cat: '服饰运动', sub: '运动鞋', desc: '先鉴别后发货的球鞋交易', hot: true },
-      { name: '潮牌服装', cat: '服饰运动', sub: '潮牌', desc: '街头与设计师品牌' },
-      { name: '数码 3C', cat: '数码电子', sub: '手机', desc: '鉴别体系延伸到数码品类' },
-      { name: '美妆个护', cat: '个护美妆', sub: '彩妆香水', desc: '年轻客群美妆专区' }
+      { name: '潮流球鞋', cat: '服饰运动', sub: '运动鞋', desc: '先鉴别后发货的球鞋交易', hot: true , img: 'https://am.zdmimg.com/202405/03/66347d331519d1272.jpg_e1080.jpg' },
+      { name: '潮牌服装', cat: '服饰运动', sub: '潮牌', desc: '街头与设计师品牌' , img: 'https://img95.699pic.com/photo/60054/8814.jpg_wh860.jpg' },
+      { name: '数码 3C', cat: '数码电子', sub: '手机', desc: '鉴别体系延伸到数码品类' , img: 'https://img14.360buyimg.com/pop/jfs/t1/245606/31/12957/121292/667d96f9F9205f3f3/212b2520d6e59221.png' },
+      { name: '美妆个护', cat: '个护美妆', sub: '彩妆香水', desc: '年轻客群美妆专区' , img: 'https://gd-hbimg.huaban.com/855fa1b8523f52fe16805e2eebfecdc2b38fadae59a3b-dk0vPX_fw658' }
     ]
   },
   {
@@ -441,9 +441,9 @@ const COMPANIES = [
     note: '曾被误传为「上四休三」，实际为每周5天工作制+周五居家，收录时已按官方口径修正。',
     salary: { level: '领先水平', benefits: ['周五居家办公', '外企完整福利体系', '员工内购'], note: '薪酬福利不受影响，混合办公为全球试点。' },
     products: [
-      { name: 'Nike 跑鞋', cat: '服饰运动', sub: '运动鞋', desc: 'Pegasus、Vomero 等跑鞋系列', hot: true },
-      { name: 'Air Jordan / 篮球鞋', cat: '服饰运动', sub: '运动鞋', desc: '篮球与潮流鞋线' },
-      { name: '运动服装', cat: '服饰运动', sub: '运动服饰', desc: '训练与运动生活服饰' }
+      { name: 'Nike 跑鞋', cat: '服饰运动', sub: '运动鞋', desc: 'Pegasus、Vomero 等跑鞋系列', hot: true , img: 'https://www.snkshoe.com/wp-content/uploads/2023/03/img_256-217.jpeg' },
+      { name: 'Air Jordan / 篮球鞋', cat: '服饰运动', sub: '运动鞋', desc: '篮球与潮流鞋线' , img: 'https://am.zdmimg.com/202405/03/66347d331519d1272.jpg_e1080.jpg' },
+      { name: '运动服装', cat: '服饰运动', sub: '运动服饰', desc: '训练与运动生活服饰' , img: 'https://www.snkshoe.com/wp-content/uploads/2023/03/img_256-217.jpeg' }
     ]
   }
 ];
