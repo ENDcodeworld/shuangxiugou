@@ -290,6 +290,21 @@ function pageHome() {
   <h2 class="sec-title">热门商品展示<a class="more" href="#/products">全部商品 →</a></h2>
   <div class="pd-grid anim">${hot.map(p => pdCardHTML(p)).join('')}</div>
 
+  <h2 class="sec-title">🌟 今日推荐</h2>
+  <div class="pd-grid anim">${hot.slice(0, 4).map(p => pdCardHTML(p)).join('')}</div>
+
+  <h2 class="sec-title" style="color:#E8792B">⚡ 限时秒杀</h2>
+  <div class="flash-sale anim">
+    ${hot.slice(0, 4).map((p, i) => {
+      const fp = Math.round(p.price * (0.7 - i * 0.05));
+      return `<a class="flash-item" href="#/product/${p.pid}">
+        <img src="${p.img}" alt="${esc(p.name)}" loading="lazy">
+        <div class="flash-info"><b>${esc(p.name)}</b>
+        <div class="flash-price">¥${fp} <s>¥${p.price}</s></div></div>
+      </a>`;
+    }).join('')}
+  </div>
+
   ${(() => {
     const recent = getRecent().map(pid => getProductByPid(pid)).filter(Boolean).slice(0, 4);
     if (!recent.length) return '';
