@@ -1407,14 +1407,16 @@ function bindPageEvents(page, params) {
 
   // 商品详情页评价表单
   let rfRatingP = 5;
-  $$('#rfStarsP span').forEach(s => s.addEventListener('click', () => {
+  const starsP = $$('#rfStarsP span');
+  starsP.forEach(s => s.addEventListener('click', () => {
     rfRatingP = parseInt(s.dataset.r);
     $$('#rfStarsP span').forEach(x => x.style.color = parseInt(x.dataset.r) <= rfRatingP ? '#E8792B' : '#DDD');
   }));
   const rfBtnP = $('#btnSubmitReviewP');
   if (rfBtnP) rfBtnP.addEventListener('click', () => {
+    const curPid = parseHash().arg;
     const txt = $('#rfTextP').value.trim();
-    addUserReview(pid, rfRatingP, txt || '不错');
+    addUserReview(curPid, rfRatingP, txt || '不错');
     toast('评价发表成功！'); render();
   });
 
