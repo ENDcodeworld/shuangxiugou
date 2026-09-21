@@ -645,6 +645,9 @@ function pageCheckout() {
   if (!items.length) return `<div class="empty"><div class="emo">🛒</div>收藏为空<div style="margin-top:14px"><a class="btn btn-green" href="#/products">去逛商品</a></div></div>`;
   const addr = (() => { try { return JSON.parse(localStorage.getItem('sxg_addr') || '{}'); } catch (e) { return {}; } })();
   const total = items.reduce((s, x) => s + x.prod.price * x.qty, 0);
+  const cat0 = items[0] ? (getProductByPid(items[0].pid) || {}).cat : '全部';
+  const couponResult = applyCoupon(total, cat0);
+  const finalTotal = couponResult.total;
   return `
   <a class="back-link" href="#/cart">← 返回收藏</a>
   <h2 class="sec-title">确认订单</h2>
