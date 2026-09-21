@@ -160,7 +160,7 @@ const COMPANIES = [
     evidence: 'BOSS直聘微软中国公司主页（双休、不加班）；牛客微软员工评价区长期口径一致',
     salary: { level: '领先水平', benefits: ['15天全薪年假+15天全薪病假（最高升至20天）', '6周全薪陪产假', '补充公积金+补充医疗', '全员持股', '节假日加班按2-3倍工资'], note: '员工评价「厚道的955」，业界公认的福利标杆。' },
     products: [
-      { name: 'Surface Pro 11', cat: '数码电子', sub: '电脑平板', desc: '骁龙X Elite | 13英寸触控 | 二合一笔记本', price: 9988, origPrice: 10988, hot: true },
+      { name: 'Surface Pro 11', cat: '数码电子', sub: '电脑平板', desc: '骁龙X Elite | 13英寸触控 | 二合一笔记本', price: 9988, origPrice: 10988, hot: true, img: 'https://qnam.smzdm.com/202503/12/67d1407d89c459734.jpg_e1080.jpg' },
       { name: 'Surface Laptop 7', cat: '数码电子', sub: '电脑平板', desc: '13.8英寸 | 骁龙X Elite | 轻薄办公本', price: 9488, origPrice: 10488 },
       { name: 'Surface Laptop Studio 2', cat: '数码电子', sub: '电脑平板', desc: 'i7/RTX4050 | 14.4英寸触控 | 创意设计本', price: 14888, origPrice: 15988 },
       { name: 'Xbox Series X', cat: '数码电子', sub: '游戏设备', desc: '1TB | 4K游戏主机 | 光追', price: 3899, origPrice: 4299, hot: true },
@@ -195,7 +195,7 @@ const COMPANIES = [
     evidence: '牛客西门子员工评价区（2024-2026多条一致评价）；牛客双休企业盘点帖',
     salary: { level: '行业中上', benefits: ['带薪年假15天起', '五险一金按最高比例缴纳', '免费班车', '每周2天居家办公', '圣诞假期'], note: '员工评价：周末绝不找你聊工作，加班都是稀罕事。' },
     products: [
-      { name: '西门子502升十字门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '精控恒鲜 | 一级变频 | 风冷无霜', price: 5990, origPrice: 6990, hot: true },
+      { name: '西门子502升十字门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '精控恒鲜 | 一级变频 | 风冷无霜', price: 5990, origPrice: 6990, hot: true, img: 'http://y.zdmimg.com/202104/19/607d8ff9050fa2705.jpg' },
       { name: '西门子10kg滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: 'iQ300 | 除菌洗 | 1200转', price: 3490, origPrice: 3990 },
       { name: '西门子14套嵌入式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '除菌消毒 | 72℃高温 | 自动开门烘干', price: 5999, origPrice: 6999, hot: true },
       { name: '西门子13套独立式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '可洗锅 | 热交换烘干', price: 4299, origPrice: 4999 },
@@ -246,7 +246,7 @@ const COMPANIES = [
     evidence: '中国新闻周刊 2025-03-18《赶人下班，打工人不淡定了》；经济观察报相关报道；牛客双休盘点帖',
     salary: { level: '领先水平', benefits: ['年终奖', '每月增发500 GT币（约合500元，可在食堂/内部购物/提现）', '公积金'], note: '媒体报道：强制下班后研发效率反升约15%。' },
     products: [
-      { name: 'DJI Mini 4 Pro', cat: '数码电子', sub: '无人机', desc: '249g | 全向避障 | 4K HDR | 智能跟随', price: 4788, origPrice: 5288, hot: true },
+      { name: 'DJI Mini 4 Pro', cat: '数码电子', sub: '无人机', desc: '249g | 全向避障 | 4K HDR | 智能跟随', price: 4788, origPrice: 5288, hot: true, img: 'https://doc-fd.zol-img.com.cn/t_s640x2000/g7/M00/09/00/ChMkK2T356qIDES4AAVfUiOfSjUAAUiggHo3mUABV9q602.jpg' },
       { name: 'DJI Air 3S', cat: '数码电子', sub: '无人机', desc: '1英寸CMOS | 全向避障 | 53分钟续航', price: 6988, origPrice: 7588 },
       { name: 'DJI Mavic 4 Pro', cat: '数码电子', sub: '无人机', desc: '哈苏相机 | 100倍变焦 | 46分钟续航', price: 13888, origPrice: 14888 },
       { name: 'DJI Neo', cat: '数码电子', sub: '无人机', desc: '掌上飞行相机 | Vlog神器', price: 1299, origPrice: 1499 },
@@ -266,7 +266,7 @@ const COMPANIES = [
     evidence: '中国新闻周刊 2025-03-18；澎湃新闻 2025-09-05；美的集团副总裁赵磊对媒体回应',
     salary: { level: '行业中上', benefits: ['五险一金', '年终奖', '无效会议减少20%（集团数据）'], note: '核心导向：8小时内聚焦有价值的工作，业务需要可申请加班。' },
     products: [
-      { name: '美的1.5匹酷金空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 变频冷暖 | 自清洁', price: 2399, origPrice: 2899, hot: true },
+      { name: '美的1.5匹酷金空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 变频冷暖 | 自清洁', price: 2399, origPrice: 2899, hot: true, img: 'https://img14.360buyimg.com/pop/jfs/t1/24881/14/19459/24692/632803a0Efbdb8a02/21c6e10fb5c6e872.png' },
       { name: '美的3匹风尊空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 全屋送风 | 智控温', price: 4999, origPrice: 5699 },
       { name: '美的508升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '双循环 | PT净味 | 一级能效', price: 3899, origPrice: 4599 },
       { name: '美的10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '变频滚筒 | 除菌洗 | 智能烘干', price: 2799, origPrice: 3299 },
@@ -336,12 +336,12 @@ const COMPANIES = [
     note: '研发与部分业务线节奏较快，以具体部门为准。',
     salary: { level: '行业中上', benefits: ['双休', '大促后补休', '员工内购福利'], note: '硬件新零售为主业，岗位间节奏差异明显。' },
     products: [
-      { name: '小米17 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen5 | 徕卡影像 | 2K全等深屏 | 无线充电', price: 5999, origPrice: 6499, hot: true },
+      { name: '小米17 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen5 | 徕卡影像 | 2K全等深屏 | 无线充电', price: 5999, origPrice: 6499, hot: true, img: 'https://a.zdmimg.com/202509/22/68d0ecfdab7c51379.jpg_e1080.jpg' },
       { name: '小米17 智能手机', cat: '数码电子', sub: '手机', desc: '小屏旗舰 | 骁龙8 Gen5 | 徕卡光学 | 手感好', price: 4999, origPrice: 5499, hot: true },
       { name: '小米17 Ultra 智能手机', cat: '数码电子', sub: '手机', desc: '1英寸大底 | 全焦段徕卡 | 2D材质 | 摄影旗舰', price: 7299, origPrice: 7999 },
       { name: '小米16S 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 长续航 | 性价比旗舰', price: 3699, origPrice: 3999 },
       { name: '小米Civi 5 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '前置柔光灯 | 轻薄自拍旗舰 | 素皮机身', price: 3299, origPrice: 3599 },
-      { name: 'REDMI K90 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen5 | 2K直屏 | 140W快充 | 性能旗舰', price: 4299, origPrice: 4699, hot: true },
+      { name: 'REDMI K90 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen5 | 2K直屏 | 140W快充 | 性能旗舰', price: 4299, origPrice: 4699, hot: true, img: 'https://a.zdmimg.com/202510/17/68f197798c7a9361.jpg_e1080.jpg' },
       { name: 'REDMI K90 智能手机', cat: '数码电子', sub: '手机', desc: '天玑9500 | 2K护眼直屏 | 90W快充', price: 2799, origPrice: 3099 },
       { name: 'REDMI K80 Ultra 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 电竞直屏 | 散热增强', price: 3299, origPrice: 3599 },
       { name: 'REDMI Note 15 Pro+ 智能手机', cat: '数码电子', sub: '手机', desc: '2亿像素 | IP69防水 | 100W快充', price: 2099, origPrice: 2299 },
@@ -356,7 +356,7 @@ const COMPANIES = [
       { name: '米家扫地机器人X50 Pro', cat: '家用电器', sub: '清洁电器', desc: '扫地机器人 | 全能基站 | 双机械臂 | 0缠毛', price: 4599, origPrice: 4999, hot: true },
       { name: '米家空气净化器6 Pro', cat: '家用电器', sub: '环境电器', desc: '空气净化器 | 除甲醛 | 除过敏原 | 99.99%除菌', price: 1099, origPrice: 1299 },
       { name: '小米电视S Pro 85英寸 Mini LED', cat: '家用电器', sub: '电视影音', desc: '智能电视 | Mini LED | 3000nits | 4K 144Hz', price: 6999, origPrice: 7999 },
-      { name: '小米SU7 Ultra 电动车', cat: '汽车出行', sub: '整车', desc: '高性能电动车 | 三电机 | 零百1.98s | CLTC 800km', price: 529900, origPrice: 559900, hot: true },
+      { name: '小米SU7 Ultra 电动车', cat: '汽车出行', sub: '整车', desc: '高性能电动车 | 三电机 | 零百1.98s | CLTC 800km', price: 529900, origPrice: 559900, hot: true, img: 'https://img.pcauto.com.cn/images/upload/upc/tx/auto5/2410/31/c6/460149190_1730358944325.jpg' },
       { name: '小米SU7 Max 2026款', cat: '汽车出行', sub: '整车', desc: '电动车 | 双电机四驱 | CLTC 830km | 零百2.78s', price: 319900, origPrice: 339900 },
       { name: '小米SU7 Pro 2026款', cat: '汽车出行', sub: '整车', desc: '电动车 | 长续航 | CLTC 850km | 智能座舱', price: 255900, origPrice: 275900 },
       { name: '小米YU7 电动SUV', cat: '汽车出行', sub: '整车', desc: '电动SUV | CLTC 780km | 智能驾驶辅助', price: 269900, origPrice: 299900 }
@@ -373,7 +373,7 @@ const COMPANIES = [
     note: '「全员双休通知」未经官方发文确认，实际作息可能因产业线而异。',
     salary: { level: '行业中上', benefits: ['官方称持续提升员工工作体验'], note: '大型集团各产业线作息不一，以具体岗位为准。' },
     products: [
-      { name: '海尔501升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '一级能效 | 风冷无霜 | EPP超净系统', price: 4299, origPrice: 4999, hot: true },
+      { name: '海尔501升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '一级能效 | 风冷无霜 | EPP超净系统', price: 4299, origPrice: 4999, hot: true, img: 'http://cdn02.ehaier.com/product/56d52950983d794b3d8b4625_1200_1200.jpg' },
       { name: '海尔473升十字对开门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '超薄嵌入 | 阻氧干湿分储', price: 3599, origPrice: 4199 },
       { name: '海尔10公斤滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: '直驱变频 | 525大筒径 | 智能投放', price: 2599, origPrice: 2999, hot: true },
       { name: '海尔10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '微蒸汽空气洗 | 智能烘干', price: 3299, origPrice: 3799 },
