@@ -734,6 +734,7 @@ function orderCardHTML(o) {
       </div>
       <div class="oc-amt"><b>${fmtMoney(o.total)}</b></div>
     </div>
+    ${o.status === 'pending_pay' ? `<div style="padding:8px 14px;border-top:1px solid var(--line);text-align:right"><button class="btn btn-orange btn-sm" data-pay-order="${o.id}">立即支付 ${fmtMoney(o.total)}</button></div>` : ''}
   </div>`;
 }
 
@@ -1730,7 +1731,24 @@ function bindPageEvents(page, params) {
       saveOrders(getOrders().map(x => x.id === oid ? o : x));
       toast('订单已取消'); render();
     });
-    const btnPay = $('#btnPay');
+    // 订单列表直接支付
+  document.addEventListener('click', e => {
+    const payBtn = e.target.closest('[data-pay-order]');
+    if (payBtn) {
+      const oid = payBtn.dataset.payOrder;
+      payBtn.disabled = true; payBtn.textContent = '支付中…';
+      setTimeout(() => {
+        const o = getOrder(oid);
+        o.status = 'pending_ship';
+        pushTimeline(o, '已通过' + (o.payment || '微信支付') + '付款 ' + fmtMoney(o.total));
+        pushTimeline(o, '商家已接单，正在备货');
+        saveOrders(getOrders().map(x => x.id === oid ? o : x));
+        toast('支付成功！累计消费已更新'); render();
+      }, 1000);
+    }
+  });
+
+  const btnPay = $('#btnPay');
     if (btnPay) btnPay.addEventListener('click', () => {
       btnPay.disabled = true; btnPay.textContent = '支付中…';
       setTimeout(() => {
