@@ -1405,6 +1405,19 @@ function bindPageEvents(page, params) {
     toast('感谢您的评价！'); render();
   });
 
+  // 商品详情页评价表单
+  let rfRatingP = 5;
+  $$('#rfStarsP span').forEach(s => s.addEventListener('click', () => {
+    rfRatingP = parseInt(s.dataset.r);
+    $$('#rfStarsP span').forEach(x => x.style.color = parseInt(x.dataset.r) <= rfRatingP ? '#E8792B' : '#DDD');
+  }));
+  const rfBtnP = $('#btnSubmitReviewP');
+  if (rfBtnP) rfBtnP.addEventListener('click', () => {
+    const txt = $('#rfTextP').value.trim();
+    addUserReview(pid, rfRatingP, txt || '不错');
+    toast('评价发表成功！'); render();
+  });
+
   // 领取优惠券
   $$('[data-coupon-claim]').forEach(btn => btn.addEventListener('click', () => {
     btn.textContent = '已领取'; btn.disabled = true;
