@@ -1246,12 +1246,100 @@ function pagePrivacy() {
   </section>`;
 }
 
+function pageProfile() {
+  const pts = getPoints();
+  const mem = getMember(pts);
+  const orders = getOrders();
+  const favs = getFavProducts();
+  const pendingPay = orders.filter(o => o.status === 'pending_pay').length;
+  const pendingShip = orders.filter(o => o.status === 'pending_ship').length;
+  const shipped = orders.filter(o => o.status === 'shipped').length;
+  const received = orders.filter(o => o.status === 'received').length;
+  const progress = mem.next ? Math.min(100, Math.round((pts - mem.cur.min) / (mem.next.min - mem.cur.min) * 100)) : 100;
+
+  return `
+  <h2 class="sec-title">个人中心</h2>
+  <section class="panel" style="background:linear-gradient(135deg,#2E7D5B,#4CAF50);color:#fff;padding:24px;text-align:center">
+    <div style="font-size:48px;margin-bottom:8px">${mem.cur.badge}</div>
+    <h3 style="color:#fff;margin-bottom:4px">${mem.cur.name}</h3>
+    <p style="opacity:0.9;font-size:14px">${pts} 积分</p>
+    ${mem.next ? `<div style="background:rgba(255,255,255,0.2);border-radius:10px;height:8px;margin:14px 20px;overflow:hidden"><div style="background:#fff;height:100%;width:${progress}%;border-radius:10px"></div></div>
+    <p style="font-size:12px;opacity:0.85">距「${mem.next.name}」还需 ${mem.next.min - pts} 积分</p>` : '<p style="font-size:12px;opacity:0.85">已达最高等级 🎉</p>'}
+    <div style="margin-top:14px;display:flex;justify-content:center;gap:20px;font-size:13px">
+      <span>📦 ${orders.length} 订单</span>
+      <span>❤️ ${favs.length} 收藏</span>
+      <span>🎫 ${COUPONS.length} 张券</span>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:16px">
+    <h3><span class="q">📦</span>我的订单</h3>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center">
+      <a href="#/orders?tab=pending_pay" style="text-decoration:none;color:inherit;padding:12px 4px;border-radius:10px;transition:background 0.2s" onmouseover="this.style.background='var(--soft)'" onmouseout="this.style.background=''">
+        <div style="font-size:24px;margin-bottom:4px">💰</div>
+        <div style="font-size:12px">待付款</div>
+        ${pendingPay ? `<span style="position:relative;top:-20px;left:12px;background:#E8792B;color:#fff;font-size:10px;border-radius:10px;padding:1px 5px">${pendingPay}</span>` : ''}
+      </a>
+      <a href="#/orders?tab=pending_ship" style="text-decoration:none;color:inherit;padding:12px 4px;border-radius:10px" onmouseover="this.style.background='var(--soft)'" onmouseout="this.style.background=''">
+        <div style="font-size:24px;margin-bottom:4px">🏭</div>
+        <div style="font-size:12px">待发货</div>
+        ${pendingShip ? `<span style="position:relative;top:-20px;left:12px;background:#E8792B;color:#fff;font-size:10px;border-radius:10px;padding:1px 5px">${pendingShip}</span>` : ''}
+      </a>
+      <a href="#/orders?tab=shipped" style="text-decoration:none;color:inherit;padding:12px 4px;border-radius:10px" onmouseover="this.style.background='var(--soft)'" onmouseout="this.style.background=''">
+        <div style="font-size:24px;margin-bottom:4px">🚚</div>
+        <div style="font-size:12px">待收货</div>
+        ${shipped ? `<span style="position:relative;top:-20px;left:12px;background:#E8792B;color:#fff;font-size:10px;border-radius:10px;padding:1px 5px">${shipped}</span>` : ''}
+      </a>
+      <a href="#/orders?tab=received" style="text-decoration:none;color:inherit;padding:12px 4px;border-radius:10px" onmouseover="this.style.background='var(--soft)'" onmouseout="this.style.background=''">
+        <div style="font-size:24px;margin-bottom:4px">✍️</div>
+        <div style="font-size:12px">待评价</div>
+        ${received ? `<span style="position:relative;top:-20px;left:12px;background:#E8792B;color:#fff;font-size:10px;border-radius:10px;padding:1px 5px">${received}</span>` : ''}
+      </a>
+      <a href="#/orders" style="text-decoration:none;color:inherit;padding:12px 4px;border-radius:10px" onmouseover="this.style.background='var(--soft)'" onmouseout="this.style.background=''">
+        <div style="font-size:24px;margin-bottom:4px">📋</div>
+        <div style="font-size:12px">全部订单</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:16px">
+    <h3><span class="q">⚙️</span>常用功能</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+      <a href="#/favorites" style="text-decoration:none;color:inherit;padding:16px;text-align:center;border-radius:12px;background:var(--soft)">
+        <div style="font-size:28px;margin-bottom:6px">❤️</div><div style="font-size:13px">我的收藏</div>
+      </a>
+      <a href="#/coupons" style="text-decoration:none;color:inherit;padding:16px;text-align:center;border-radius:12px;background:var(--soft)">
+        <div style="font-size:28px;margin-bottom:6px">🎫</div><div style="font-size:13px">优惠券</div>
+      </a>
+      <a href="#/compare" style="text-decoration:none;color:inherit;padding:16px;text-align:center;border-radius:12px;background:var(--soft)">
+        <div style="font-size:28px;margin-bottom:6px">⚖️</div><div style="font-size:13px">商品对比</div>
+      </a>
+      <a href="#/notifications" style="text-decoration:none;color:inherit;padding:16px;text-align:center;border-radius:12px;background:var(--soft)">
+        <div style="font-size:28px;margin-bottom:6px">🔔</div><div style="font-size:13px">消息通知</div>
+      </a>
+      <a href="#/join" style="text-decoration:none;color:inherit;padding:16px;text-align:center;border-radius:12px;background:var(--soft)">
+        <div style="font-size:28px;margin-bottom:6px">🏢</div><div style="font-size:13px">企业入驻</div>
+      </a>
+      <a href="#/privacy" style="text-decoration:none;color:inherit;padding:16px;text-align:center;border-radius:12px;background:var(--soft)">
+        <div style="font-size:28px;margin-bottom:6px">🔒</div><div style="font-size:13px">隐私政策</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:16px">
+    <h3><span class="q">📋</span>关于</h3>
+    <p style="font-size:14px;line-height:1.8">双休购 v1.0 · 劳动权益信息参考平台（演示 Demo）<br>
+    所有数据仅存储在浏览器本地，不上传服务器。<br>
+    <a href="#/about" style="color:var(--green)">了解更多 →</a></p>
+  </section>`;
+}
+
 const routes = {
   '': pageHome, 'companies': pageCompanies, 'company': pageCompanyDetail,
   'product': pageProductDetail, 'products': pageProducts, 'cart': pageCart,
   'checkout': pageCheckout, 'orders': pageOrders, 'order': pageOrderDetail,
   'aftersale': pageAftersale, 'rank': pageRank, 'blacklist': pageBlacklist,
-  'badcase': pageBadDetail, 'favorites': pageFavorites, 'join': pageJoin, 'about': pageAbout, 'compare': pageCompare, 'coupons': pageCoupons, 'notifications': pageNotifications, 'privacy': pagePrivacy
+  'badcase': pageBadDetail, 'favorites': pageFavorites, 'join': pageJoin, 'about': pageAbout, 'compare': pageCompare, 'coupons': pageCoupons, 'notifications': pageNotifications, 'privacy': pagePrivacy, 'profile': pageProfile
 };
 
 function parseHash() {
@@ -1322,6 +1410,8 @@ function bindPageEvents(page, params) {
       if (subChip) { const cur = parseHash().params; cur.set('sub', subChip.dataset.subchip); goto('products', cur); return; }
       const typeChip = e.target.closest('[data-typetag]');
       if (typeChip) { const cur = parseHash().params; cur.set('type', typeChip.dataset.typetag); cur.delete('cat'); cur.delete('sub'); goto('products', cur); return; }
+      const priceChip = e.target.closest('[data-pricerange]');
+      if (priceChip) { const cur = parseHash().params; cur.set('pr', priceChip.dataset.pricerange); goto('products', cur); return; }
       const sevChip = e.target.closest('[data-sevchip]');
       if (sevChip) { const cur = parseHash().params; cur.set('sev', sevChip.dataset.sevchip); goto('blacklist', cur); return; }
       const orderTab = e.target.closest('[data-ordertab]');
