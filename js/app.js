@@ -1521,7 +1521,51 @@ function bindPageEvents(page, params) {
     $('#btnAddCart').addEventListener('click', () => { addToCart(pid, 1); toast('已收藏，可在收藏查看'); });
     const buyBtn = $('#btnBuyNow');
     const prod = getProductByPid(pid);
-    if (buyBtn && prod && prod.buyUrl) buyBtn.href = prod.buyUrl;
+    if (buyBtn && prod) {
+      buyBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const url = prod.buyUrl || 'https://www.jd.com';
+        // Show purchase confirmation dialog
+        const modal = document.createElement('div');
+        modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center';
+        modal.innerHTML = '<div style="background:var(--card);border-radius:16px;padding:28px;max-width:380px;width:90%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.2)">' +
+          '<div style="font-size:40px;margin-bottom:12px">🛒</div>' +
+          '<h3 style="margin-bottom:8px">跳转到京东购买</h3>' +
+          '<p style="font-size:14px;color:var(--text-2);margin-bottom:20px;line-height:1.6">即将打开京东购买「' + prod.name + '」<br>完成购买后请回来确认，将计入你的累计消费</p>' +
+          '<div style="display:grid;gap:10px">' +
+            '<button id="btnConfirmBought" style="padding:12px;border:none;border-radius:10px;background:var(--green);color:#fff;font-size:15px;cursor:pointer">✅ 已购买，累计消费 ¥' + prod.price + '</button>' +
+            '<button id="btnCancelBuy" style="padding:12px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:15px;cursor:pointer">📦 去看看，还没买</button>' +
+          '</div></div>';
+        document.body.appendChild(modal);
+        // Open JD in new tab
+        window.open(url, '_blank');
+        // Confirm bought
+        document.getElementById('btnConfirmBought').addEventListener('click', () => {
+          // Create a completed order record
+          const orders = getOrders();
+          const order = {
+            id: 'SX' + Date.now().toString().slice(-8),
+            items: [{ pid: prod.pid, name: prod.name, price: prod.price, qty: 1, img: prod.img, cname: prod.cname }],
+            subtotal: prod.price, total: prod.price,
+            address: { name: '京东购买', phone: '', region: '', detail: '外部平台购买' },
+            payment: '京东跳转', status: 'done',
+            createdAt: new Date().toISOString(),
+            timeline: [{ text: '从双休购跳转京东购买', time: new Date().toISOString() }, { text: '已确认购买，累计消费 +' + prod.price + '元', time: new Date().toISOString() }],
+            aftersale: null
+          };
+          orders.unshift(order);
+          saveOrders(orders);
+          addPoints(Math.floor(prod.price / 10));
+          document.body.removeChild(modal);
+          toast('已累计消费 ¥' + prod.price + '！积分+' + Math.floor(prod.price / 10));
+          setTimeout(() => render(), 800);
+        });
+        document.getElementById('btnCancelBuy').addEventListener('click', () => {
+          document.body.removeChild(modal);
+        });
+        modal.addEventListener('click', e => { if (e.target === modal) document.body.removeChild(modal); });
+      });
+    }
     const favBtn = $('#btnFavProduct');
     if (favBtn) favBtn.addEventListener('click', () => {
       toggleFavProduct(pid);
