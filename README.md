@@ -4,12 +4,19 @@
 
 一个「支持双休企业」的纯前端 PWA 应用：收录真正实行上四休三 / 四天半 / 双休的企业及其商品，像京东淘宝一样完整下单；同时曝光压榨员工的反面教材。买谁的、抵制谁的，一目了然。
 
-![License](https://img.shields.io/badge/license-MIT-green)
+[![Live Demo](https://img.shields.io/badge/在线体验-立即试试-2E7D5B?style=for-the-badge&logo=data:image/svg+xml)](https://endcodeworld.github.io/shuangxiugou/)
+[![License](https://img.shields.io/badge/license-MIT-green)](#-license)
 ![PWA](https://img.shields.io/badge/PWA-ready-2E7D5B)
 ![Static](https://img.shields.io/badge/stack-vanilla%20JS-yellow)
 ![Companies](https://img.shields.io/badge/双休企业-109-orange)
 ![BadCases](https://img.shields.io/badge/反面教材-31-red)
 ![Products](https://img.shields.io/badge/商品-323-blue)
+
+## 🖼 界面预览
+
+| 首页 | 商品库 | 避雷区 |
+|:---:|:---:|:---:|
+| ![首页](docs/home.png) | ![商品库](docs/products.png) | ![避雷区](docs/blacklist.png) |
 
 ## ✨ 功能特性
 
@@ -69,14 +76,15 @@
 ├── css/
 │   └── style.css           # 全部样式（响应式 + 深色模式）
 ├── js/
-│   ├── data.js              # 核心常量 + 25 家企业
+│   ├── data.js             # 核心常量 + 25 家企业
 │   ├── data2.js            # 51 家补充企业 + 13 家黑名单 + 细分类体系
-│   ├── data3.js             # 图片映射 + 定价 + 8 家额外黑名单 + 岗位
+│   ├── data3.js            # 图片映射 + 定价 + 8 家额外黑名单 + 岗位
 │   ├── data4.js            # 33 家企业 + 10 家黑名单 + 评论/优惠券/热搜/会员
-│   └── app.js               # SPA 路由 + 电商逻辑 + 全部页面渲染
+│   └── app.js              # SPA 路由 + 电商逻辑 + 全部页面渲染
 ├── img/
 │   ├── hero.jpg            # 首页主图
 │   └── products/            # 69 张商品图
+├── docs/                   # README 截图
 └── icons/
     ├── icon.svg            # 手写 logo
     ├── icon-192.png
@@ -107,6 +115,6 @@ python -m http.server 8080
 // 商品：p(名称, 主分类, 细分类, 描述, 是否热门)
 ```
 
-## 📜  License
+## 📜 License
 
 MIT — 双休不是等来的，是争取来的。
