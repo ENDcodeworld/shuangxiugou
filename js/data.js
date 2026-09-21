@@ -160,10 +160,14 @@ const COMPANIES = [
     evidence: 'BOSS直聘微软中国公司主页（双休、不加班）；牛客微软员工评价区长期口径一致',
     salary: { level: '领先水平', benefits: ['15天全薪年假+15天全薪病假（最高升至20天）', '6周全薪陪产假', '补充公积金+补充医疗', '全员持股', '节假日加班按2-3倍工资'], note: '员工评价「厚道的955」，业界公认的福利标杆。' },
     products: [
-      { name: 'Surface Pro / Laptop', cat: '数码电子', sub: '电脑平板', desc: '二合一笔记本与轻薄本产品线', hot: true },
-      { name: 'Xbox Series X|S', cat: '数码电子', sub: '游戏设备', desc: '游戏主机及 Game Pass 订阅' },
-      { name: 'Microsoft 365', cat: '软件应用', sub: '办公协作', desc: 'Office 办公套件订阅服务' },
-      { name: 'Windows 11', cat: '软件应用', sub: '操作系统', desc: '桌面操作系统' }
+      { name: 'Surface Pro 11', cat: '数码电子', sub: '电脑平板', desc: '骁龙X Elite | 13英寸触控 | 二合一笔记本', price: 9988, origPrice: 10988, hot: true },
+      { name: 'Surface Laptop 7', cat: '数码电子', sub: '电脑平板', desc: '13.8英寸 | 骁龙X Elite | 轻薄办公本', price: 9488, origPrice: 10488 },
+      { name: 'Surface Laptop Studio 2', cat: '数码电子', sub: '电脑平板', desc: 'i7/RTX4050 | 14.4英寸触控 | 创意设计本', price: 14888, origPrice: 15988 },
+      { name: 'Xbox Series X', cat: '数码电子', sub: '游戏设备', desc: '1TB | 4K游戏主机 | 光追', price: 3899, origPrice: 4299, hot: true },
+      { name: 'Xbox Series S', cat: '数码电子', sub: '游戏设备', desc: '1TB白色版 | 1440p游戏主机', price: 2299, origPrice: 2599 },
+      { name: 'Xbox Game Pass Ultimate', cat: '软件应用', sub: '游戏设备', desc: 'PC+主机+云游戏 | 月卡', price: 99, origPrice: 119 },
+      { name: 'Microsoft 365 家庭版', cat: '软件应用', sub: '办公协作', desc: '6人共享 | Office套件+1TB云存储', price: 498, origPrice: 698, hot: true },
+      { name: 'Surface Headphones 4', cat: '数码电子', sub: '耳机音箱', desc: '降噪头戴耳机 | 触控调节', price: 1588, origPrice: 1788 }
     ]
   },
   {
@@ -191,9 +195,11 @@ const COMPANIES = [
     evidence: '牛客西门子员工评价区（2024-2026多条一致评价）；牛客双休企业盘点帖',
     salary: { level: '行业中上', benefits: ['带薪年假15天起', '五险一金按最高比例缴纳', '免费班车', '每周2天居家办公', '圣诞假期'], note: '员工评价：周末绝不找你聊工作，加班都是稀罕事。' },
     products: [
-      { name: '西门子冰箱 / 洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: '西门子家电（博西家电）冰洗产品线', hot: true },
-      { name: '西门子洗碗机', cat: '家用电器', sub: '厨房电器', desc: '国内洗碗机品类头部品牌' },
-      { name: '开关插座面板', cat: '家居家装', sub: '开关电气', desc: '西门子家居电气系列' }
+      { name: '西门子502升十字门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '精控恒鲜 | 一级变频 | 风冷无霜', price: 5990, origPrice: 6990, hot: true },
+      { name: '西门子10kg滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: 'iQ300 | 除菌洗 | 1200转', price: 3490, origPrice: 3990 },
+      { name: '西门子14套嵌入式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '除菌消毒 | 72℃高温 | 自动开门烘干', price: 5999, origPrice: 6999, hot: true },
+      { name: '西门子13套独立式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '可洗锅 | 热交换烘干', price: 4299, origPrice: 4999 },
+      { name: '西门子睿致开关插座', cat: '家居家装', sub: '开关电气', desc: '钛银系列 | 无边框大面板', price: 15, origPrice: 25 }
     ]
   },
   {
@@ -240,11 +246,14 @@ const COMPANIES = [
     evidence: '中国新闻周刊 2025-03-18《赶人下班，打工人不淡定了》；经济观察报相关报道；牛客双休盘点帖',
     salary: { level: '领先水平', benefits: ['年终奖', '每月增发500 GT币（约合500元，可在食堂/内部购物/提现）', '公积金'], note: '媒体报道：强制下班后研发效率反升约15%。' },
     products: [
-      { name: 'DJI Mini / Air / Mavic 无人机', cat: '数码电子', sub: '无人机', desc: '消费级航拍无人机系列', hot: true },
-      { name: 'Osmo Pocket 3', cat: '数码电子', sub: '影像设备', desc: '口袋云台相机，vlog 爆款' },
-      { name: 'Osmo Action 运动相机', cat: '数码电子', sub: '影像设备', desc: '运动场景影像产品线' },
-      { name: 'DJI Mic 无线麦克风', cat: '数码电子', sub: '影像设备', desc: '创作者收音设备' },
-      { name: 'RS 系列相机稳定器', cat: '数码电子', sub: '影像设备', desc: '专业影像稳定设备' }
+      { name: 'DJI Mini 4 Pro', cat: '数码电子', sub: '无人机', desc: '249g | 全向避障 | 4K HDR | 智能跟随', price: 4788, origPrice: 5288, hot: true },
+      { name: 'DJI Air 3S', cat: '数码电子', sub: '无人机', desc: '1英寸CMOS | 全向避障 | 53分钟续航', price: 6988, origPrice: 7588 },
+      { name: 'DJI Mavic 4 Pro', cat: '数码电子', sub: '无人机', desc: '哈苏相机 | 100倍变焦 | 46分钟续航', price: 13888, origPrice: 14888 },
+      { name: 'DJI Neo', cat: '数码电子', sub: '无人机', desc: '掌上飞行相机 | Vlog神器', price: 1299, origPrice: 1499 },
+      { name: 'Osmo Pocket 3', cat: '数码电子', sub: '影像设备', desc: '一英寸CMOS | 口袋云台 | 4K/120fps', price: 3499, origPrice: 3899, hot: true },
+      { name: 'Osmo Action 4', cat: '数码电子', sub: '影像设备', desc: '1/1.3英寸传感器 | 防水18m | 地平线增稳', price: 2299, origPrice: 2599 },
+      { name: 'DJI Mic 2', cat: '数码电子', sub: '影像设备', desc: '双通道 | 32位浮点 | 充电盒', price: 1699, origPrice: 1999 },
+      { name: 'DJI RS 4 Pro', cat: '数码电子', sub: '影像设备', desc: '相机稳定器 | 4.5kg负载 | 自动轴锁', price: 2999, origPrice: 3299 }
     ]
   },
   {
@@ -257,10 +266,13 @@ const COMPANIES = [
     evidence: '中国新闻周刊 2025-03-18；澎湃新闻 2025-09-05；美的集团副总裁赵磊对媒体回应',
     salary: { level: '行业中上', benefits: ['五险一金', '年终奖', '无效会议减少20%（集团数据）'], note: '核心导向：8小时内聚焦有价值的工作，业务需要可申请加班。' },
     products: [
-      { name: '美的空调', cat: '家用电器', sub: '空调', desc: '家用空调主力产品线', hot: true },
-      { name: '冰箱 / 洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: '冰洗品类' },
-      { name: '电饭煲 / 微波炉', cat: '家用电器', sub: '厨房电器', desc: '厨房小家电' },
-      { name: 'COLMO 高端家电', cat: '家用电器', sub: '空调', desc: '集团旗下高端 AI 科技家电品牌' }
+      { name: '美的1.5匹酷金空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 变频冷暖 | 自清洁', price: 2399, origPrice: 2899, hot: true },
+      { name: '美的3匹风尊空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 全屋送风 | 智控温', price: 4999, origPrice: 5699 },
+      { name: '美的508升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '双循环 | PT净味 | 一级能效', price: 3899, origPrice: 4599 },
+      { name: '美的10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '变频滚筒 | 除菌洗 | 智能烘干', price: 2799, origPrice: 3299 },
+      { name: '美的4L电饭煲', cat: '家用电器', sub: '厨房电器', desc: 'IH电磁加热 | 智能预约 | 不粘锅', price: 399, origPrice: 499 },
+      { name: '美的微蒸烤一体机', cat: '家用电器', sub: '厨房电器', desc: '变频微波 | 蒸烤三合一 | 智能菜单', price: 1299, origPrice: 1599 },
+      { name: 'COLMO 3匹空调', cat: '家用电器', sub: '空调', desc: 'AI智能 | 无风感 | 高端旗舰', price: 12999, origPrice: 14999 }
     ]
   },
   {
@@ -324,10 +336,29 @@ const COMPANIES = [
     note: '研发与部分业务线节奏较快，以具体部门为准。',
     salary: { level: '行业中上', benefits: ['双休', '大促后补休', '员工内购福利'], note: '硬件新零售为主业，岗位间节奏差异明显。' },
     products: [
-      { name: '小米手机 / REDMI', cat: '数码电子', sub: '手机', desc: '智能手机产品线', hot: true },
-      { name: '小米手环 / 手表', cat: '数码电子', sub: '智能穿戴', desc: '可穿戴设备' },
-      { name: '米家智能家居', cat: '家用电器', sub: '清洁电器', desc: '扫地机器人、空气净化器等' },
-      { name: '小米 SU7', cat: '汽车出行', sub: '整车', desc: '智能电动汽车' }
+      { name: '小米15 Pro', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 6.73英寸 | 徕卡影像', price: 5299, origPrice: 5699, hot: true },
+      { name: '小米15', cat: '数码电子', sub: '手机', desc: '小屏旗舰 | 骁龙8至尊版 | 徕卡光学', price: 4499, origPrice: 4999, hot: true },
+      { name: '小米14', cat: '数码电子', sub: '手机', desc: '徕卡光学镜头 | 骁龙8 Gen3', price: 3999, origPrice: 4299 },
+      { name: '小米14 Ultra', cat: '数码电子', sub: '手机', desc: '全焦段徕卡影像 | 2K全等深微曲屏', price: 6499, origPrice: 6999 },
+      { name: '小米Civi 4 Pro', cat: '数码电子', sub: '手机', desc: '前置仿生柔光环 | 骁龙8s Gen3', price: 2999, origPrice: 3299 },
+      { name: 'REDMI K80 Pro', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 2K直屏 | 120W快充', price: 3899, origPrice: 4299, hot: true },
+      { name: 'REDMI K80', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen3 | 2K护眼直屏', price: 2499, origPrice: 2799 },
+      { name: 'REDMI Note 14 Pro+', cat: '数码电子', sub: '手机', desc: '2亿像素 | IP68防水 | 80W', price: 1899, origPrice: 2099 },
+      { name: 'REDMI Note 14', cat: '数码电子', sub: '手机', desc: '天玑7300-Ultra | 大电池', price: 1199, origPrice: 1399 },
+      { name: 'REDMI Turbo 4', cat: '数码电子', sub: '手机', desc: '天玑8400-Ultra | 轻薄长续航', price: 1499, origPrice: 1699 },
+      { name: 'REDMI 14C', cat: '数码电子', sub: '手机', desc: '5000万主摄 | 6.74英寸大屏', price: 699, origPrice: 799 },
+      { name: '小米手环9 Pro', cat: '数码电子', sub: '智能穿戴', desc: '1.74英寸AMOLED | 心率血氧 | 150+运动模式', price: 399, origPrice: 449, hot: true },
+      { name: '小米手环9', cat: '数码电子', sub: '智能穿戴', desc: '全天候心率 | 50米防水 | 14天续航', price: 249, origPrice: 279 },
+      { name: '小米手表S4', cat: '数码电子', sub: '智能穿戴', desc: 'eSIM独立通话 | 蓝宝石玻璃 | 专业健康', price: 999, origPrice: 1199 },
+      { name: '小米平板7 Pro', cat: '数码电子', sub: '电脑平板', desc: '骁龙8s Gen3 | 3.2K超清屏', price: 2499, origPrice: 2799 },
+      { name: '小米平板7', cat: '数码电子', sub: '电脑平板', desc: '天玑8350-Ultra | 144Hz高刷屏', price: 1999, origPrice: 2199 },
+      { name: '米家扫地机器人X40', cat: '家用电器', sub: '清洁电器', desc: '机械臂伸缩 | 双机械臂 0缠毛', price: 3999, origPrice: 4499, hot: true },
+      { name: '米家空气净化器5', cat: '家用电器', sub: '环境电器', desc: '除甲醛 | 除过敏原 | 99.99%除菌', price: 899, origPrice: 1099 },
+      { name: '小米电视S Pro 85英寸', cat: '家用电器', sub: '电视影音', desc: 'Mini LED | 2400nits | 4K 144Hz', price: 5999, origPrice: 6999 },
+      { name: '小米手环8', cat: '数码电子', sub: '智能穿戴', desc: 'NFC版 | 心率监测 | 15天续航', price: 199, origPrice: 229 },
+      { name: '小米SU7', cat: '汽车出行', sub: '整车', desc: '后驱标准版 | CLTC 700km | 零百5.28s', price: 215900, origPrice: 235900, hot: true },
+      { name: '小米SU7 Pro', cat: '汽车出行', sub: '整车', desc: '长续航 | CLTC 830km | 零百5.7s', price: 245900, origPrice: 265900 },
+      { name: '小米SU7 Max', cat: '汽车出行', sub: '整车', desc: '双电机四驱 | CLTC 800km | 零百2.78s', price: 299900, origPrice: 329900 }
     ]
   },
   {
@@ -341,9 +372,13 @@ const COMPANIES = [
     note: '「全员双休通知」未经官方发文确认，实际作息可能因产业线而异。',
     salary: { level: '行业中上', benefits: ['官方称持续提升员工工作体验'], note: '大型集团各产业线作息不一，以具体岗位为准。' },
     products: [
-      { name: '海尔冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '全球销量领先的冰箱产品线', hot: true },
-      { name: '海尔洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: '滚筒与波轮洗衣机' },
-      { name: '卡萨帝高端家电', cat: '家用电器', sub: '冰箱洗衣机', desc: '集团旗下高端家电品牌' }
+      { name: '海尔501升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '一级能效 | 风冷无霜 | EPP超净系统', price: 4299, origPrice: 4999, hot: true },
+      { name: '海尔473升十字对开门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '超薄嵌入 | 阻氧干湿分储', price: 3599, origPrice: 4199 },
+      { name: '海尔10公斤滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: '直驱变频 | 525大筒径 | 智能投放', price: 2599, origPrice: 2999, hot: true },
+      { name: '海尔10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '微蒸汽空气洗 | 智能烘干', price: 3299, origPrice: 3799 },
+      { name: '海尔3匹中央空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 智能变频 | 自清洁', price: 6999, origPrice: 7999 },
+      { name: '卡萨帝647升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '原石系列 | 零距离自由嵌入式', price: 12999, origPrice: 14999 },
+      { name: '卡萨帝洗烘套装', cat: '家用电器', sub: '冰箱洗衣机', desc: '纤诺系列 | 光等离子除菌', price: 15999, origPrice: 17999 }
     ]
   },
 

@@ -1359,15 +1359,22 @@ function bindPageEvents(page, params) {
       toast(on ? '已加入对比，最多选4个' : '已移出对比');
     });
 
-    // 分享商品
+    // 分享商品（复制链接+文案）
     const btnShare = $('#btnShare');
     if (btnShare) btnShare.addEventListener('click', () => {
-      const text = `【双休购】推荐：${p.name}（¥${p.price}）——来自双休企业「${c.short}」，支持为善待员工的企业投票！`;
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => toast('分享文案已复制到剪贴板'));
-      } else {
-        toast(text);
-      }
+      const url = location.origin + location.pathname + '#/product/' + pid;
+      const text = `【双休购】${p.name}（¥${p.price}）——双休企业「${c.short}」出品\n${url}`;
+      const doCopy = () => {
+        navigator.clipboard.writeText(text).then(() => toast('链接已复制，快去分享吧！')).catch(() => {
+          const ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); toast('链接已复制'); } catch(e) { toast(text); }
+          document.body.removeChild(ta);
+        });
+      };
+      if (navigator.share) {
+        navigator.share({ title: p.name, text: `${p.name} ¥${p.price}`, url: url }).catch(() => doCopy());
+      } else { doCopy(); }
     });
   }
 

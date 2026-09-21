@@ -67,96 +67,86 @@ function nicePrice(v) {
 }
 /* ---------- 商品名关键词 → 精准配图 ---------- */
 const KEYWORD_IMG = [
-  ['咖啡|coffee|胶囊|雀巢', 'coffee.jpg'],
-  ['手机|phone|Galaxy|iPhone|小米|华为|苹果', 'phone.jpg'],
-  ['耳机|headphone|降噪|WH-1000', 'headphones.jpg'],
-  ['手表|watch|手环|穿戴', 'watch.jpg'],
-  ['相机|微单|Alpha|镜头|单反', 'camera.jpg'],
-  ['电脑|笔记本|laptop|Surface|平板|tablet', 'laptop.jpg'],
-  ['电视|TV|QLED|影音|投影', 'tv.jpg'],
-  ['键盘|keyboard|机械', 'keyboard.jpg'],
-  ['鼠标|mouse', 'mouse.jpg'],
-  ['跑鞋|sneaker|跑步|运动', 'sneaker.jpg'],
-  ['连衣裙|女装|dress|裙子', 'dress.jpg'],
-  ['T恤|tshirt|UT|摇粒绒|轻羽绒|服饰', 'tshirt.jpg'],
-  ['鞋|shoe|靴|凉鞋', 'shoes.jpg'],
-  ['护肤|skincare|精华|面霜|水乳|防晒|洁面|小棕瓶|红腰子|安热沙|雅姿|碧柔|大宝|修丽可|海蓝之谜|雅诗兰黛|兰蔻|巴黎欧莱雅|倩碧|怡丽丝尔|资生堂|修丽可', 'skincare.jpg'],
-  ['口红|lipstick|彩妆|MAC|魅可|美宝莲|唇|粉底', 'lipstick.jpg'],
-  ['香水|perfume|香氛', 'perfume.jpg'],
-  ['眼镜|glasses|墨镜', 'glasses.jpg'],
-  ['水果|fruit|生鲜|苹果|橙|草莓|葡萄', 'fruit.jpg'],
-  ['牛奶|奶粉|乳|酸奶|爱他美|诺优能|优诺|纯悦|依云|脉动|雪碧|芬达|美汁源|可乐|饮料', 'milk.jpg'],
-  ['零食|巧克力|饼干|糖|威化|趣多多|奥利奥|士力架|M&M|德芙|炫迈|乐事|薯片|冰淇淋|雪糕|梦龙|可爱多|徐福记|脆脆鲨|和路雪|湾仔码头|哈根达斯|热狗|面包', 'food.jpg'],
-  ['面包|烘焙|cake|蛋糕|糕点', 'bread.jpg'],
-  ['蛋糕|cake|甜点', 'cake.jpg'],
-  ['肉|meat|牛排|火腿', 'meat.jpg'],
-  ['蔬菜|vegetable|有机', 'vegetable.jpg'],
-  ['油|oil|酱油|调味|番茄酱|亨氏|味事达|橄榄油', 'oil.jpg'],
-  ['药|维生素|保健|善存|钙尔奇|芬必得|爱乐维|达喜|舒适达|李施德林|邦迪|创可贴|漱口水|口腔|牙膏|牙刷|洗发|洗护|清扬|多芬|施华蔻|丝蕴|碧柔|滴露|杜蕾斯|薇婷|高洁丝|护舒宝|卫生巾|舒洁|纸巾|洗衣|奥妙|宝莹|洗衣液|洗洁精|柔顺', 'medicine.jpg'],
-  ['婴儿|纸尿裤|好奇|妙而舒|强生|宝宝|母婴|奶粉', 'baby.jpg'],
-  ['沙发|couch|家具|宜家|家居|收纳|厨房|纺织品', 'couch.jpg'],
-  ['椅子|chair|办公椅', 'chair.jpg'],
-  ['花|flower|玫瑰|花艺|绿植|盆栽', 'flower.jpg'],
-  ['灯|lamp|照明|台灯', 'lamp.jpg'],
-  ['工具|drill|五金|电钻|螺丝', 'drill.jpg'],
-  ['车|car|汽车|SUV|轿车|海豚|元|ET|ES|理想|小米SU7|蔚来|小鹏|极越', 'car.jpg'],
-  ['发动机|engine|电机|变速箱', 'engine.jpg'],
-  ['充电|储能|电源|换电|超充|电池', 'evcharge.jpg'],
-  ['书|book|阅读|小说|教材|文具|笔|pen|本子|笔记本', 'book.jpg'],
-  ['书店|bookstore|书城|图书馆', 'bookstore.jpg'],
-  ['乐高|lego|积木|玩具|toy|拼图|手办|潮玩|模型', 'lego.jpg'],
-  ['游戏|game|手游|PS5|Steam|主机|电竞|剑网|恋与|暖暖|逆水寒|梦幻西游|蛋仔', 'game.jpg'],
-  ['VR|vr|头显|眼镜', 'vr.jpg'],
-  ['电商|shopping|直播|平台|跨境|特卖|旗舰店|得物|唯品会|天猫|淘宝|盒马|严选|拼多多', 'shopping.jpg'],
-  ['快递|delivery|物流|配送|顺丰|申通|仓储|快递柜', 'delivery.jpg'],
-  ['飞机|flight|机票|航空|出差', 'flight.jpg'],
-  ['酒店|hotel|民宿|住宿|旅馆', 'hotel.jpg'],
-  ['沙滩|beach|度假|旅游|旅行|酒店|景区|门票', 'beach.jpg'],
-  ['握手|handshake|咨询|投资|孵化|猎头|招聘', 'handshake.jpg'],
-  ['喇叭|megaphone|广告|营销|推广|品牌', 'megaphone.jpg'],
-  ['机器人|robot|自动化|机械臂|工业', 'robot.jpg'],
-  ['网络|network|交换机|路由|云|AWS|Azure|SAP|Oracle|数据库|服务器|IT|软件|SaaS|企业服务|技术服务|云计算', 'network.jpg'],
-  ['办公|office|协作|钉钉|飞书|会议|打印机|投影', 'office.jpg'],
-  ['芯片|chip|半导体|处理器|GPU|CPU|固态|存储|显卡', 'chip.jpg'],
-  ['麦克风|mic|音频|播客|录音|直播', 'mic.jpg'],
-  ['珠宝|jewelry|首饰|项链|戒指|手表', 'jewelry.jpg'],
-  ['老师|teacher|培训|教育|课程|学校|研学|STEAM|育儿', 'teacher.jpg'],
-  ['毕业|graduation|学位|升学|考研|留学|考试', 'graduation.jpg'],
-  ['语言|language|英语|日语|韩语|口语|翻译', 'language.jpg'],
-  ['瑜伽|yoga|健身|普拉提|运动|露营|户外', 'yoga.jpg'],
-  ['自行车|bicycle|单车|骑行|电动车', 'bicycle.jpg'],
-  ['植物|plant|空气|净化|加湿|除湿|风扇|空调|空气净化器', 'plant.jpg'],
-  ['建筑|building|房产|工程|房地产|商业地产', 'building.jpg'],
-  ['货车|truck|重卡|物流车|挂车', 'truck.jpg'],
-  ['茶|tea|普洱|龙井|红茶|绿茶|立顿|奶茶', 'tea.jpg'],
-  ['扬声器|speaker|音响|音箱|SoundBar', 'speaker.jpg'],
-  ['平板|tablet|iPad|MatePad', 'tablet.jpg'],
-  ['艺术|art|设计|插画|文创|周边|手账|贴纸|海报', 'art.jpg'],
-  ['母婴|baby|儿童|童装|玩具', 'baby.jpg']
+  // 使用 Unsplash 真实产品照片
+  ['咖啡|coffee|胶囊|雀巢', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80'],
+  ['手机|phone|Galaxy|iPhone|小米|华为|苹果|REDMI', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80'],
+  ['耳机|headphone|降噪|WH-1000|Mic', 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80'],
+  ['手表|watch|手环|穿戴', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80'],
+  ['相机|微单|Alpha|镜头|单反|无人机|DJI|大疆', 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&q=80'],
+  ['电脑|笔记本|laptop|Surface|平板|tablet|Xbox', 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80'],
+  ['电视|TV|QLED|影音|投影', 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600&q=80'],
+  ['键盘|keyboard|机械', 'https://images.unsplash.com/photo-1587829741301-dc7983ad8fb8?w=600&q=80'],
+  ['鼠标|mouse', 'https://images.unsplash.com/photo-1527814050087-3793815f47b9?w=600&q=80'],
+  ['冰箱|洗衣机|家电|空调|美的|海尔|西门子', 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80'],
+  ['洗碗机|厨房|电饭煲|微波炉|扫地', 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&q=80'],
+  ['跑鞋|sneaker|跑步|运动|瑜伽', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80'],
+  ['连衣裙|女装|dress|裙子|女装', 'https://images.unsplash.com/photo-1595777457583-95e059d51b9a?w=600&q=80'],
+  ['T恤|tshirt|UT|摇粒绒|轻羽绒|服饰', 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80'],
+  ['鞋|shoe|靴|凉鞋', 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&q=80'],
+  ['护肤|skincare|精华|面霜|水乳|防晒|洁面|SK-II|海飞丝', 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80'],
+  ['口红|lipstick|彩妆|MAC|唇|粉底', 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&q=80'],
+  ['香水|perfume|香氛', 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&q=80'],
+  ['水果|fruit|生鲜|苹果|橙|草莓|葡萄|农产品', 'https://images.unsplash.com/photo-1610832958506-aae17ac6b37e?w=600&q=80'],
+  ['牛奶|奶粉|乳|酸奶|饮料|咖啡', 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&q=80'],
+  ['零食|巧克力|饼干|糖|薯片|面包', 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&q=80'],
+  ['药|维生素|保健|洗护|洗发|洗衣', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80'],
+  ['婴儿|纸尿裤|宝宝|母婴', 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80'],
+  ['车|car|汽车|SUV|轿车|SU7|整车', 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80'],
+  ['充电|储能|电源|换电|电池', 'https://images.unsplash.com/photo-1609592424896-ab9acdcf517c?w=600&q=80'],
+  ['书|book|阅读|小说|教材|文具', 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&q=80'],
+  ['乐高|lego|积木|玩具|toy|拼图', 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80'],
+  ['游戏|game|手游|PS5|Steam|主机|电竞', 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80'],
+  ['酒店|hotel|民宿|住宿|旅游|旅行', 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80'],
+  ['飞机|flight|机票|航空|出差', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80'],
+  ['办公|office|协作|会议|打印', 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80'],
+  ['芯片|chip|半导体|处理器|GPU|CPU|固态', 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80'],
+  ['投资|孵化|咨询|猎头|招聘', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80'],
+  ['营销|广告|推广|品牌', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80'],
+  ['机器人|robot|自动化|机械臂|工业', 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80'],
+  ['网络|network|云|AWS|Azure|SAP|Oracle|数据库|服务器|SaaS|云计算', 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80'],
+  ['教育|培训|课程|学校|升学|考研', 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80'],
+  ['花|flower|玫瑰|花艺|绿植|盆栽', 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&q=80'],
+  ['工具|drill|五金|电钻|博世', 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=600&q=80'],
+  ['家具|沙发|家居|收纳', 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80'],
+  ['快递|delivery|物流|配送|仓储', 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80'],
+  ['直播|平台|跨境|特卖|旗舰|电商', 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80'],
 ];
+/* --- 以下为旧版本地图片映射（兜底） ---
+const KEYWORD_IMG_OLD = ['@'
 
 /* 富化单个商品：返回价格/划线价/销量/评分/评论数/图 */
 function enrichProduct(p) {
   const h = hashStr(p.name + '|' + (p.cid || ''));
-  const range = PRICE_RANGE[p.cat] || [29, 999];
-  const base = range[0] + (h % (range[1] - range[0]));
-  const price = Math.max(9, nicePrice(base));
-  const orig = Math.round(price * (1.18 + (h % 50) / 10) * 10) / 10;
+  // 支持显式定价（真实市场价）
+  let price;
+  if (p.price) { price = p.price; }
+  else {
+    const range = PRICE_RANGE[p.cat] || [29, 999];
+    const base = range[0] + (h % (range[1] - range[0]));
+    price = Math.max(9, nicePrice(base));
+  }
+  const orig = p.origPrice || Math.round(price * (1.18 + (h % 50) / 10) * 10) / 10;
   const sales = 300 + (h % 49700);
   const rating = (4.3 + (h % 70) / 100).toFixed(1);
   const reviews = 80 + (h % 4920);
-  // 优先按商品名关键词匹配精准图，再按细分类兜底
-  let img = 'img/products/shopping.jpg';
-  const name = (p.name || '') + ' ' + (p.desc || '');
-  for (const [kw, file] of KEYWORD_IMG) {
-    if (new RegExp(kw).test(name)) { img = 'img/products/' + file; break; }
+  // 支持显式图片URL
+  let img;
+  if (p.img) { img = p.img; }
+  else {
+    img = '';
+    const name = (p.name || '') + ' ' + (p.desc || '');
+    for (const [kw, file] of KEYWORD_IMG) {
+      if (new RegExp(kw).test(name)) {
+        img = file.startsWith('http') ? file : ('img/products/' + file);
+        break;
+      }
+    }
+    if (!img) {
+      img = SUB_IMG[p.sub] || SUB_IMG[p.cat] || 'img/products/shopping.jpg';
+    }
   }
-  if (img === 'img/products/shopping.jpg') {
-    img = SUB_IMG[p.sub] || SUB_IMG[p.cat] || 'img/products/shopping.jpg';
-  }
-  // 生成外部平台搜索链接（跳转京东搜索，不在本站下单）
   const q = encodeURIComponent(p.name || '');
-  const buyUrl = 'https://search.jd.com/Search?keyword=' + q;
+  const buyUrl = p.buyUrl || ('https://search.jd.com/Search?keyword=' + q);
   return { price, origPrice: orig > price ? Math.round(orig) : Math.round(price * 1.3), sales, rating, reviews, img, buyUrl };
 }
 
