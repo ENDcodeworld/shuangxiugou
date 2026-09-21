@@ -580,6 +580,16 @@ function pageProductDetail(pid) {
         </div>`).join('')}</div>` : '<div class="empty" style="padding:24px;text-align:center;color:#999">还没有评价，来写第一条吧</div>'}
   </section>
 
+  <section class="panel">
+    <h3><span class="q">❓</span>常见问题</h3>
+    <div style="display:grid;gap:12px">
+      <details style="padding:12px;background:var(--bg);border-radius:10px"><summary style="cursor:pointer;font-weight:600;font-size:14px">是否支持七天无理由退换？</summary><p style="margin:8px 0 0;font-size:13.5px;color:var(--text-2)">支持。签收后7天内不影响二次销售可申请退换，运费险覆盖首重。</p></details>
+      <details style="padding:12px;background:var(--bg);border-radius:10px"><summary style="cursor:pointer;font-weight:600;font-size:14px">发货时间多久？</summary><p style="margin:8px 0 0;font-size:13.5px;color:var(--text-2)">工作日16点前下单当天发货，预计1-3天送达（偏远地区3-5天）。</p></details>
+      <details style="padding:12px;background:var(--bg);border-radius:10px"><summary style="cursor:pointer;font-weight:600;font-size:14px">是否提供发票？</summary><p style="margin:8px 0 0;font-size:13.5px;color:var(--text-2)">支持电子普通发票，下单时可填写发票抬头，签收后7个工作日内开具。</p></details>
+      <details style="padding:12px;background:var(--bg);border-radius:10px"><summary style="cursor:pointer;font-weight:600;font-size:14px">售后怎么联系？</summary><p style="margin:8px 0 0;font-size:13.5px;color:var(--text-2)">在订单详情页点击"申请售后"，客服会在24小时内响应处理。</p></details>
+    </div>
+  </section>
+
   ${related.length ? `<section class="panel"><h3><span class="q">🔗</span>同款店铺商品</h3><div class="pd-grid">${related.map(x => pdCardHTML(x, false)).join('')}</div></section>` : ''}
   `;
 }
@@ -1498,6 +1508,23 @@ function bindPageEvents(page, params) {
       } else { doCopy(); }
     });
   }
+
+  // 清空搜索历史
+  const clearHist = $('#clearSearchHist');
+  if (clearHist) clearHist.addEventListener('click', e => {
+    e.preventDefault();
+    localStorage.removeItem('sxg_searchhist');
+    render();
+  });
+
+  // 商品规格选择
+  $$('.spec-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.parentElement;
+      group.querySelectorAll('.spec-opt').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    });
+  });
 
   // 劳动权益投票
   $$('[data-vote-dim]').forEach(box => {

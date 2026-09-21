@@ -701,3 +701,8 @@ img { display: block; max-width: 100%; }
 @media (max-width:768px) {
   .flash-sale { grid-template-columns:repeat(2,1fr); }
 }
+.spec-opt { padding:6px 14px; border:1.5px solid var(--line); border-radius:8px; background:var(--card); cursor:pointer; font-size:13px; transition:all 0.2s; }
+.spec-opt:hover { border-color:var(--green); }
+.spec-opt.selected { border-color:var(--green); background:var(--green); color:#fff; }
+details summary::-webkit-details-marker { display:none; }
+details[open] { background:#fff !important; }
