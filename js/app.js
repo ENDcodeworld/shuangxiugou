@@ -53,7 +53,7 @@ function toggleFav(id, name) {
   updateFavUI();
 }
 
-/* ---------- 购物车 ---------- */
+/* ---------- 收藏 ---------- */
 const getCart = () => { try { return JSON.parse(localStorage.getItem('sxg_cart') || '[]'); } catch (e) { return []; }};
 const saveCart = c => { try { localStorage.setItem('sxg_cart', JSON.stringify(c)); } catch (e) {} };
 const cartCount = () => getCart().reduce((s, x) => s + (x.qty || 0), 0);
@@ -187,7 +187,7 @@ function pdCardHTML(p, showCo = true) {
       <div class="pd-rate">${starsHTML(p.rating)}<span class="tiny">${p.reviews}条评价 · 已售${p.sales}</span></div>
       <div class="pd-foot">
         <div class="pd-price"><b>${fmtMoney(p.price)}</b><s>${fmtMoney(p.origPrice)}</s></div>
-        <button class="cart-add-btn" data-addcart="${p.pid}" aria-label="加入购物车">
+        <button class="cart-add-btn" data-addcart="${p.pid}" aria-label="收藏">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         </button>
       </div>
@@ -518,15 +518,15 @@ function pageProductDetail(pid) {
           <input id="qtyInput" type="number" value="1" min="1" max="99">
           <button data-qty="1">＋</button>
         </div>
-        <button class="btn btn-line-cart" id="btnAddCart">加入购物车</button>
-        <button class="btn btn-orange" id="btnBuyNow">立即购买</button>
+        <button class="btn btn-line-cart" id="btnAddCart">❤ 收藏</button>
+        <a class="btn btn-orange" id="btnBuyNow" href="#" target="_blank" rel="noopener" style="text-decoration:none">🛒 去京东购买</a>
       </div>
       <div class="extra-actions">
         <button class="mini-btn" id="btnCompare" data-pid="${pid}">${inCmp ? '✓ 已加入对比' : '⚖️ 加入对比'}</button>
         <button class="mini-btn" id="btnShare">🔗 分享商品</button>
       </div>
       <div class="service-tags">
-        <span>🚚 顺丰包邮 · 次日达</span><span>🛡️ 正品保障</span><span>↩️ 七天无理由</span><span>💬 30天售后</span>
+        <span>ℹ️ 价格仅供参考</span><span>🔗 点击购买跳转京东</span><span>📦 实际库存与售后以京东为准</span>
       </div>
     </div>
   </section>
@@ -564,12 +564,12 @@ function pageProductDetail(pid) {
   `;
 }
 
-/* ---------- 页面：购物车 ---------- */
+/* ---------- 页面：收藏 ---------- */
 function pageCart() {
   const items = cartDetail();
   if (!items.length) {
-    return `<h2 class="sec-title">购物车</h2>
-    <div class="empty"><div class="emo">🛒</div>购物车还是空的<br><span class="tiny">去逛逛双休企业的好货吧</span>
+    return `<h2 class="sec-title">我的收藏</h2>
+    <div class="empty"><div class="emo">⭐</div>还没有收藏商品<br><span class="tiny">点击商品卡片上的爱心收藏</span>
     <div style="margin-top:18px"><a class="btn btn-orange" href="#/products">去逛商品</a></div></div>`;
   }
   const total = items.reduce((s, x) => s + x.prod.price * x.qty, 0);
@@ -578,8 +578,8 @@ function pageCart() {
   const progress = Math.min(total / 199, 1) * 100;
   const remain = Math.max(0, 199 - total);
   return `
-  <h2 class="sec-title">购物车 <span class="tiny" style="font-weight:400">${count} 件商品</span></h2>
-  <div class="note-box" style="background:#FFF0E0;border:1px solid #E8792B;color:#B35A1A;margin-bottom:14px"><b>⚠️ 演示 Demo：</b>购物车与下单流程仅为原型演示，不产生真实交易。</div>
+  <h2 class="sec-title">我的收藏 <span class="tiny" style="font-weight:400">${count} 件商品</span></h2>
+  <div class="note-box" style="background:#FFF0E0;border:1px solid #E8792B;color:#B35A1A;margin-bottom:14px"><b>ℹ️ 说明：</b>本平台仅展示商品信息与价格参考，点击购买将跳转至京东等外部平台，不在本站交易。</div>
   <div class="discount-progress">
     <div class="dp-info">${total >= 199 ? '🎉 已满足「满199减30」优惠！' : `再买 <b>¥${remain.toFixed(0)}</b> 即可减 ¥30`}</div>
     <div class="dp-bar"><div class="dp-fill" style="width:${progress}%"></div></div>
@@ -605,18 +605,18 @@ function pageCart() {
   </div>
   <div class="cart-bar">
     <div class="cart-total">合计：<b>${fmtMoney(total)}</b></div>
-    <button class="btn btn-orange" id="btnCheckout">去结算 (${count})</button>
+    <button class="btn btn-orange" id="btnCheckout">🛒 去京东购买全部 (${count})</button>
   </div>`;
 }
 
 /* ---------- 页面：结算 ---------- */
 function pageCheckout() {
   const items = cartDetail();
-  if (!items.length) return `<div class="empty"><div class="emo">🛒</div>购物车为空<div style="margin-top:14px"><a class="btn btn-green" href="#/products">去逛商品</a></div></div>`;
+  if (!items.length) return `<div class="empty"><div class="emo">🛒</div>收藏为空<div style="margin-top:14px"><a class="btn btn-green" href="#/products">去逛商品</a></div></div>`;
   const addr = (() => { try { return JSON.parse(localStorage.getItem('sxg_addr') || '{}'); } catch (e) { return {}; } })();
   const total = items.reduce((s, x) => s + x.prod.price * x.qty, 0);
   return `
-  <a class="back-link" href="#/cart">← 返回购物车</a>
+  <a class="back-link" href="#/cart">← 返回收藏</a>
   <h2 class="sec-title">确认订单</h2>
   <div class="note-box" style="background:#FFF0E0;border:1px solid #E8792B;color:#B35A1A;margin-bottom:14px"><b>⚠️ 演示 Demo：</b>本页面仅为产品原型演示，不产生真实交易，不扣除任何费用。</div>
   <form id="checkoutForm" novalidate>
@@ -667,7 +667,7 @@ function pageOrders(params) {
     ${tabs.map(([k, l]) => `<button class="chip ${tab === k ? 'active' : ''}" data-ordertab="${k}">${l}</button>`).join('')}
   </div>
   ${os.length ? `<div class="order-list anim">${os.map(orderCardHTML).join('')}</div>`
-    : `<div class="empty"><div class="emo">📦</div>暂无相关订单<div style="margin-top:18px"><a class="btn btn-orange" href="#/products">去下单</a></div></div>`}`;
+    : `<div class="empty"><div class="emo">📦</div>暂无相关订单<div style="margin-top:18px"><a class="btn btn-orange" href="#/products">去逛商品</a></div></div>`}`;
 }
 function orderCardHTML(o) {
   const st = ORDER_STATUS[o.status] || o.status;
@@ -827,7 +827,7 @@ function pageProducts(params) {
   const subList = cat !== '全部' && SUBCATS[cat] ? ['全部', ...SUBCATS[cat]] : [];
 
   return `
-  <h2 class="sec-title">商品库 <span class="tiny" style="font-weight:400">双休企业商品展示 · 电商流程演示（非真实交易）</span></h2>
+  <h2 class="sec-title">商品库 <span class="tiny" style="font-weight:400">双休企业商品展示 · 价格参考 · 点击购买跳转外部平台</span></h2>
   <div class="hot-search">
     <span class="hs-label">🔥 热搜：</span>
     ${HOT_SEARCH.map(h => `<a href="#/products?q=${encodeURIComponent(h)}">${h}</a>`).join('')}
@@ -1197,7 +1197,7 @@ function pagePrivacy() {
     <h3><span class="q">🔒</span>数据存储</h3>
     <p style="font-size:14px;line-height:1.9">本应用为纯前端演示项目，<b>所有数据仅存储在您浏览器的 localStorage 中</b>，不会上传到任何服务器，也不会与任何第三方共享。</p>
     <ul style="font-size:14px;line-height:1.9;padding-left:20px">
-      <li>购物车、订单、地址、收藏等数据仅保存在您的本机浏览器</li>
+      <li>收藏、订单、地址、收藏等数据仅保存在您的本机浏览器</li>
       <li>清除浏览器缓存或使用无痕模式将删除上述数据</li>
       <li>我们不收集任何个人身份信息（姓名、手机号、地址等仅用于前端演示，不上传）</li>
       <li>不使用 Cookie 追踪、不嵌入第三方分析统计、不展示广告</li>
@@ -1209,7 +1209,7 @@ function pagePrivacy() {
   </section>
   <section class="panel">
     <h3><span class="q">🎬</span>演示性质</h3>
-    <p style="font-size:14px;line-height:1.9">本应用中的电商流程（商品浏览、加购物车、下单、支付、物流、售后）均为<b>界面原型演示</b>，不涉及真实交易、不扣款、不发货。所有价格、库存、物流状态均为模拟数据。</p>
+    <p style="font-size:14px;line-height:1.9">本应用中的电商流程（商品浏览、加收藏、下单、支付、物流、售后）均为<b>界面原型演示</b>，不涉及真实交易、不扣款、不发货。所有价格、库存、物流状态均为模拟数据。</p>
   </section>
   <section class="panel">
     <h3><span class="q">📮</span>联系我们</h3>
@@ -1281,9 +1281,9 @@ function bindPageEvents(page, params) {
       const favBtn = e.target.closest('[data-fav]');
       if (favBtn) { e.stopPropagation(); toggleFav(favBtn.dataset.fav, favBtn.dataset.name); render(); return; }
 
-      // 加入购物车（卡片上）
+      // 加入收藏（卡片上）
       const addBtn = e.target.closest('[data-addcart]');
-      if (addBtn) { e.stopPropagation(); addToCart(addBtn.dataset.addcart, 1); toast('已加入购物车'); return; }
+      if (addBtn) { e.stopPropagation(); addToCart(addBtn.dataset.addcart, 1); toast('已收藏'); return; }
 
       const chip = e.target.closest('[data-chip]');
       if (chip) { const cur = parseHash().params; cur.set('p', chip.dataset.chip); goto('companies', cur); return; }
@@ -1296,7 +1296,7 @@ function bindPageEvents(page, params) {
       const orderTab = e.target.closest('[data-ordertab]');
       if (orderTab) { const cur = parseHash().params; cur.set('tab', orderTab.dataset.ordertab); goto('orders', cur); return; }
 
-      // 购物车数量
+      // 收藏数量
       const cqty = e.target.closest('[data-cart-qty]');
       if (cqty) { const pid = cqty.dataset.pid; const cur = getCart().find(x => x.pid === pid); setCartQty(pid, (cur ? cur.qty : 0) + parseInt(cqty.dataset.cartQty)); render(); return; }
       const cdel = e.target.closest('[data-cart-del]');
@@ -1329,8 +1329,10 @@ function bindPageEvents(page, params) {
       qtyInput.value = v;
     }));
     const pid = parseHash().arg;
-    $('#btnAddCart').addEventListener('click', () => { addToCart(pid, parseInt(qtyInput.value) || 1); toast('已加入购物车'); });
-    $('#btnBuyNow').addEventListener('click', () => { addToCart(pid, parseInt(qtyInput.value) || 1); location.hash = '#/checkout'; });
+    $('#btnAddCart').addEventListener('click', () => { addToCart(pid, 1); toast('已收藏，可在收藏查看'); });
+    const buyBtn = $('#btnBuyNow');
+    const prod = getProductByPid(pid);
+    if (buyBtn && prod && prod.buyUrl) buyBtn.href = prod.buyUrl;
     const favBtn = $('#btnFavProduct');
     if (favBtn) favBtn.addEventListener('click', () => {
       toggleFavProduct(pid);
@@ -1425,9 +1427,16 @@ function bindPageEvents(page, params) {
     toast('投递成功！');
   });
 
-  /* 购物车结算 */
+  /* 收藏 - 跳转外部平台购买 */
   const btnCheckout = $('#btnCheckout');
-  if (btnCheckout) btnCheckout.addEventListener('click', () => { location.hash = '#/checkout'; });
+  if (btnCheckout) btnCheckout.addEventListener('click', () => {
+    const items = cartDetail();
+    if (!items.length) return;
+    items.forEach((x, i) => {
+      if (x.prod.buyUrl) setTimeout(() => window.open(x.prod.buyUrl, '_blank'), i * 300);
+    });
+    toast('正在打开京东购买页面…');
+  });
 
   /* 提交订单 */
   const checkoutForm = $('#checkoutForm');

@@ -154,7 +154,10 @@ function enrichProduct(p) {
   if (img === 'img/products/shopping.jpg') {
     img = SUB_IMG[p.sub] || SUB_IMG[p.cat] || 'img/products/shopping.jpg';
   }
-  return { price, origPrice: orig > price ? Math.round(orig) : Math.round(price * 1.3), sales, rating, reviews, img };
+  // 生成外部平台搜索链接（跳转京东搜索，不在本站下单）
+  const q = encodeURIComponent(p.name || '');
+  const buyUrl = 'https://search.jd.com/Search?keyword=' + q;
+  return { price, origPrice: orig > price ? Math.round(orig) : Math.round(price * 1.3), sales, rating, reviews, img, buyUrl };
 }
 
 /* ---------- 劳动争议记录（已清空，仅保留 data2.js 中的法律文书案例） ---------- */
