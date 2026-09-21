@@ -114,7 +114,7 @@ const COMPANIES = [
     evidence: '天眼查企业头条转载新浪看点《乐视实行4天半工作制：不降薪无996》，引用乐视 2023-01-03 全员信',
     salary: { level: '行业平均', benefits: ['四天半不降薪', '无996', '研发可准点下班'], note: '全员信承诺薪资福利不因工时缩短而减少。' },
     products: [
-      { name: '乐视超级电视', cat: '家用电器', sub: '电视影音', desc: '大屏智能电视，乐视硬件的拳头产品', hot: true },
+      { name: '乐视超级电视', cat: '家用电器', sub: '电视影音', desc: '大屏智能电视，乐视硬件的拳头产品', hot: true , img: 'https://imgslim.geekpark.net/uploads/image/file/84/50/8450f64b8c63b6f4b8a4116a072b1c78.png' },
       { name: '乐视视频 App 会员', cat: '软件应用', sub: '视频影音', desc: '影视内容平台，《甄嬛传》等版权剧版权库' },
       { name: '乐视智能投影', cat: '家用电器', sub: '电视影音', desc: '家用智能投影仪系列' },
       { name: '乐视蓝牙耳机', cat: '数码电子', sub: '耳机音箱', desc: '高性价比音频产品线' }
@@ -130,7 +130,7 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['不降薪、不裁员', '2024年净利约1.4-1.6亿元扭亏为盈'], note: 'CEO陈才雄：扭亏为盈的业绩是实行4.5天工作制的底气。' },
     careers: 'https://www.zhipin.com/web/geek/job?query=%E5%AD%90%E4%B8%8D%E8%AF%AD',
     products: [
-      { name: '快时尚女装', cat: '服饰运动', sub: '女装', desc: '通过亚马逊、独立站销往欧美的自有品牌女装', hot: true },
+      { name: '快时尚女装', cat: '服饰运动', sub: '女装', desc: '通过亚马逊、独立站销往欧美的自有品牌女装', hot: true , img: 'https://pic1.zhimg.com/v2-4d89fb60e0bcffde3586a23b1efa2464_r.jpg' },
       { name: '时尚女鞋', cat: '服饰运动', sub: '女鞋', desc: '跨境起家的核心品类' },
       { name: '运动休闲服饰', cat: '服饰运动', sub: '运动服饰', desc: '近年拓展的第二增长曲线品类' }
     ]
@@ -145,7 +145,7 @@ const COMPANIES = [
     salary: { level: '行业平均', benefits: ['非一线岗位双休', '设计岗试行4.5天'], note: '传统制造业中少见的主动改革案例。' },
     products: [
       { name: '新能源动力电池系统', cat: '数码电子', sub: '储能电源', desc: '面向工商业场景的动力与储能电池', hot: true },
-      { name: '便携储能电源', cat: '数码电子', sub: '储能电源', desc: '户外与户用储能产品线' }
+      { name: '便携储能电源', cat: '数码电子', sub: '储能电源', desc: '户外与户用储能产品线' , img: 'https://i-blog.csdnimg.cn/direct/c356a2604ce44ac29a8d59a48c2a8d81.png' }
     ]
   },
 
@@ -161,12 +161,12 @@ const COMPANIES = [
     salary: { level: '领先水平', benefits: ['15天全薪年假+15天全薪病假（最高升至20天）', '6周全薪陪产假', '补充公积金+补充医疗', '全员持股', '节假日加班按2-3倍工资'], note: '员工评价「厚道的955」，业界公认的福利标杆。' },
     products: [
       { name: 'Surface Pro 11', cat: '数码电子', sub: '电脑平板', desc: '骁龙X Elite | 13英寸触控 | 二合一笔记本', price: 9988, origPrice: 10988, hot: true, img: 'https://qnam.smzdm.com/202503/12/67d1407d89c459734.jpg_e1080.jpg' },
-      { name: 'Surface Laptop 7', cat: '数码电子', sub: '电脑平板', desc: '13.8英寸 | 骁龙X Elite | 轻薄办公本', price: 9488, origPrice: 10488 },
+      { name: 'Surface Laptop 7', cat: '数码电子', sub: '电脑平板', desc: '13.8英寸 | 骁龙X Elite | 轻薄办公本', price: 9488, origPrice: 10488 , img: 'http://img.leikeji.com/resource/img/1d0ece322b5d4631bf1c381e1c091d7b.jpg' },
       { name: 'Surface Laptop Studio 2', cat: '数码电子', sub: '电脑平板', desc: 'i7/RTX4050 | 14.4英寸触控 | 创意设计本', price: 14888, origPrice: 15988 },
-      { name: 'Xbox Series X', cat: '数码电子', sub: '游戏设备', desc: '1TB | 4K游戏主机 | 光追', price: 3899, origPrice: 4299, hot: true },
+      { name: 'Xbox Series X', cat: '数码电子', sub: '游戏设备', desc: '1TB | 4K游戏主机 | 光追', price: 3899, origPrice: 4299, hot: true , img: 'https://pic2.zhimg.com/v2-681df18182728235106ba5dada9f44f8_1440w.jpg' },
       { name: 'Xbox Series S', cat: '数码电子', sub: '游戏设备', desc: '1TB白色版 | 1440p游戏主机', price: 2299, origPrice: 2599 },
-      { name: 'Xbox Game Pass Ultimate', cat: '软件应用', sub: '游戏设备', desc: 'PC+主机+云游戏 | 月卡', price: 99, origPrice: 119 },
-      { name: 'Microsoft 365 家庭版', cat: '软件应用', sub: '办公协作', desc: '6人共享 | Office套件+1TB云存储', price: 498, origPrice: 698, hot: true },
+      { name: 'Xbox Game Pass Ultimate', cat: '软件应用', sub: '游戏设备', desc: 'PC+主机+云游戏 | 月卡', price: 99, origPrice: 119 , img: 'https://img.3dmgame.com/uploads/images/news/20210901/1630502354_454918.jpg' },
+      { name: 'Microsoft 365 家庭版', cat: '软件应用', sub: '办公协作', desc: '6人共享 | Office套件+1TB云存储', price: 498, origPrice: 698, hot: true , img: 'https://img.alicdn.com/bao/uploaded/i3/708238552/O1CN010aMoY32D2s18Y3Htw_!!0-item_pic.jpg' },
       { name: 'Surface Headphones 4', cat: '数码电子', sub: '耳机音箱', desc: '降噪头戴耳机 | 触控调节', price: 1588, origPrice: 1788 }
     ]
   },
@@ -197,9 +197,9 @@ const COMPANIES = [
     products: [
       { name: '西门子502升十字门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '精控恒鲜 | 一级变频 | 风冷无霜', price: 5990, origPrice: 6990, hot: true, img: 'http://y.zdmimg.com/202104/19/607d8ff9050fa2705.jpg' },
       { name: '西门子10kg滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: 'iQ300 | 除菌洗 | 1200转', price: 3490, origPrice: 3990 },
-      { name: '西门子14套嵌入式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '除菌消毒 | 72℃高温 | 自动开门烘干', price: 5999, origPrice: 6999, hot: true },
-      { name: '西门子13套独立式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '可洗锅 | 热交换烘干', price: 4299, origPrice: 4999 },
-      { name: '西门子睿致开关插座', cat: '家居家装', sub: '开关电气', desc: '钛银系列 | 无边框大面板', price: 15, origPrice: 25 }
+      { name: '西门子14套嵌入式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '除菌消毒 | 72℃高温 | 自动开门烘干', price: 5999, origPrice: 6999, hot: true , img: 'https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/131565/28/35944/148958/6479bef7Fee60aab3/bf9399c3a1d618a8.jpg' },
+      { name: '西门子13套独立式洗碗机', cat: '家用电器', sub: '厨房电器', desc: '可洗锅 | 热交换烘干', price: 4299, origPrice: 4999 , img: 'https://a.zdmimg.com/201903/18/5c8f4611b29ba9721.jpg_e1080.jpg' },
+      { name: '西门子睿致开关插座', cat: '家居家装', sub: '开关电气', desc: '钛银系列 | 无边框大面板', price: 15, origPrice: 25 , img: 'https://img.alicdn.com/i2/1678416802/O1CN01hQEYq7207MiZpTv7h_!!1678416802.jpg' }
     ]
   },
   {
@@ -212,7 +212,7 @@ const COMPANIES = [
     evidence: 'BOSS直聘博世中国公司主页公示工时与福利',
     salary: { level: '行业中上', benefits: ['补充公积金', '补充医疗保险', '免费班车', '餐补', '通讯与交通补贴'], note: 'BOSS直聘公司主页公示的工时与福利。' },
     products: [
-      { name: '博世电动工具', cat: '家居家装', sub: '五金工具', desc: '专业级电钻、角磨机等工具', hot: true },
+      { name: '博世电动工具', cat: '家居家装', sub: '五金工具', desc: '专业级电钻、角磨机等工具', hot: true , img: 'https://img11.360buyimg.com/cms/jfs/t1/177550/20/30792/439113/6368ba96E4650bb6c/3966be7166971c61.jpg' },
       { name: '博世家电', cat: '家用电器', sub: '冰箱洗衣机', desc: '冰箱、洗衣机、厨电产品线' },
       { name: '汽车雨刮 / 火花塞', cat: '汽车出行', sub: '汽车配件', desc: '博世汽车售后配件' }
     ]
@@ -227,9 +227,9 @@ const COMPANIES = [
     evidence: '牛客 2026-01 双休企业盘点帖（快消大厂篇）',
     salary: { level: '领先水平', benefits: ['带薪假期多（求职社区口碑18天年假起）', '补充商业保险', '弹性福利平台'], note: '快消第一梯队薪酬福利。' },
     products: [
-      { name: '海飞丝 / 飘柔 / 潘婷', cat: '个护美妆', sub: '洗护发', desc: '洗发水护发产品线', hot: true },
+      { name: '海飞丝 / 飘柔 / 潘婷', cat: '个护美妆', sub: '洗护发', desc: '洗发水护发产品线', hot: true , img: 'http://image4.suning.cn/uimg/b2c/newcatentries/0000000000-000000000141793261_1_800x800.jpg' },
       { name: 'OLAY 玉兰油', cat: '个护美妆', sub: '护肤', desc: '大众护肤线' },
-      { name: 'SK-II', cat: '个护美妆', sub: '高端护肤', desc: '高端护肤线（神仙水）' },
+      { name: 'SK-II', cat: '个护美妆', sub: '高端护肤', desc: '高端护肤线（神仙水）' , img: 'https://gd-hbimg.huaban.com/855fa1b8523f52fe16805e2eebfecdc2b38fadae59a3b-dk0vPX_fw658' },
       { name: '舒肤佳', cat: '个护美妆', sub: '个护清洁', desc: '香皂与沐浴露' },
       { name: '帮宝适', cat: '母婴亲子', sub: '纸尿裤', desc: '婴儿纸尿裤' },
       { name: '汰渍 / 碧浪', cat: '个护美妆', sub: '纸品家清', desc: '洗衣洗涤产品线' },
@@ -247,13 +247,13 @@ const COMPANIES = [
     salary: { level: '领先水平', benefits: ['年终奖', '每月增发500 GT币（约合500元，可在食堂/内部购物/提现）', '公积金'], note: '媒体报道：强制下班后研发效率反升约15%。' },
     products: [
       { name: 'DJI Mini 4 Pro', cat: '数码电子', sub: '无人机', desc: '249g | 全向避障 | 4K HDR | 智能跟随', price: 4788, origPrice: 5288, hot: true, img: 'https://doc-fd.zol-img.com.cn/t_s640x2000/g7/M00/09/00/ChMkK2T356qIDES4AAVfUiOfSjUAAUiggHo3mUABV9q602.jpg' },
-      { name: 'DJI Air 3S', cat: '数码电子', sub: '无人机', desc: '1英寸CMOS | 全向避障 | 53分钟续航', price: 6988, origPrice: 7588 },
-      { name: 'DJI Mavic 4 Pro', cat: '数码电子', sub: '无人机', desc: '哈苏相机 | 100倍变焦 | 46分钟续航', price: 13888, origPrice: 14888 },
+      { name: 'DJI Air 3S', cat: '数码电子', sub: '无人机', desc: '1英寸CMOS | 全向避障 | 53分钟续航', price: 6988, origPrice: 7588 , img: 'https://img.leikeji.com/resource/img/edeecb4863e54641b7bc066d2f713125.jpg' },
+      { name: 'DJI Mavic 4 Pro', cat: '数码电子', sub: '无人机', desc: '哈苏相机 | 100倍变焦 | 46分钟续航', price: 13888, origPrice: 14888 , img: 'https://a.zdmimg.com/202505/16/68275f25958bb7837.jpg_e1080.jpg' },
       { name: 'DJI Neo', cat: '数码电子', sub: '无人机', desc: '掌上飞行相机 | Vlog神器', price: 1299, origPrice: 1499 },
-      { name: 'Osmo Pocket 3', cat: '数码电子', sub: '影像设备', desc: '一英寸CMOS | 口袋云台 | 4K/120fps', price: 3499, origPrice: 3899, hot: true },
-      { name: 'Osmo Action 4', cat: '数码电子', sub: '影像设备', desc: '1/1.3英寸传感器 | 防水18m | 地平线增稳', price: 2299, origPrice: 2599 },
-      { name: 'DJI Mic 2', cat: '数码电子', sub: '影像设备', desc: '双通道 | 32位浮点 | 充电盒', price: 1699, origPrice: 1999 },
-      { name: 'DJI RS 4 Pro', cat: '数码电子', sub: '影像设备', desc: '相机稳定器 | 4.5kg负载 | 自动轴锁', price: 2999, origPrice: 3299 }
+      { name: 'Osmo Pocket 3', cat: '数码电子', sub: '影像设备', desc: '一英寸CMOS | 口袋云台 | 4K/120fps', price: 3499, origPrice: 3899, hot: true , img: 'https://2.zol-img.com.cn/product/254_640x2000/35/ceUThCx371QV.jpg' },
+      { name: 'Osmo Action 4', cat: '数码电子', sub: '影像设备', desc: '1/1.3英寸传感器 | 防水18m | 地平线增稳', price: 2299, origPrice: 2599 , img: 'https://qnam.smzdm.com/202310/12/65275471192dc2783.jpg_e1080.jpg' },
+      { name: 'DJI Mic 2', cat: '数码电子', sub: '影像设备', desc: '双通道 | 32位浮点 | 充电盒', price: 1699, origPrice: 1999 , img: 'https://img.alicdn.com/imgextra/i1/4276162013/O1CN01Z3B6w41Qk0CUNHahg_!!4276162013.jpg' },
+      { name: 'DJI RS 4 Pro', cat: '数码电子', sub: '影像设备', desc: '相机稳定器 | 4.5kg负载 | 自动轴锁', price: 2999, origPrice: 3299 , img: 'https://doc-fd.zol-img.com.cn/t_s2000x2000/g7/M00/0A/0A/ChMkK2dacpKIFUxWAAF_hbIWtP0AAmqqwDbcT8AAX-d754.jpg' }
     ]
   },
   {
@@ -268,7 +268,7 @@ const COMPANIES = [
     products: [
       { name: '美的1.5匹酷金空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 变频冷暖 | 自清洁', price: 2399, origPrice: 2899, hot: true, img: 'https://img14.360buyimg.com/pop/jfs/t1/24881/14/19459/24692/632803a0Efbdb8a02/21c6e10fb5c6e872.png' },
       { name: '美的3匹风尊空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 全屋送风 | 智控温', price: 4999, origPrice: 5699 },
-      { name: '美的508升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '双循环 | PT净味 | 一级能效', price: 3899, origPrice: 4599 },
+      { name: '美的508升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '双循环 | PT净味 | 一级能效', price: 3899, origPrice: 4599 , img: 'https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/152755/13/725/59464/5f6d82cbE0cef6bfc/64830bccb7598fb6.jpg' },
       { name: '美的10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '变频滚筒 | 除菌洗 | 智能烘干', price: 2799, origPrice: 3299 },
       { name: '美的4L电饭煲', cat: '家用电器', sub: '厨房电器', desc: 'IH电磁加热 | 智能预约 | 不粘锅', price: 399, origPrice: 499 },
       { name: '美的微蒸烤一体机', cat: '家用电器', sub: '厨房电器', desc: '变频微波 | 蒸烤三合一 | 智能菜单', price: 1299, origPrice: 1599 },
@@ -337,29 +337,29 @@ const COMPANIES = [
     salary: { level: '行业中上', benefits: ['双休', '大促后补休', '员工内购福利'], note: '硬件新零售为主业，岗位间节奏差异明显。' },
     products: [
       { name: '小米17 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen5 | 徕卡影像 | 2K全等深屏 | 无线充电', price: 5999, origPrice: 6499, hot: true, img: 'https://a.zdmimg.com/202509/22/68d0ecfdab7c51379.jpg_e1080.jpg' },
-      { name: '小米17 智能手机', cat: '数码电子', sub: '手机', desc: '小屏旗舰 | 骁龙8 Gen5 | 徕卡光学 | 手感好', price: 4999, origPrice: 5499, hot: true },
-      { name: '小米17 Ultra 智能手机', cat: '数码电子', sub: '手机', desc: '1英寸大底 | 全焦段徕卡 | 2D材质 | 摄影旗舰', price: 7299, origPrice: 7999 },
+      { name: '小米17 智能手机', cat: '数码电子', sub: '手机', desc: '小屏旗舰 | 骁龙8 Gen5 | 徕卡光学 | 手感好', price: 4999, origPrice: 5499, hot: true , img: 'https://a.zdmimg.com/202509/22/68d0ecfdab7c51379.jpg_e1080.jpg' },
+      { name: '小米17 Ultra 智能手机', cat: '数码电子', sub: '手机', desc: '1英寸大底 | 全焦段徕卡 | 2D材质 | 摄影旗舰', price: 7299, origPrice: 7999 , img: 'https://am.zdmimg.com/202512/22/6948da3fcb8657303.png_e1080.jpg' },
       { name: '小米16S 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 长续航 | 性价比旗舰', price: 3699, origPrice: 3999 },
       { name: '小米Civi 5 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '前置柔光灯 | 轻薄自拍旗舰 | 素皮机身', price: 3299, origPrice: 3599 },
       { name: 'REDMI K90 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8 Gen5 | 2K直屏 | 140W快充 | 性能旗舰', price: 4299, origPrice: 4699, hot: true, img: 'https://a.zdmimg.com/202510/17/68f197798c7a9361.jpg_e1080.jpg' },
-      { name: 'REDMI K90 智能手机', cat: '数码电子', sub: '手机', desc: '天玑9500 | 2K护眼直屏 | 90W快充', price: 2799, origPrice: 3099 },
-      { name: 'REDMI K80 Ultra 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 电竞直屏 | 散热增强', price: 3299, origPrice: 3599 },
-      { name: 'REDMI Note 15 Pro+ 智能手机', cat: '数码电子', sub: '手机', desc: '2亿像素 | IP69防水 | 100W快充', price: 2099, origPrice: 2299 },
-      { name: 'REDMI Note 15 智能手机', cat: '数码电子', sub: '手机', desc: '大电池 | 天玑8450 | 续航王', price: 1399, origPrice: 1599 },
-      { name: 'REDMI Turbo 5 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '天玑9400+ | 轻薄长续航 | 性能小钢炮', price: 1799, origPrice: 1999 },
-      { name: 'REDMI 15C 智能手机', cat: '数码电子', sub: '手机', desc: '5000万主摄 | 6.8英寸大屏 | 入门机', price: 799, origPrice: 899 },
-      { name: '小米手环10 Pro', cat: '数码电子', sub: '智能穿戴', desc: '智能手环 | 1.85英寸AMOLED | 心率血氧 | 200+运动模式', price: 449, origPrice: 499, hot: true },
-      { name: '小米手环10', cat: '数码电子', sub: '智能穿戴', desc: '智能手环 | 全天候健康监测 | 14天续航', price: 279, origPrice: 299 },
-      { name: '小米手表S5', cat: '数码电子', sub: '智能穿戴', desc: '智能手表 | eSIM独立通话 | 蓝宝石玻璃 | 专业健康', price: 1199, origPrice: 1399 },
-      { name: '小米平板8 Pro', cat: '数码电子', sub: '电脑平板', desc: '平板电脑 | 骁龙8至尊版 | 3.2K 144Hz高刷', price: 2999, origPrice: 3299 },
-      { name: '小米平板8', cat: '数码电子', sub: '电脑平板', desc: '平板电脑 | 天玑9400 | 144Hz高刷屏', price: 2299, origPrice: 2499 },
-      { name: '米家扫地机器人X50 Pro', cat: '家用电器', sub: '清洁电器', desc: '扫地机器人 | 全能基站 | 双机械臂 | 0缠毛', price: 4599, origPrice: 4999, hot: true },
-      { name: '米家空气净化器6 Pro', cat: '家用电器', sub: '环境电器', desc: '空气净化器 | 除甲醛 | 除过敏原 | 99.99%除菌', price: 1099, origPrice: 1299 },
-      { name: '小米电视S Pro 85英寸 Mini LED', cat: '家用电器', sub: '电视影音', desc: '智能电视 | Mini LED | 3000nits | 4K 144Hz', price: 6999, origPrice: 7999 },
+      { name: 'REDMI K90 智能手机', cat: '数码电子', sub: '手机', desc: '天玑9500 | 2K护眼直屏 | 90W快充', price: 2799, origPrice: 3099 , img: 'https://www.eet-china.com/d/file/news/2025-10-17/f0833501da7e5e02fe3ab8420ef51735.jpg' },
+      { name: 'REDMI K80 Ultra 智能手机', cat: '数码电子', sub: '手机', desc: '骁龙8至尊版 | 电竞直屏 | 散热增强', price: 3299, origPrice: 3599 , img: 'https://xiaomiui.net/wp-content/uploads/2025/06/Redmi-K80-Ultra-now-official-3.png' },
+      { name: 'REDMI Note 15 Pro+ 智能手机', cat: '数码电子', sub: '手机', desc: '2亿像素 | IP69防水 | 100W快充', price: 2099, origPrice: 2299 , img: 'https://am.zdmimg.com/202508/12/689b350ff4581141.jpg_e1080.jpg' },
+      { name: 'REDMI Note 15 智能手机', cat: '数码电子', sub: '手机', desc: '大电池 | 天玑8450 | 续航王', price: 1399, origPrice: 1599 , img: 'https://a.zdmimg.com/202508/21/68a70bb5d3efc8815.jpg_e1080.jpg' },
+      { name: 'REDMI Turbo 5 Pro 智能手机', cat: '数码电子', sub: '手机', desc: '天玑9400+ | 轻薄长续航 | 性能小钢炮', price: 1799, origPrice: 1999 , img: 'https://a.zdmimg.com/202602/07/6986dbab5b66c6183.jpg_e1080.jpg' },
+      { name: 'REDMI 15C 智能手机', cat: '数码电子', sub: '手机', desc: '5000万主摄 | 6.8英寸大屏 | 入门机', price: 799, origPrice: 899 , img: 'https://img4.pconline.com.cn/pconline/images/pconline_cms/20250717/30320610.jpg' },
+      { name: '小米手环10 Pro', cat: '数码电子', sub: '智能穿戴', desc: '智能手环 | 1.85英寸AMOLED | 心率血氧 | 200+运动模式', price: 449, origPrice: 499, hot: true , img: 'https://am.zdmimg.com/202512/25/694d3e58de2796902.jpg_e1080.jpg' },
+      { name: '小米手环10', cat: '数码电子', sub: '智能穿戴', desc: '智能手环 | 全天候健康监测 | 14天续航', price: 279, origPrice: 299 , img: 'https://a.zdmimg.com/202506/28/685f32730490782.jpg_e1080.jpg' },
+      { name: '小米手表S5', cat: '数码电子', sub: '智能穿戴', desc: '智能手表 | eSIM独立通话 | 蓝宝石玻璃 | 专业健康', price: 1199, origPrice: 1399 , img: 'https://a.zdmimg.com/202603/16/69b7c6f824e47814.jpg_e1080.jpg' },
+      { name: '小米平板8 Pro', cat: '数码电子', sub: '电脑平板', desc: '平板电脑 | 骁龙8至尊版 | 3.2K 144Hz高刷', price: 2999, origPrice: 3299 , img: 'https://a.zdmimg.com/202509/20/68ce24f3d82da7227.jpg_e1080.jpg' },
+      { name: '小米平板8', cat: '数码电子', sub: '电脑平板', desc: '平板电脑 | 天玑9400 | 144Hz高刷屏', price: 2299, origPrice: 2499 , img: 'http://sy1.img.pcpop.com/article/5/5201/5201227.jpg' },
+      { name: '米家扫地机器人X50 Pro', cat: '家用电器', sub: '清洁电器', desc: '扫地机器人 | 全能基站 | 双机械臂 | 0缠毛', price: 4599, origPrice: 4999, hot: true , img: 'https://imgservice.suning.cn/uimg1/b2c/image/4H7VvbJ8GPnD5vHuIsunlQ.jpg' },
+      { name: '米家空气净化器6 Pro', cat: '家用电器', sub: '环境电器', desc: '空气净化器 | 除甲醛 | 除过敏原 | 99.99%除菌', price: 1099, origPrice: 1299 , img: 'https://am.zdmimg.com/202510/24/68fae607099ff3757.png_e1080.jpg' },
+      { name: '小米电视S Pro 85英寸 Mini LED', cat: '家用电器', sub: '电视影音', desc: '智能电视 | Mini LED | 3000nits | 4K 144Hz', price: 6999, origPrice: 7999 , img: 'https://www.zngh.com/uploads/image/20231026/1698334569.png' },
       { name: '小米SU7 Ultra 电动车', cat: '汽车出行', sub: '整车', desc: '高性能电动车 | 三电机 | 零百1.98s | CLTC 800km', price: 529900, origPrice: 559900, hot: true, img: 'https://img.pcauto.com.cn/images/upload/upc/tx/auto5/2410/31/c6/460149190_1730358944325.jpg' },
-      { name: '小米SU7 Max 2026款', cat: '汽车出行', sub: '整车', desc: '电动车 | 双电机四驱 | CLTC 830km | 零百2.78s', price: 319900, origPrice: 339900 },
-      { name: '小米SU7 Pro 2026款', cat: '汽车出行', sub: '整车', desc: '电动车 | 长续航 | CLTC 850km | 智能座舱', price: 255900, origPrice: 275900 },
-      { name: '小米YU7 电动SUV', cat: '汽车出行', sub: '整车', desc: '电动SUV | CLTC 780km | 智能驾驶辅助', price: 269900, origPrice: 299900 }
+      { name: '小米SU7 Max 2026款', cat: '汽车出行', sub: '整车', desc: '电动车 | 双电机四驱 | CLTC 830km | 零百2.78s', price: 319900, origPrice: 339900 , img: 'https://img.pcauto.com.cn/images/upload/upc/tx/auto5/2601/07/c8/586900578_1767766449448.jpg' },
+      { name: '小米SU7 Pro 2026款', cat: '汽车出行', sub: '整车', desc: '电动车 | 长续航 | CLTC 850km | 智能座舱', price: 255900, origPrice: 275900 , img: 'https://img.pcauto.com.cn/images/upload/upc/tx/auto5/2603/20/c5/644524665_1773993323626.jpg' },
+      { name: '小米YU7 电动SUV', cat: '汽车出行', sub: '整车', desc: '电动SUV | CLTC 780km | 智能驾驶辅助', price: 269900, origPrice: 299900 , img: 'https://img.pcauto.com.cn/images/upload/upc/tx/auto5/2504/15/c28/503040967_1744699402489.jpg' }
     ]
   },
   {
@@ -375,10 +375,10 @@ const COMPANIES = [
     products: [
       { name: '海尔501升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '一级能效 | 风冷无霜 | EPP超净系统', price: 4299, origPrice: 4999, hot: true, img: 'http://cdn02.ehaier.com/product/56d52950983d794b3d8b4625_1200_1200.jpg' },
       { name: '海尔473升十字对开门冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '超薄嵌入 | 阻氧干湿分储', price: 3599, origPrice: 4199 },
-      { name: '海尔10公斤滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: '直驱变频 | 525大筒径 | 智能投放', price: 2599, origPrice: 2999, hot: true },
+      { name: '海尔10公斤滚筒洗衣机', cat: '家用电器', sub: '冰箱洗衣机', desc: '直驱变频 | 525大筒径 | 智能投放', price: 2599, origPrice: 2999, hot: true , img: 'https://uimgproxy.suning.cn/uimg1/sop/commodity/lvyHwgw-3cJXo8kONYw0UQ.jpg' },
       { name: '海尔10公斤洗烘一体机', cat: '家用电器', sub: '冰箱洗衣机', desc: '微蒸汽空气洗 | 智能烘干', price: 3299, origPrice: 3799 },
       { name: '海尔3匹中央空调', cat: '家用电器', sub: '空调', desc: '一级能效 | 智能变频 | 自清洁', price: 6999, origPrice: 7999 },
-      { name: '卡萨帝647升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '原石系列 | 零距离自由嵌入式', price: 12999, origPrice: 14999 },
+      { name: '卡萨帝647升法式冰箱', cat: '家用电器', sub: '冰箱洗衣机', desc: '原石系列 | 零距离自由嵌入式', price: 12999, origPrice: 14999 , img: 'https://imgservice.suning.cn/uimg1/b2c/image/N_QrU-G2N0tk0YEqyKBVJQ.jpg' },
       { name: '卡萨帝洗烘套装', cat: '家用电器', sub: '冰箱洗衣机', desc: '纤诺系列 | 光等离子除菌', price: 15999, origPrice: 17999 }
     ]
   },
