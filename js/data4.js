@@ -195,7 +195,7 @@ function applyCoupon(total, cat) {
 }
 
 /* ---------- 热搜词 ---------- */
-const HOT_SEARCH = ['大疆', '西门子冰箱', 'Surface Pro', 'SK-II', '海飞丝', '博世电动工具', '乐视', '小米手机', '美的', '海尔', '宝洁', '微软'];
+const HOT_SEARCH = ['小米17', 'REDMI K90', '大疆无人机', '西门子冰箱', 'Surface Pro', 'SK-II', '小米SU7', '海飞丝', '博世电动工具', '小米平板', '美的空调', '海尔冰箱'];
 
 /* ---------- 会员成长体系 ---------- */
 const MEMBER_LEVELS = [

@@ -321,7 +321,7 @@ function pageCompanies(params) {
   const all = ALL_GOOD();
 
   let list = all.filter(c => p === 'all' || c.policy === p);
-  if (q) list = list.filter(c => (c.name + c.short + c.city + c.industry + c.summary + c.products.map(x => x.name).join('')).toLowerCase().includes(q));
+  if (q) { const qs = q.toLowerCase().split(/\s+/).filter(Boolean); list = list.filter(c => { const s = (c.name + c.short + c.city + c.industry + c.summary + c.products.map(x => x.name).join('')).toLowerCase(); return qs.every(k => s.includes(k)); }); }
   if (s === 'rest') list.sort((a, b) => b.restDays - a.restDays || a.short.localeCompare(b.short, 'zh'));
   else if (s === 'since') list.sort((a, b) => String(b.since).localeCompare(String(a.since)));
   else if (s === 'name') list.sort((a, b) => a.short.localeCompare(b.short, 'zh'));
@@ -818,7 +818,7 @@ function pageProducts(params) {
 
   if (cat !== '全部') list = list.filter(p => p.cat === cat);
   if (sub !== '全部') list = list.filter(p => p.sub === sub);
-  if (q) list = list.filter(p => (p.name + p.desc + p.cname + p.cat + (p.sub || '')).toLowerCase().includes(q));
+  if (q) { const qs = q.toLowerCase().split(/\s+/).filter(Boolean); list = list.filter(p => { const s = (p.name + ' ' + p.desc + ' ' + p.cname + ' ' + p.cat + ' ' + (p.sub || '')).toLowerCase(); return qs.every(k => s.includes(k)); }); }
   if (sort === 'priceAsc') list.sort((a, b) => a.price - b.price);
   else if (sort === 'priceDesc') list.sort((a, b) => b.price - a.price);
   else if (sort === 'sales') list.sort((a, b) => b.sales - a.sales);
@@ -1645,7 +1645,7 @@ function boot() {
   inp.addEventListener('input', () => {
     const q = inp.value.trim().toLowerCase();
     if (!q || !suggestBox) { suggestBox.style.display = 'none'; return; }
-    const matches = allProducts.filter(p => (p.name + p.cname).toLowerCase().includes(q)).slice(0, 6);
+    const qs = q.toLowerCase().split(/\s+/).filter(Boolean); const matches = allProducts.filter(p => { const s = (p.name + ' ' + p.cname + ' ' + p.desc).toLowerCase(); return qs.every(k => s.includes(k)); }).slice(0, 6);
     if (!matches.length) { suggestBox.style.display = 'none'; return; }
     suggestBox.innerHTML = matches.map(p => `<div class="suggest-item" data-sq="${esc(p.name)}"><b>${esc(p.name)}</b><span class="tiny">${esc(p.cname)}</span></div>`).join('');
     suggestBox.style.display = 'block';
