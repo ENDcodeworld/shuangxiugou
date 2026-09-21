@@ -1,6 +1,6 @@
 /* 双休购 Service Worker：静态资源离线缓存，网络图片运行时缓存 */
-const CACHE_STATIC = 'sxg-static-v6';
-const CACHE_IMG = 'sxg-img-v6';
+const CACHE_STATIC = 'sxg-static-v7';
+const CACHE_IMG = 'sxg-img-v7';
 
 const STATIC_ASSETS = [
   './',

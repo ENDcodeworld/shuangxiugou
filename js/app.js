@@ -396,11 +396,20 @@ function pageCompanyDetail(id) {
 
   <section class="panel">
     <h3><span class="q">💰</span>薪资与待遇</h3>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
       <span class="salary-level">${esc(c.salary.level)}</span>
       ${(c.salary.benefits || []).map(b => `<span class="benefit-chip">${esc(b)}</span>`).join('')}
     </div>
-    <p class="muted" style="font-size:13.5px">${esc(c.salary.note)}</p>
+    ${(() => {
+      // 薪资区间条
+      const ranges = {'低':20,'中低':35,'中':50,'中高':70,'高':85};
+      const pct = ranges[c.salary.level] || 50;
+      return `<div class="salary-bar">
+        <div class="sb-track"><div class="sb-fill" style="width:${pct}%"></div></div>
+        <div class="sb-labels"><span>¥10k</span><span>¥20k</span><span>¥35k</span><span>¥50k+</span></div>
+      </div>`;
+    })()}
+    <p class="muted" style="font-size:13.5px;margin-top:10px">${esc(c.salary.note)}</p>
   </section>
 
   <section class="panel">
@@ -416,6 +425,19 @@ function pageCompanyDetail(id) {
       <a class="btn btn-outline" href="${zhipinUrl(c.short)}" target="_blank" rel="noopener noreferrer">在招职位搜索 →</a>
     </div>
     <p class="tiny" style="margin-top:12px">💡 面试时主动问清「是否双休、加班频率与加班费/调休制度」。岗位信息为示例，以官方实时为准。</p>
+    <div style="margin-top:18px;padding:16px;background:var(--bg);border-radius:12px">
+      <b style="font-size:14px">📝 快速投递简历到「${esc(c.short)}」</b>
+      <form id="applyForm" style="margin-top:12px;display:grid;gap:10px;grid-template-columns:1fr 1fr">
+        <input name="aname" placeholder="你的姓名" required style="padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:13.5px">
+        <input name="aphone" placeholder="手机号" required pattern="1[0-9]{10}" style="padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:13.5px">
+        <select name="ajob" style="grid-column:1/-1;padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:13.5px">
+          ${jobs.length ? jobs.map(j => `<option>${esc(j.title)}</option>`).join('') : '<option>通用岗位</option>'}
+        </select>
+        <textarea name="amsg" placeholder="自我介绍（选填）" rows="2" style="grid-column:1/-1;padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:13.5px"></textarea>
+        <button type="submit" class="btn btn-green" style="grid-column:1/-1">提交简历（仅演示）</button>
+      </form>
+      <div id="applyMsg" style="margin-top:8px"></div>
+    </div>
   </section>
 
   <section class="panel">
@@ -1140,12 +1162,36 @@ function pageCoupons() {
   </div>`;
 }
 
+/* ---------- 页面：消息通知 ---------- */
+function pageNotifications() {
+  const notifs = [
+    { icon: '🎉', title: '欢迎来到双休购', text: '首次访问送 50 积分，下单可抵扣', time: '刚刚', unread: true },
+    { icon: '📦', title: '订单发货提醒', text: '你的订单已发出，物流正在更新中', time: '2小时前', unread: true },
+    { icon: '🎫', title: '优惠券到账', text: '你领取的「满199减30」已放入账户', time: '昨天', unread: true },
+    { icon: '💼', title: '新岗位上线', text: '双休企业新增了 12 个在招岗位', time: '3天前', unread: false },
+  ];
+  return `
+  <h2 class="sec-title">消息通知</h2>
+  <div class="notif-list">
+    ${notifs.map(n => `
+      <div class="notif-item ${n.unread ? 'unread' : ''}">
+        <div class="notif-icon">${n.icon}</div>
+        <div class="notif-body">
+          <b>${esc(n.title)}</b>
+          <p>${esc(n.text)}</p>
+          <span class="notif-time">${esc(n.time)}</span>
+        </div>
+        ${n.unread ? '<span class="notif-dot"></span>' : ''}
+      </div>`).join('')}
+  </div>`;
+}
+
 const routes = {
   '': pageHome, 'companies': pageCompanies, 'company': pageCompanyDetail,
   'product': pageProductDetail, 'products': pageProducts, 'cart': pageCart,
   'checkout': pageCheckout, 'orders': pageOrders, 'order': pageOrderDetail,
   'aftersale': pageAftersale, 'rank': pageRank, 'blacklist': pageBlacklist,
-  'badcase': pageBadDetail, 'favorites': pageFavorites, 'join': pageJoin, 'about': pageAbout, 'compare': pageCompare, 'coupons': pageCoupons
+  'badcase': pageBadDetail, 'favorites': pageFavorites, 'join': pageJoin, 'about': pageAbout, 'compare': pageCompare, 'coupons': pageCoupons, 'notifications': pageNotifications
 };
 
 function parseHash() {
@@ -1332,6 +1378,20 @@ function bindPageEvents(page, params) {
   const csBtn = $('#csFloat');
   if (csBtn) csBtn.addEventListener('click', () => {
     toast('正在为您接入人工客服…');
+  });
+
+  // 简历投递
+  const applyForm = $('#applyForm');
+  if (applyForm) applyForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const fd = new FormData(applyForm);
+    const name = (fd.get('aname') || '').trim();
+    const phone = (fd.get('aphone') || '').trim();
+    if (!name || !/^1\d{10}$/.test(phone)) { toast('请填写姓名和正确手机号'); return; }
+    const msg = $('#applyMsg');
+    if (msg) { msg.innerHTML = '<div class="note-box" style="margin-top:8px">✅ 简历已提交！HR 会在 3 个工作日内联系你。</div>'; }
+    applyForm.reset();
+    toast('投递成功！');
   });
 
   /* 购物车结算 */
