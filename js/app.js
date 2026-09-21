@@ -259,6 +259,21 @@ function pageHome() {
     <div class="hero-img"><img src="${HERO_IMG}" alt="周末公园治愈插画" onerror="this.parentElement.style.display='none'"></div>
   </section>
 
+  <section class="carousel anim" id="homeCarousel">
+    <div class="carousel-track">
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#2E7D5B,#4CAF50)">
+        <div class="carousel-text"><h3>🌿 双休企业商品专区</h3><p>每一件商品都来自双休/上四休三企业</p><a class="btn btn-light" href="#/products">立即逛逛</a></div>
+      </div>
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#E8792B,#F39C12)">
+        <div class="carousel-text"><h3>💼 找双休工作</h3><p>投递简历到双休企业，拒绝996</p><a class="btn btn-light" href="#/companies">查看企业</a></div>
+      </div>
+      <div class="carousel-slide" style="background:linear-gradient(135deg,#3B5998,#4A6FA5)">
+        <div class="carousel-text"><h3>📋 劳动权益参考</h3><p>已生效法律文书的劳动争议记录</p><a class="btn btn-light" href="#/blacklist">了解详情</a></div>
+      </div>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </section>
+
   <section class="stats anim">
     <div class="stat-card"><b><span class="count-up" data-count="${all.length}">0</span><span class="u">家</span></b><span>收录双休企业</span></div>
     <div class="stat-card"><b><span class="count-up" data-count="${rest3}">0</span><span class="u">家</span></b><span>每周休 ≥ 2.5 天</span></div>
@@ -1637,6 +1652,34 @@ function boot() {
       render();
     }, 260);
   });
+
+  // 轮播自动播放
+  let carouselIdx = 0;
+  setInterval(() => {
+    const track = document.querySelector('.carousel-track');
+    const dots = document.querySelectorAll('.carousel-dots span');
+    if (!track || !dots.length) return;
+    carouselIdx = (carouselIdx + 1) % dots.length;
+    track.style.transform = `translateX(-${carouselIdx * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === carouselIdx));
+  }, 4000);
+  // 轮播点击点
+  document.addEventListener('click', e => {
+    const dot = e.target.closest('.carousel-dots span');
+    if (!dot) return;
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
+    carouselIdx = parseInt(dot.dataset.idx || '0');
+    track.style.transform = `translateX(-${carouselIdx * 100}%)`;
+    document.querySelectorAll('.carousel-dots span').forEach((d, i) => d.classList.toggle('active', i === carouselIdx));
+  });
+  // 初始化轮播点
+  setTimeout(() => {
+    const dots = document.querySelectorAll('.carousel-dots span');
+    dots.forEach((d, i) => d.dataset.idx = i);
+    if (dots.length) dots[0].classList.add('active');
+  }, 100);
+
 
   window.addEventListener('hashchange', render);
   render();

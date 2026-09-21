@@ -604,3 +604,59 @@ img { display: block; max-width: 100%; }
 /* 评价星级选择 */
 .rf-stars span { font-size: 28px; color: #DDD; cursor: pointer; transition: color 0.15s; display: inline-block; }
 .rf-stars span:hover { transform: scale(1.15); }
+/* ============ 轮播 Banner ============ */
+.carousel { margin:16px 0 8px; border-radius:16px; overflow:hidden; position:relative; }
+.carousel-track { display:flex; transition:transform 0.5s ease; }
+.carousel-slide { min-width:100%; height:180px; display:flex; align-items:center; justify-content:center; }
+.carousel-text { text-align:center; color:#fff; padding:20px; }
+.carousel-text h3 { font-size:22px; margin-bottom:8px; }
+.carousel-text p { font-size:14px; opacity:0.9; margin-bottom:14px; }
+.carousel-text .btn-light { background:rgba(255,255,255,0.25); color:#fff; border:1px solid rgba(255,255,255,0.4); backdrop-filter:blur(4px); }
+.carousel-dots { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:6px; }
+.carousel-dots span { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.5); cursor:pointer; transition:all 0.3s; }
+.carousel-dots span.active { background:#fff; width:20px; border-radius:4px; }
+
+/* ============ 深色模式 ============ */
+body.dark {
+  --bg: #1a1f1e;
+  --bg-soft: #242b2a;
+  --card: #2a3231;
+  --text: #e8eceb;
+  --text-2: #9aa8a6;
+  --border: #3a4443;
+  --soft: rgba(255,255,255,0.06);
+}
+body.dark .nav-pc { background:var(--card); border-color:var(--border); }
+body.dark .nav-pc a, body.dark .nav-pc .logo { color:var(--text); }
+body.dark .chip { background:var(--soft); color:var(--text); }
+body.dark .chip.active { background:var(--green); color:#fff; }
+body.dark .product-card, body.dark .panel { background:var(--card); border-color:var(--border); }
+body.dark .hero { background:var(--card); }
+body.dark .search-bar { background:var(--soft); }
+body.dark input, body.dark select, body.dark textarea { background:var(--soft); color:var(--text); border-color:var(--border); }
+body.dark .stat-card { background:var(--card); }
+body.dark .co-card, body.dark .pd-card { background:var(--card); }
+body.dark .price { color:var(--orange); }
+body.dark .tabbar { background:var(--card); }
+body.dark .tabbar a { color:var(--text-2); }
+body.dark .tabbar a.active { color:var(--green); }
+
+/* ============ 搜索建议 ============ */
+.search-wrap { position:relative; }
+.search-suggest { position:absolute; top:100%; left:0; right:0; background:var(--card); border:1px solid var(--border); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.12); z-index:100; max-height:320px; overflow-y:auto; display:none; }
+.search-suggest.show { display:block; }
+.search-suggest-item { padding:10px 16px; cursor:pointer; font-size:14px; display:flex; justify-content:space-between; align-items:center; }
+.search-suggest-item:hover, .search-suggest-item.active { background:var(--soft); }
+.search-suggest-item .cat-tag { font-size:12px; color:var(--text-2); }
+
+/* ============ 物流时间线 ============ */
+.logistics-timeline { padding:16px 0; }
+.logistics-node { display:flex; gap:14px; padding-bottom:20px; position:relative; }
+.logistics-node::before { content:''; position:absolute; left:7px; top:18px; bottom:0; width:2px; background:var(--border); }
+.logistics-node:last-child::before { display:none; }
+.logistics-dot { width:16px; height:16px; border-radius:50%; background:var(--border); flex-shrink:0; margin-top:2px; z-index:1; }
+.logistics-node.current .logistics-dot { background:var(--green); box-shadow:0 0 0 4px rgba(46,125,91,0.2); }
+.logistics-node.done .logistics-dot { background:var(--green); }
+.logistics-content h4 { font-size:14px; margin-bottom:4px; }
+.logistics-content p { font-size:13px; color:var(--text-2); }
+.logistics-content .time { font-size:12px; color:var(--text-2); margin-top:2px; }
