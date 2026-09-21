@@ -1681,6 +1681,29 @@ function boot() {
   }, 100);
 
 
+  // 回到顶部
+  const backTop = $('#backTop');
+  if (backTop) {
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('show', window.scrollY > 400);
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // 图片灯箱
+  const lightbox = $('#lightbox');
+  const lightboxImg = $('#lightboxImg');
+  const lightboxClose = $('#lightboxClose');
+  document.addEventListener('click', e => {
+    const img = e.target.closest('.gallery-main img, .gthumb, .pd-detail-media img');
+    if (img && lightbox) {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('show');
+    }
+  });
+  if (lightboxClose) lightboxClose.addEventListener('click', () => lightbox.classList.remove('show'));
+  if (lightbox) lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('show'); });
+
   window.addEventListener('hashchange', render);
   render();
   updateFavUI(); syncCartUI();
