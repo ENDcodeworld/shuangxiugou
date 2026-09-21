@@ -814,13 +814,17 @@ function pageAftersale(id) {
 }
 
 /* ---------- 页面：产品库 ---------- */
+const PHYSICAL_CATS = ['数码电子','家用电器','服饰运动','个护美妆','食品生鲜','母婴亲子','家居家装','汽车出行','图书文娱','游戏娱乐'];
 function pageProducts(params) {
   const cat = params.get('cat') || '全部';
   const sub = params.get('sub') || '全部';
   const q = (params.get('q') || '').trim().toLowerCase();
   const sort = params.get('sort') || 'default';
+  const ptype = params.get('type') || '全部';
   let list = getAllProducts();
 
+  if (ptype === '实物') list = list.filter(p => PHYSICAL_CATS.includes(p.cat));
+  else if (ptype === '服务') list = list.filter(p => !PHYSICAL_CATS.includes(p.cat));
   if (cat !== '全部') list = list.filter(p => p.cat === cat);
   if (sub !== '全部') list = list.filter(p => p.sub === sub);
   if (q) { const qs = q.toLowerCase().split(/\s+/).filter(Boolean); list = list.filter(p => { const s = (p.name + ' ' + p.desc + ' ' + p.cname + ' ' + p.cat + ' ' + (p.sub || '')).toLowerCase(); return qs.every(k => s.includes(k)); }); }
@@ -836,6 +840,11 @@ function pageProducts(params) {
   <div class="hot-search">
     <span class="hs-label">🔥 热搜：</span>
     ${HOT_SEARCH.map(h => `<a href="#/products?q=${encodeURIComponent(h)}">${h}</a>`).join('')}
+  </div>
+  <div class="filter-row" style="margin-bottom:8px">
+    <button class="chip ${ptype === '全部' ? 'active' : ''}" data-typetag="全部">全部</button>
+    <button class="chip ${ptype === '实物' ? 'active' : ''}" data-typetag="实物">📦 实物商品</button>
+    <button class="chip ${ptype === '服务' ? 'active' : ''}" data-typetag="服务">💼 服务商品</button>
   </div>
   <div class="filter-row">
     ${usedCats.map(c2 => `<button class="chip ${cat === c2 ? 'active' : ''}" data-catchip="${c2}">${c2}</button>`).join('')}
@@ -1296,6 +1305,8 @@ function bindPageEvents(page, params) {
       if (catChip) { const cur = parseHash().params; cur.set('cat', catChip.dataset.catchip); cur.delete('sub'); goto('products', cur); return; }
       const subChip = e.target.closest('[data-subchip]');
       if (subChip) { const cur = parseHash().params; cur.set('sub', subChip.dataset.subchip); goto('products', cur); return; }
+      const typeChip = e.target.closest('[data-typetag]');
+      if (typeChip) { const cur = parseHash().params; cur.set('type', typeChip.dataset.typetag); cur.delete('cat'); cur.delete('sub'); goto('products', cur); return; }
       const sevChip = e.target.closest('[data-sevchip]');
       if (sevChip) { const cur = parseHash().params; cur.set('sev', sevChip.dataset.sevchip); goto('blacklist', cur); return; }
       const orderTab = e.target.closest('[data-ordertab]');
