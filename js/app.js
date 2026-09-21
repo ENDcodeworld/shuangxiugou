@@ -433,7 +433,7 @@ function pageCompanyDetail(id) {
     ${jobs.length ? `<div class="job-list">${jobs.map(j => `
       <div class="job-item">
         <div class="job-top"><b>${esc(j.title)}</b><span class="job-salary">${esc(j.salary)}</span></div>
-        <div class="job-meta">📍${esc(j.loc)} · ${j.tags.map(t => `<span class="job-tag">${esc(t)}</span>`).join('')}</div>
+        <div class="job-meta">📍${esc(j.loc)} · 🎓${esc(j.edu || '学历不限')} · ${j.tags.map(t => `<span class="job-tag">${esc(t)}</span>`).join('')}</div>
       </div>`).join('')}</div>` : ''}
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
       <a class="btn btn-green" href="${esc(careersUrl)}" target="_blank" rel="noopener noreferrer">${careersIsOfficial ? '官方招聘网站 →' : 'BOSS直聘搜索该企业 →'}</a>
@@ -1498,6 +1498,32 @@ function bindPageEvents(page, params) {
       } else { doCopy(); }
     });
   }
+
+  // 劳动权益投票
+  $$('[data-vote-dim]').forEach(box => {
+    let rating = 0;
+    box.querySelectorAll('span').forEach((s, i) => {
+      s.addEventListener('click', () => {
+        rating = i + 1;
+        box.querySelectorAll('span').forEach((x, j) => x.style.color = j < rating ? '#E8792B' : '#DDD');
+        box.dataset.rating = rating;
+      });
+    });
+  });
+  const voteBtn = $('#btnSubmitVote');
+  if (voteBtn) voteBtn.addEventListener('click', () => {
+    const cid = parseHash().arg;
+    const box = document.getElementById('voteBox');
+    const dims = {};
+    $$('[data-vote-dim]').forEach(b => { dims[b.dataset.voteDim] = parseInt(b.dataset.rating || '0'); });
+    if (!dims.rest || !dims.ot || !dims.pay || !dims.env) { toast('请给每个维度打分'); return; }
+    const key = 'sxg_vote_' + cid;
+    let votes = { rest: 0, ot: 0, pay: 0, env: 0, n: 0 };
+    try { const saved = JSON.parse(localStorage.getItem(key) || 'null'); if (saved) votes = saved; } catch(e) {}
+    votes.rest += dims.rest; votes.ot += dims.ot; votes.pay += dims.pay; votes.env += dims.env; votes.n++;
+    localStorage.setItem(key, JSON.stringify(votes));
+    toast('评分提交成功！'); render();
+  });
 
   // 清空对比
   const btnClearCmp = $('#btnClearCompare');

@@ -154,74 +154,74 @@ const BLACKLIST_EXTRA = [];
 /* 岗位为示例性质，真实职位以官方招聘页实时为准 */
 const JOBS = {
   'leshi': [
-    { title: '高级 Android 工程师', salary: '25-45K·14薪', loc: '北京', tags: ['双休', '不打卡', '无996'] },
-    { title: '内容运营经理', salary: '18-30K', loc: '北京', tags: ['四天半', '弹性'] }
+    { title: '高级 Android 工程师', salary: '25-45K·14薪', loc: '北京', edu: '本科及以上·985/211优先', tags: ['双休', '不打卡', '无996'] },
+    { title: '内容运营经理', salary: '18-30K', loc: '北京', edu: '本科及以上', tags: ['四天半', '弹性'] }
   ],
   'microsoft': [
-    { title: 'Software Engineer 2', salary: '35-60K·16薪', loc: '北京/苏州', tags: ['955', '15天年假', 'WFH'] },
-    { title: '产品经理 (PMM)', salary: '30-50K', loc: '上海', tags: ['WLB', '补充医疗'] }
+    { title: 'Software Engineer 2', salary: '35-60K·16薪', loc: '北京/苏州', edu: '硕士及以上·CS相关专业', tags: ['955', '15天年假', 'WFH'] },
+    { title: '产品经理 (PMM)', salary: '30-50K', loc: '上海', edu: '本科及以上·985/211优先', tags: ['WLB', '补充医疗'] }
   ],
   'siemens': [
-    { title: '电气设计工程师', salary: '18-30K·13薪', loc: '上海', tags: ['双休天花板', '2天WFH', '顶格公积金'] },
-    { title: '供应链专员', salary: '12-20K', loc: '西安', tags: ['圣诞假', '班车'] }
+    { title: '电气设计工程师', salary: '18-30K·13薪', loc: '上海', edu: '本科及以上·德语优先', tags: ['双休天花板', '2天WFH', '顶格公积金'] },
+    { title: '供应链专员', salary: '12-20K', loc: '西安', edu: '本科及以上', tags: ['圣诞假', '班车'] }
   ],
   'dji': [
-    { title: '嵌入式固件工程师', salary: '25-45K·14薪', loc: '深圳', tags: ['双休', '21点强制下班', 'GT币'] },
-    { title: '影像算法工程师', salary: '35-60K', loc: '深圳', tags: ['双休', '不加班'] }
+    { title: '嵌入式固件工程师', salary: '25-45K·14薪', loc: '深圳', edu: '硕士及以上·电子/自动化相关', tags: ['双休', '21点强制下班', 'GT币'] },
+    { title: '影像算法工程师', salary: '35-60K', loc: '深圳', edu: '硕士及以上·985/211·CV方向', tags: ['双休', '不加班'] }
   ],
   'midea': [
-    { title: '结构工程师', salary: '15-25K', loc: '佛山', tags: ['18:20下班', '六条禁令'] },
-    { title: '电商运营', salary: '12-22K', loc: '佛山', tags: ['双休', '少开会'] }
+    { title: '结构工程师', salary: '15-25K', loc: '佛山', edu: '本科及以上·机械相关', tags: ['18:20下班', '六条禁令'] },
+    { title: '电商运营', salary: '12-22K', loc: '佛山', edu: '本科及以上', tags: ['双休', '少开会'] }
   ],
   'bytedance': [
-    { title: '后端开发工程师', salary: '30-60K·15薪', loc: '北京', tags: ['双休', '取消大小周', '三餐'] },
-    { title: '产品经理', salary: '25-50K', loc: '北京/上海', tags: ['双休', '加班需审批'] }
+    { title: '后端开发工程师', salary: '30-60K·15薪', loc: '北京', edu: '本科及以上·985/211优先', tags: ['双休', '取消大小周', '三餐'] },
+    { title: '产品经理', salary: '25-50K', loc: '北京/上海', edu: '本科及以上', tags: ['双休', '加班需审批'] }
   ],
   'tencent': [
-    { title: '后台开发工程师', salary: '28-55K·16薪', loc: '深圳', tags: ['双休', '安居计划', '弹性'] },
-    { title: '游戏策划', salary: '25-45K', loc: '深圳', tags: ['双休', '健康日'] }
+    { title: '后台开发工程师', salary: '28-55K·16薪', loc: '深圳', edu: '本科及以上·985/211', tags: ['双休', '安居计划', '弹性'] },
+    { title: '游戏策划', salary: '25-45K', loc: '深圳', edu: '本科及以上', tags: ['双休', '健康日'] }
   ],
   'xiaomi': [
-    { title: '手机系统工程师', salary: '22-40K', loc: '北京', tags: ['双休', '内购福利', '补休'] },
-    { title: '市场经理', salary: '18-30K', loc: '北京', tags: ['双休', '早9晚6'] }
+    { title: '手机系统工程师', salary: '22-40K', loc: '北京', edu: '本科及以上·计算机相关', tags: ['双休', '内购福利', '补休'] },
+    { title: '市场经理', salary: '18-30K', loc: '北京', edu: '本科及以上', tags: ['双休', '早9晚6'] }
   ],
   'ctrip': [
-    { title: '前端开发工程师', salary: '20-40K·14薪', loc: '上海', tags: ['3+2混合办公', '生育补贴'] },
-    { title: '酒店产品经理', salary: '18-32K', loc: '上海', tags: ['双休', '免审批WFH'] }
+    { title: '前端开发工程师', salary: '20-40K·14薪', loc: '上海', edu: '本科及以上', tags: ['3+2混合办公', '生育补贴'] },
+    { title: '酒店产品经理', salary: '18-32K', loc: '上海', edu: '本科及以上', tags: ['双休', '免审批WFH'] }
   ],
   'dewu': [
-    { title: '鉴别师（球鞋）', salary: '10-18K', loc: '上海', tags: ['双休', '弹性通勤假'] },
-    { title: '电商风控工程师', salary: '20-35K', loc: '上海', tags: ['双休', '每月5次弹性假'] }
+    { title: '鉴别师（球鞋）', salary: '10-18K', loc: '上海', edu: '大专及以上', tags: ['双休', '弹性通勤假'] },
+    { title: '电商风控工程师', salary: '20-35K', loc: '上海', edu: '本科及以上·985/211', tags: ['双休', '每月5次弹性假'] }
   ],
   'mihoyo': [
-    { title: '游戏客户端工程师', salary: '35-70K·16薪', loc: '上海', tags: ['双休', '不卷', '年度旅游'] },
-    { title: '原画师', salary: '25-50K', loc: '上海', tags: ['双休', '不打卡'] }
+    { title: '游戏客户端工程师', salary: '35-70K·16薪', loc: '上海', edu: '本科及以上·985/211', tags: ['双休', '不卷', '年度旅游'] },
+    { title: '原画师', salary: '25-50K', loc: '上海', edu: '本科及以上·美术专业', tags: ['双休', '不打卡'] }
   ],
   'lilith': [
-    { title: '游戏服务器工程师', salary: '30-55K', loc: '上海', tags: ['双休', '不打卡', '补充公积金'] }
+    { title: '游戏服务器工程师', salary: '30-55K', loc: '上海', edu: '本科及以上·985/211', tags: ['双休', '不打卡', '补充公积金'] }
   ],
   'pg': [
-    { title: '管理培训生 (MT)', salary: '25-40K·14薪', loc: '广州', tags: ['朝九晚六', '18天年假'] },
-    { title: '品牌经理', salary: '20-35K', loc: '广州', tags: ['双休', '弹性福利'] }
+    { title: '管理培训生 (MT)', salary: '25-40K·14薪', loc: '广州', edu: '硕士及以上·顶尖院校', tags: ['朝九晚六', '18天年假'] },
+    { title: '品牌经理', salary: '20-35K', loc: '广州', edu: '本科及以上', tags: ['双休', '弹性福利'] }
   ],
   'apple': [
-    { title: 'Acoustic Engineer', salary: '30-60K·16薪', loc: '上海', tags: ['不打卡', 'RSU', '内购'] },
-    { title: '零售专家 (RSS)', salary: '12-20K', loc: '全国', tags: ['排班制', '补充医疗'] }
+    { title: 'Acoustic Engineer', salary: '30-60K·16薪', loc: '上海', edu: '硕士及以上·声学/信号处理', tags: ['不打卡', 'RSU', '内购'] },
+    { title: '零售专家 (RSS)', salary: '12-20K', loc: '全国', edu: '本科及以上', tags: ['排班制', '补充医疗'] }
   ],
   'nvidia': [
-    { title: 'CUDA 架构工程师', salary: '45-80K·16薪', loc: '北京/上海', tags: ['顶薪', '季度假', 'RSU'] }
+    { title: 'CUDA 架构工程师', salary: '45-80K·16薪', loc: '北京/上海', edu: '硕士/博士·985/211·GPU方向', tags: ['顶薪', '季度假', 'RSU'] }
   ],
   'nestle': [
-    { title: '食品研发工程师', salary: '15-25K·13薪', loc: '北京', tags: ['双休', '外企福利'] }
+    { title: '食品研发工程师', salary: '15-25K·13薪', loc: '北京', edu: '硕士及以上·食品科学', tags: ['双休', '外企福利'] }
   ],
   'loreal': [
-    { title: '彩妆产品经理', salary: '18-32K', loc: '上海', tags: ['双休', '弹性', '内购'] }
+    { title: '彩妆产品经理', salary: '18-32K', loc: '上海', edu: '本科及以上', tags: ['双休', '弹性', '内购'] }
   ],
   'ikea': [
-    { title: '全屋设计师', salary: '10-18K', loc: '上海', tags: ['办公室双休', '员工餐', '门店排班'] }
+    { title: '全屋设计师', salary: '10-18K', loc: '上海', edu: '大专及以上·设计专业', tags: ['办公室双休', '员工餐', '门店排班'] }
   ],
   'decathlon': [
-    { title: '运动产品经理', salary: '12-22K', loc: '上海', tags: ['双休', '运动津贴', '员工折扣'] }
+    { title: '运动产品经理', salary: '12-22K', loc: '上海', edu: '本科及以上', tags: ['双休', '运动津贴', '员工折扣'] }
   ],
   'microsoft_careers': []
 };
