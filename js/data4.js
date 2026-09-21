@@ -131,49 +131,20 @@ const EXTRA_COMPANIES_V2 = [
 const BLACKLIST_EXTRA2 = [];
 
 /* ---------- 商品评论语料 ---------- */
-const REVIEW_POOL = {
-  names: ['打工人小李','周日休真好','不打卡员工','咖啡续命','周五不加班','双休真香','WLB信徒','通勤两小时','朝九晚六','摸鱼达人','准点下班','弹性办公','带薪摸鱼','周五下班快乐','周末露营家'],
-  good: [
-    '包装很用心，快递也快，用完再来回购。',
-    '和描述一致，质量不错，这个价位很值。',
-    '已经第二次买了，一如既往的好。',
-    '朋友推荐来的，确实好用，给个好评。',
-    '性价比很高，支持双休企业，用着也放心。',
-    '收到货很惊喜，比预期的好，五星好评。',
-    '客服态度好，问题很快解决了，点赞。',
-    '物流很快，包装严实，商品没问题。',
-    '用了一周才来评价，确实不错，推荐。',
-    '作为老客户了，品质一直在线。'
-  ],
-  mid: [
-    '整体还行，就是物流稍微慢了点。',
-    '和预期差不多，没什么惊喜也没大问题。',
-    '价格合适，但质感一般，这个价位正常。',
-    '包装可以再改进下，东西本身没问题。',
-    '用着还行，性价比中等吧。'
-  ],
-  avatars: ['#2E7D5B','#E8792B','#3E7CB1','#8E44AD','#16A085','#D35400','#2C3E50','#C0392B']
-};
+/* 评论仅来自用户发表，存于 localStorage */
 
-/* 确定性生成商品评论（同一商品每次结果一致） */
-function getReviews(pid, count = 6) {
-  const h = hashStr(pid);
-  const reviews = [];
-  const n = 3 + (h % 4); // 3-6 条
-  for (let i = 0; i < n; i++) {
-    const hi = hashStr(pid + i);
-    const name = REVIEW_POOL.names[hi % REVIEW_POOL.names.length];
-    const isGood = (hi % 10) < 8;
-    const text = isGood
-      ? REVIEW_POOL.good[(hi >> 3) % REVIEW_POOL.good.length]
-      : REVIEW_POOL.mid[(hi >> 3) % REVIEW_POOL.mid.length];
-    const rating = isGood ? 5 - (hi % 2) : 3; // 5/4 或 3
-    const daysAgo = 1 + (hi % 180);
-    const helpful = (hi >> 2) % 300;
-    const color = REVIEW_POOL.avatars[(hi >> 1) % REVIEW_POOL.avatars.length];
-    reviews.push({ name, text, rating, daysAgo, helpful, color, initial: name[0] });
-  }
-  return reviews;
+/* 获取商品评论（仅返回用户发表的真实评论，存于 localStorage） */
+function getReviews(pid) {
+  try {
+    const all = JSON.parse(localStorage.getItem('sxg_ureviews') || '[]');
+    return all.filter(r => r.pid === pid);
+  } catch (e) { return []; }
+}
+function getUserReviewCount(pid) {
+  try {
+    const all = JSON.parse(localStorage.getItem('sxg_ureviews') || '[]');
+    return all.filter(r => r.pid === pid).length;
+  } catch (e) { return 0; }
 }
 
 /* ---------- 优惠券（按主分类） ---------- */

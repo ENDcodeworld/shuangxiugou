@@ -184,7 +184,7 @@ function pdCardHTML(p, showCo = true) {
     <div class="pd-body">
       <div class="pd-name">${esc(p.name)}</div>
       <div class="pd-desc">${esc(p.desc)}</div>
-      <div class="pd-rate">${starsHTML(p.rating)}<span class="tiny">${p.reviews}条评价 · 已售${p.sales}</span></div>
+      <div class="pd-rate">${starsHTML(p.rating)}<span class="tiny">演示销量 ${p.sales}</span></div>
       <div class="pd-foot">
         <div class="pd-price"><b>${fmtMoney(p.price)}</b><s>${fmtMoney(p.origPrice)}</s></div>
         <button class="cart-add-btn" data-addcart="${p.pid}" aria-label="收藏">
@@ -497,7 +497,7 @@ function pageProductDetail(pid) {
       </a>
       <h1 class="pd-detail-title">${esc(p.name)}</h1>
       <p class="pd-detail-desc">${esc(p.desc)}</p>
-      <div class="pd-rate big">${starsHTML(p.rating)}<span class="tiny">${p.reviews}条评价 · 月销${p.sales}</span></div>
+      <div class="pd-rate big">${starsHTML(p.rating)}<span class="tiny">${reviews.length}条评价 · 演示销量${p.sales}</span></div>
       <div class="pd-detail-price">
         <div><span class="cur">¥</span><b class="num">${p.price}</b><s>${fmtMoney(p.origPrice)}</s></div>
         <span class="promo">✅ 双休企业直营 · 支持七天无理由退换</span>
@@ -545,19 +545,24 @@ function pageProductDetail(pid) {
   </section>
 
   <section class="panel">
-    <h3><span class="q">💬</span>买家评价（${p.reviews}）</h3>
-    <div class="review-list">
-      ${reviews.map(r => `
+    <h3><span class="q">💬</span>买家评价（${reviews.length}）</h3>
+    <div class="review-form-wrap" style="margin-bottom:16px;padding:14px;background:#F5F9F6;border-radius:12px">
+      <b style="font-size:14px">✍️ 写下你的评价</b>
+      <div class="rf-stars" id="rfStarsP" style="margin:8px 0">
+        <span data-r="1">★</span><span data-r="2">★</span><span data-r="3">★</span><span data-r="4">★</span><span data-r="5">★</span>
+      </div>
+      <textarea id="rfTextP" rows="2" placeholder="分享你对这个商品的看法…" style="width:100%;padding:10px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;box-sizing:border-box"></textarea>
+      <button class="btn btn-orange" id="btnSubmitReviewP" style="margin-top:8px">发表评价</button>
+    </div>
+    ${reviews.length ? `<div class="review-list">${reviews.map(r => `
         <div class="review-item">
           <div class="review-head">
-            <span class="review-av" style="background:${r.color}">${r.initial}</span>
-            <div class="review-user"><b>${esc(r.name)}</b><span class="stars" style="font-size:11px">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span></div>
-            <span class="review-date">${r.daysAgo}天前</span>
+            <span class="review-av" style="background:${r.color || '#2E7D5B'}">${r.initial || '我'}</span>
+            <div class="review-user"><b>${esc(r.name || '匿名用户')}</b><span class="stars" style="font-size:11px">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span></div>
+            <span class="review-date">${r.daysAgo === 0 ? '刚刚' : r.daysAgo + '天前'}</span>
           </div>
           <p class="review-text">${esc(r.text)}</p>
-          <div class="review-foot"><span>👍 有用 ${r.helpful}</span></div>
-        </div>`).join('')}
-    </div>
+        </div>`).join('')}</div>` : '<div class="empty" style="padding:24px;text-align:center;color:#999">还没有评价，来写第一条吧</div>'}
   </section>
 
   ${related.length ? `<section class="panel"><h3><span class="q">🔗</span>同款店铺商品</h3><div class="pd-grid">${related.map(x => pdCardHTML(x, false)).join('')}</div></section>` : ''}
